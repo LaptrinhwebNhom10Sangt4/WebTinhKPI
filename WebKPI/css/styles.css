@@ -1,0 +1,255 @@
+/* thuoc tinh dung chung*/
+.bg{
+	background-color: #5184E3;
+	color: #ffffff;
+}
+.bg-1 {
+	background-color: #CCCCCC;
+	color: #ffffff;
+}
+/*trang chu*/
+.container1{
+	border-radius: 15px;
+	width:450px;
+	height:550px;
+	border: 3px solid #3B60A6;
+	margin: 50px 450px ;
+}
+.container4{
+	width:850px;
+	height:600px
+}
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+.dropdown-menu{z-index:999}
+.container2{
+	width:400px;
+	height:400px;
+margin-top: 100px;
+}
+#body{
+	width:100%;
+	height:100%;
+	
+}
+.login{	
+	padding:50px 65px;
+}
+.tab{
+	margin-left:29px;
+}
+.tab1{
+
+	margin-left:47px;
+}
+.tab2{
+
+	margin-left:52px;
+}
+.btn1{
+	margin-left:100px;
+	margin-top:30px;
+
+}
+.btn2{
+	margin-left:5px;
+}
+.btn3{
+	margin-left:175px;
+	margin-top:spx;
+}
+/*giang vien*/
+.image{
+	border-width:1px;
+	border: 2px solid;
+}
+.ttcb{
+
+
+	border-width:1px;
+	border: 2px solid ;
+	height:210px;
+	width:100%;
+	
+}
+.ttct{
+	height:460px;
+	width:570px;
+	border-width:1px;
+	border: 2px solid;
+	text-decoration: underline;
+}
+.ccdm{
+	border-style:double;
+	height:505px;
+	border-color:#000099;
+}
+.danhmuc{
+	margin-top:3px;
+	margin-bottom:3px;
+}
+.kcdanhmuc{
+	margin-top:2px;
+	margin-bottom:2px;
+}
+.drmenu{
+ 	height:55px;
+}
+.dieuchinh{
+	float:right;
+	margin-top:5px;
+}
+#menu ul li a{
+    color:#fff;
+}
+.navbar-collapse{
+	padding-left:0
+}
+#menu ul li a:hover{
+	color:#003399;background:#9C9C9C;
+}
+#menu{
+	background:#003399;
+}
+#footer{
+	background:#46b8da;
+	margin-left:0px;
+	margin-right:0px;
+	height:150px;
+	margin-top:10px
+}
+.title-product{
+	background:#b80abd;
+ 	color:#ffd800;
+	padding: 10px 10px;
+	margin-top:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+#slider-bottom{
+	margin-top:15px;
+}
+.container-fluid{
+	padding-left:0px;
+	padding-right:0px
+}
+.navbar-default .navbar-nav>.active>a{
+	background-color: #9C9C9C;
+}
+.navbar-brand>span{
+	color:#fff;
+	padding-left:15px
+}
+
+/*ban giam hieu*/
+/*truong bo mon*/
+/*truong khoa*/
+/*quan tri vien*/
+/*phong to chuc*/
+/* tong hop*/
+#menu ul li a{
+    color:#fff;
+}
+.navbar-collapse{
+	padding-left:0
+}
+#menu ul li a:hover{
+	color:#003399;
+	background:#9C9C9C;
+}
+#menu{
+	background:#003399;
+}
+#footer{
+	background:#46b8da;
+	margin-left:0px;
+	margin-right:0px;
+	height:150px;
+	margin-top:10px
+}
+.title-product{
+	background:#b80abd;
+	 color:#ffd800;
+	padding: 10px 10px;
+	margin-top:10px;
+	padding-left:15px;
+padding-right:15px;
+}
+#slider-bottom{
+	margin-top:15px;
+}
+.container-fluid{
+	padding-left:0px;
+	padding-right:0px
+}
+.navbar-default .navbar-nav>.active>a{
+	background-color: #9C9C9C;
+}
+.navbar-brand>span{
+	color:#fff;
+	padding-left:15px
+}
+
+p { 
+    border-bottom: 2px solid #CC33FF;
+}
+.product{
+	padding-bottom:10px
+}
+.pagination{
+	float:right
+}
+h2{
+	padding-left:15px;
+}
+.ab{margin-top:-40px;}
+/*table*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #2A9C77;
+    color: white;
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+.modal-header,.close {
+    background-color: #227F61;
+    color: #fff !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+.modal-header, .modal-body {
+    padding: 20px 20px;
+}
+.modal-content{
+	text-algin:center;
+	width:300px;
+	height:300px;
+	position: absolute;
+   	top: 50%;
+   	left: 50%;
+   	 margin-top: 150px;
+   	 margin-left: -130px;
+
+}

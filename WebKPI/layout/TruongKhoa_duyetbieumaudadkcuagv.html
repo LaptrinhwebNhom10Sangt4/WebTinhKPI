@@ -1,7 +1,7 @@
 <!document html>
 <html>
 <head>
-	<title>Truong Bo Mon</title>
+	<title>Truong khoa</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,28 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 	<link href="../css/styles.css" rel="stylesheet" />
-	<link href="js/script.css" rel="stylesheet" />
-	<style>
-		.nav-tabs li a {
-			color: #777;
-		}
-	</style>
-	<script type="text/javascript">
-		// Created by Extreme Design Studio
-		// www.extremestudio.ro
-		function open_window(url, width, height) {
-			var my_window;
-
-			//screen.width = Desktop Width
-			//screen.height = Desktop Height
-
-			var center_left = (screen.width / 2) - (width / 2);
-			var center_top = (screen.height / 2) - (height / 2);
-
-			my_window = window.open(url, "Title", "scrollbars=0, width="+width+", height="+height+", left="+center_left+", top="+center_top);
-			my_window.focus();
-		}
-	</script>
+	
 </head>	
 <body>
 	
@@ -309,7 +288,7 @@
 		</div>
 	</div>
 </div>
-<div class="row">
+<div class=" row ">
 	<div class="col-md-12 drmenu" >
 		<nav id="menu" class="navbar navbar-default">
 			<div class="container-fluid">
@@ -324,7 +303,7 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="../layout/TrangChu.html" >Trang Chủ</a></li>
+						<li class="active"><a href="../layout/TrangChu.html">Trang Chủ</a></li>
 						<li><a href="#">Hướng Dẫn</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -340,31 +319,33 @@
 		</nav>
 	</div>
 </div>
-<div class="row">
+<div class="row ">
 	<div class="col-md-3">
 		<div class="col-md-12 ">
 			<div class="row ">	
 				<div class="btn-group-vertical">
-					<button type="button" class="btn btn-default" style="width:100%"  onclick="window.location.href='../layout/TruongBoMon.html'">
+					<button type="button" class="btn btn-default" style="width:100%"  onclick="window.location.href='../layout/TruongKhoa.html'">
 						<div class="danhmuc" style="float:left">Thông tin cá nhân</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='../layout/TBD_Dangkybieumau.html'">
+					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='../layout/TruongKhoa_Dangkybieumau.html'">
 						<div class="danhmuc" style="float:left">Đăng Kí biểu mẫu</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TBD_Quanlybieumaudadk.html'">
+					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Quanlybieumaudadk.html'">
 						<div class="danhmuc" style="float:left">Quản lý biểu mẫu đã đăng kí</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TBD_Bieumaugiangvien.html'"">
+					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Bieumaugiangvien.html'"">
 						<div class="danhmuc" style="float:left">Biểu mẫu giảng viên</div>
 					</button>
-				</button>
-				<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TBD_Phancongcongviec.html'"">
-					<div class="danhmuc" style="float:left">Phân công công việc</div>
-				</button>		
+					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Phancongcongviec.html'"">
+						<div class="danhmuc" style="float:left">Phân công công việc</div>
+					</button>	
+					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Quanlybieumaukhoa.html'"">
+						<div class="danhmuc" style="float:left">Quản lý biểu mẫu khoa</div>
+					</button>	
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 <div class="col-md-9">
 	<div class="container4">
 		<div class="row">
@@ -374,370 +355,165 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#home">Phân công</a></li>
-				<li><a data-toggle="tab" href="#menu1">Danh sách công việc</a></li>
-			</ul>
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">Duyệt biểu mẫu đã đăng ký của GV</a></li>
+			<li><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã đánh giá của GV</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+				<div class="container4" style="padding-top: 50px;padding-left: 10px;height: ">
+					<table>
+					<tr><th>Tên biểu mẫu</th>
+						<th>Kế hoạch</th>
+						<th>Chỉ tiêu</th>
+						<th>Duyệt</th>
+					</tr>
+					<tr>
+						<td>BM23</td>
+						<td>Hướng dẫn đồ án</td>
+						<td >40</td>
+						<td> <input type="checkbox"> </td>
+					</tr>
+					<tr>
+						<td>BM44</td>
+						<td>Nghiên cứu xyz</td>
+						<td >30</td>
+						<td> <input type="checkbox"> </td>
+					</tr>
+					<tr>
+						<td>BM55</td>
+						<td>Phổ biến abc</td>
+						<td >30</td>
+						<td> <input type="checkbox"> </td>
+					</tr>
+					
+				</table>
+				</div>
+			</div>
+			<div id="menu1" class="tab-pane fade">
+				<div class="container4" style="padding-top: 50px;padding-left: 10px">
+					<table>
+						<tr><th>Mã số cán bộ</th>
+							<th>Tên giáo viên</th>
+							<th>Các biểu mẫu đã đăng ký</th>
+							<th>Duyệt</th>
+						</tr>
+						<tr>
+							<td>123</td>
+							<td>Nguyễn Văn A</td>
+							<td >
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox"> </td>
+						</tr>
+						<tr>
+							<td>222</td>
+							<td>Nguyễn Văn D</td>
+							<td>
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox" checked> </td>
+						</tr>
+						<tr>
+							<td>333</td>
+							<td>Nguyễn Thị D</td>
+							<td>
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox" checked> </td>
+						</tr>
+						<tr>
+							<td>345</td>
+							<td>Nguyễn Trung D</td>
+							<td>
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox"> </td>
+						</tr>
+						<tr>
+							<td>123</td>
+							<td>Trần Văn A</td>
+							<td>
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox" checked> </td>
+						</tr>
+						<tr>
+							<td>666</td>
+							<td>Trần Thị B</td>
+							<td>
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox" checked> </td>
+						</tr>
+						<tr>
+							<td>222</td>
+							<td>Vũ Văn H</td>
+							<td>
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox"> </td>
+						</tr>
+						<tr>
+							<td>111</td>
+							<td>Trần Văn B</td>
+							<td>
+								<a href="../layout/../layout/TBD_duyetbieumaudadanhgiacuagv.html">xem</a>
+							</td>
+							<td> <input type="checkbox"> </td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
-		<div class="row" style="padding-top:10px">
-			<div class="col-md-12">
-				<div class="tab-content">
-					<div id="home" class="tab-pane fade in active">
-						<table>
-							<tr><th>Mã công việc</th>
-								<th>Tên công việc</th>
-								<th>MSGV</th>
-								<th>Chỉ đạo</th>
-								<th>Thời hạn</th>
-							</tr>
-							<tr>
-								<td>
-									<select class="dropdown semi-square" id="cboRole" style="color: 000000; height: 30px">
-										<option value="">CV1</option>
-										<option value="1">CV2</option>
-										<option value="2">CV3</option>
-										<option value="3">CV4</option>
-										<option value="4">CV5</option>
-									</select>
+		<div class="row">
+			<div class="col-md-12 col-md-offset-8">
+				<button class="btn btn-primary">Duyệt biểu mẫu</button>
+				<button class="btn btn-primary" onclick="window.location.href='../layout/TruongKhoa_Bieumaugiangvien.html'">Quay về</button>
+			</div>
+		</div>
+	</div>
 
-								</td>
-								<td>Hướng dẫn đồ án</td>
-								<td> <input type="text"> </td>
-								<td>Nguyễn Văn A</td>
-								<td>12/3/2015-22/9/2016</td>
-							</tr>
-							<tr>
-								<td>
-									<select class="dropdown semi-square" id="cboRole" style="color: 000000; height: 30px">
-										<option value="1">CV2</option>
-										<option value="2">CV3</option>
-										<option value="3">CV4</option>
-										<option value="4">CV5</option>
-									</select>
+</div>
 
-								</td>
-								<td>Phân công abcd</td>
-								<td> <input type="text"> </td>
-								<td>Nguyễn Thị C</td>
-								<td>1/4/2016-2/11/2017</td>
-							</tr>
-							<tr>
-								<td>
-									<select class="dropdown semi-square" id="cboRole" style="color: 000000; height: 30px">
-										<option>Chọn</option>
-										<option value="1">CV2</option>
-										<option value="2">CV3</option>
-										<option value="3">CV4</option>
-										<option value="4">CV5</option>
-									</select>
 
-								</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
 
-						</table>
+	<hr></hr>
+	<div class="footer">
+		<div class="row">
+			<h6>©2016 Đại học Sư Phạm Kỹ Thuật thành phố Hồ Chí Minh</h6>
+			<div class="row">
+				<h2 class="text-center"><u>Contact</u></h2>
+				<div class="col-md-5">
+					<div class="col-md-12">
+						<h6>Liên hệ với chúng tôi tại</h6>
 					</div>
-					<div id="menu1" class="tab-pane fade">
-						<table>
-							<tr><th>Mã công việc</th>
-								<th>Tên công việc</th>
-								<th>Chỉ đạo và hướng dẫn</th>
-								<th>Thời hạn</th>
-								<th>Công việc chi tiết</th>
-							</tr>
-							<tr>
-								<td>
-									KPI123
-								</td>
-								<td>
-									Phổ biến sd KPI cho GV
-								</td>
-								<td>
-									Nguyễn Văn A
-								</td>
-								<td>
-									10/9/2016-21/12/2016
-								</td>
-								<td>
-									<a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-										Xem
-									</a>	
-									<div class="collapse" id="collapseExample1">
-										<div class="well">
-											<table>
-												<tr>
-													<td>Xây dựng web kpi</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-
-							</tr>
-							<tr>
-								<td>
-									KPI123
-								</td>
-								<td>
-									Giảng dạy abc
-								</td>
-								<td>
-									Nguyễn Văn b
-								</td>
-								<td>
-									11/10/2016-1/2/2017
-								</td>
-								<td>
-									<a role="button" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-										Xem
-									</a>	
-									<div class="collapse" id="collapseExample2">
-										<div class="well">
-											<table>
-												<tr>
-													<td>Xây dựng web kpi</td>
-												</tr>
-												<tr>
-													<td>Phổ biến cho toàn bộ GV</td>
-												</tr>
-												<tr>
-													<td>Hướng dẫn GV</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-
-							</tr>
-							<tr>
-								<td>
-									CV33
-								</td>
-								<td>
-									Hướng dẫn xzy
-								</td>
-								<td>
-									Lê Văn B
-								</td>
-								<td>
-									12/11/2016-1/12/2016
-								</td>
-								<td>
-									<a role="button" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
-										Xem
-									</a>	
-									<div class="collapse" id="collapseExample3">
-										<div class="well">
-											<table>
-												<tr>
-													<td>Xây dựng web kpi</td>
-												</tr>
-												<tr>
-													<td>Phổ biến cho toàn bộ GV</td>
-												</tr>
-												<tr>
-													<td>Hướng dẫn GV</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-
-							</tr>
-							<tr>
-								<td>
-									CV234
-								</td>
-								<td>
-									Thực hiện abc
-								</td>
-								<td>
-									Lê Thị D
-								</td>
-								<td>
-									1/5/2016-21/12/2017
-								</td>
-								<td>
-									<a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-										Xem
-									</a>	
-									<div class="collapse" id="collapseExample1">
-										<div class="well">
-											<table>
-												<tr>
-													<td>Xây dựng web kpi</td>
-												</tr>
-												<tr>
-													<td>Phổ biến cho toàn bộ GV</td>
-												</tr>
-												<tr>
-													<td>Hướng dẫn GV</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-
-							</tr>
-							<tr>
-								<td>
-									CV454
-								</td>
-								<td>
-									Cung cấp xyz
-								</td>
-								<td>
-									Trần Thị A
-								</td>
-								<td>
-									20/9/2016-15/12/2016
-								</td>
-								<td>
-									<a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-										Xem
-									</a>	
-									<div class="collapse" id="collapseExample1">
-										<div class="well">
-											<table>
-												<tr>
-													<td>Xây dựng web kpi</td>
-												</tr>
-												<tr>
-													<td>Phổ biến cho toàn bộ GV</td>
-												</tr>
-												<tr>
-													<td>Hướng dẫn GV</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-
-							</tr>
-							<tr>
-								<td>
-									CV144
-								</td>
-								<td>
-									Thực hiện ttt
-								</td>
-								<td>
-									Nguyễn Văn D
-								</td>
-								<td>
-									20/5/2016-11/11/2016
-								</td>
-								<td>
-									<a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-										Xem
-									</a>	
-									<div class="collapse" id="collapseExample1">
-										<div class="well">
-											<table>
-												<tr>
-													<td>Xây dựng web kpi</td>
-												</tr>
-												<tr>
-													<td>Phổ biến cho toàn bộ GV</td>
-												</tr>
-												<tr>
-													<td>Hướng dẫn GV</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-
-							</tr>
-							<tr>
-								<td>
-									CV234
-								</td>
-								<td>
-									Phân công xxy
-								</td>
-								<td>
-									Lê Thị A
-								</td>
-								<td>
-									1/2/2016-11/12/2016
-								</td>
-								<td>
-									<a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-										Xem
-									</a>	
-									<div class="collapse" id="collapseExample1">
-										<div class="well">
-											<table>
-												<tr>
-													<td>Xây dựng web kpi</td>
-												</tr>
-												<tr>
-													<td>Phổ biến cho toàn bộ GV</td>
-												</tr>
-												<tr>
-													<td>Hướng dẫn GV</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-
-							</tr>
-
-						</table>
-						<div class="row" style="padding-top:10px">
-							<div class="col-md-12 col-md-offset-8">
-								<div class="btn-group" >
-									<button type="button" class="btn btn-primary" onClick="javascript:open_window('TBD_TaoCV.html',600,600);" >Tạo công việc</button>
-									<button type="button" class="btn btn-primary">Xóa công việc</button>
-								</div>
-							</div>
+					<div class="row">
+						<div class="col-md-4">
+							<span class="glyphicon glyphicon-map-marker"></span>
+							<h6>số 1 Võ Văn Ngân, Q.Thủ Đức, Tp.HCM</h6>
+						</div>
+						<div class="col-md-4">
+							<span class="glyphicon glyphicon-phone"></span>
+							<h6>+841677618893</h6>
+						</div>
+						<div class="col-md-4">
+							<span class="glyphicon glyphicon-envelope"></span>
+							<h6>myemail@hcmute.edu.vn</h6>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="col-md-2 col-md-offset-4" >
+					<img src="../img/social.png" style="width: 250px;height: 50px"/>
+				</div>
+			</div>			
 		</div>
 	</div>
 </div>
-<hr></hr>
-<div class="footer">
-	<div class="row">
-		<h6>©2016 Đại học Sư Phạm Kỹ Thuật thành phố Hồ Chí Minh</h6>
-		<div class="row">
-			<h2 class="text-center"><u>Contact</u></h2>
-			<div class="col-md-5">
-				<div class="col-md-12">
-					<h6>Liên hệ với chúng tôi tại</h6>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<span class="glyphicon glyphicon-map-marker"></span>
-						<h6>số 1 Võ Văn Ngân, Q.Thủ Đức, Tp.HCM</h6>
-					</div>
-					<div class="col-md-4">
-						<span class="glyphicon glyphicon-phone"></span>
-						<h6>+841677618893</h6>
-					</div>
-					<div class="col-md-4">
-						<span class="glyphicon glyphicon-envelope"></span>
-						<h6>myemail@hcmute.edu.vn</h6>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2 col-md-offset-4" >
-				<img src="../img/social.png" style="width: 250px;height: 50px"/>
-			</div>
-		</div>			
-	</div>
 </div>
-</div>
-</div> <!-- /container -->
 
+<!-- /container -->
 
 </body>
 </html>

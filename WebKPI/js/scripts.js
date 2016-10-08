@@ -23,3 +23,16 @@ $(function(){
 		});
 	});
 });
+
+$(function open_window(url, width, height) {
+    var my_window;
+
+    //screen.width = Desktop Width
+    //screen.height = Desktop Height
+
+    var center_left = (screen.width / 2) - (width / 2);
+    var center_top = (screen.height / 2) - (height / 2);
+
+    my_window = window.open(url, "Title", "scrollbars=0, width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top);
+    my_window.focus();
+})

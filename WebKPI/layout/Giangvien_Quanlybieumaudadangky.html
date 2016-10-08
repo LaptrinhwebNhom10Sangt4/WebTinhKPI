@@ -323,24 +323,27 @@
 	<div class="col-md-3">
 		<div class="col-md-12 ">
 			<div class="row ">	
+				<div class="row ">	
 				<div class="btn-group-vertical">
-					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='../layout/GiangVien.html'">
+					<button type="button" class="btn btn-default " style="width:100%"  onclick="window.location.href='../layout/GiangVien.html'">
 						<div class="danhmuc" style="float:left">Thông tin cá nhân</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='../layout/DangkyBieumau.html'">
+					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='../layout/Giangvien_DangkyBieumau.html'">
 						<div class="danhmuc" style="float:left">Đăng Kí biểu mẫu</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/Quann ly bieu mau da dang ky.html'">
+					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/Giangvien_Quanlybieumaudadangky.html'">
 						<div class="danhmuc" style="float:left">Quản lý biểu mẫu đã đăng kí</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/Congviecduocphancong.html'"">
+										<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/Giangvien_Congviecduocphancong.html'"">
 						<div class="danhmuc" style="float:left">Cập nhật tiến trình được phân công</div>
 					</button>		
 				</div>
 			</div>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-9">
+	<div class="container4">
 		<div class="row">
 			<div class="dropdown">
 				<div class="col-md-2">
@@ -363,7 +366,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12 text-center"> <h1>DANH SÁCH BIỂU MẪU</h1> </div>
+			<div class="col-md-12 text-center"> <h1>BIỂU MẪU ĐÃ ĐĂNG KÝ</h1> </div>
 			<div class="col-md-12">
 				<table>
 					<tr><th>Tên biểu mẫu</th>
@@ -371,7 +374,8 @@
 						<th>Chi tiết kế hoạch</th>
 						<th>Tỷ trọng</th>
 						<th>Chỉ đạo</th>
-						<th>chọn</th>
+						<th>Tình trạng</th>
+						<th>Chọn</th>
 					</tr>
 					<tr>
 						<td>BM123</td>
@@ -386,6 +390,7 @@
 						</div></td>
 						<td>80</td>
 						<td>Nguyễn Văn A</td>
+						<td><a href="../layout/TinhtrangbieumaudaDK.html">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -401,6 +406,7 @@
 						</div></td>
 						<td>10</td>
 						<td>Nguyễn Văn A</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -416,6 +422,7 @@
 						</div></td>
 						<td>20</td>
 						<td>Lê Thị B</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -431,6 +438,7 @@
 						</div></td>
 						<td>40</td>
 						<td>Trần Thị A</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -446,6 +454,7 @@
 						</div></td>
 						<td>50</td>
 						<td>Nguyễn Thị C</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -461,6 +470,7 @@
 						</div></td>
 						<td>80</td>
 						<td>Vũ Văn H</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -476,6 +486,7 @@
 						</div></td>
 						<td>20</td>
 						<td>Lê Văn B</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -491,6 +502,7 @@
 						</div></td>
 						<td>60</td>
 						<td>Võ Văn B</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -506,6 +518,7 @@
 						</div></td>
 						<td>70</td>
 						<td>Trần văn C</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 					<tr>
@@ -521,6 +534,7 @@
 						</div></td>
 						<td>40</td>
 						<td>Lê Thị T</td>
+						<td><a href="#">link</a></td>
 						<td> <input type="checkbox"> </td>
 					</tr>
 				</table>
@@ -528,60 +542,44 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12 col-md-offset-10">
-				<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Đăng ký</button>
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog">
-					<div class="modal-dialog">
-
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h3>Thông báo</h3>
-							</div>
-							<div class="modal-body">
-								<h4 class="text-center">Đã đăng ký thành công <span class="glyphicon glyphicon-check"></span> <h4>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr></hr>
-		<div class="footer">
-			<div class="row">
-				<h6>©2016 Đại học Sư Phạm Kỹ Thuật thành phố Hồ Chí Minh</h6>
-				<div class="row">
-					<h2 class="text-center"><u>Contact</u></h2>
-					<div class="col-md-5">
-						<div class="col-md-12">
-							<h6>Liên hệ với chúng tôi tại</h6>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<span class="glyphicon glyphicon-map-marker"></span>
-								<h6>số 1 Võ Văn Ngân, Q.Thủ Đức, Tp.HCM</h6>
-							</div>
-							<div class="col-md-4">
-								<span class="glyphicon glyphicon-phone"></span>
-								<h6>+841677618893</h6>
-							</div>
-							<div class="col-md-4">
-								<span class="glyphicon glyphicon-envelope"></span>
-								<h6>myemail@hcmute.edu.vn</h6>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2 col-md-offset-4" >
-						<img src="../img/social.png" style="width: 250px;height: 50px"/>
-					</div>
-				</div>			
+			<div class="col-md-12 col-md-offset-10" style="margin-top: 10px">
+				<button class="btn btn-primary">Xóa biểu mẫu</button>
 			</div>
 		</div>
 	</div>
+	</div>
+	<hr></hr>
+	<div class="footer">
+		<div class="row">
+			<h6>©2016 Đại học Sư Phạm Kỹ Thuật thành phố Hồ Chí Minh</h6>
+			<div class="row">
+				<h2 class="text-center"><u>Contact</u></h2>
+				<div class="col-md-5">
+					<div class="col-md-12">
+						<h6>Liên hệ với chúng tôi tại</h6>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<span class="glyphicon glyphicon-map-marker"></span>
+							<h6>số 1 Võ Văn Ngân, Q.Thủ Đức, Tp.HCM</h6>
+						</div>
+						<div class="col-md-4">
+							<span class="glyphicon glyphicon-phone"></span>
+							<h6>+841677618893</h6>
+						</div>
+						<div class="col-md-4">
+							<span class="glyphicon glyphicon-envelope"></span>
+							<h6>myemail@hcmute.edu.vn</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 col-md-offset-4" >
+					<img src="../img/social.png" style="width: 250px;height: 50px"/>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
 </div> <!-- /container -->
 
 

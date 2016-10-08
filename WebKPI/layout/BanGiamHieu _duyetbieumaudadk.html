@@ -1,7 +1,7 @@
 <!document html>
 <html>
 <head>
-	<title>Truong khoa</title>
+	<title>Ban giam hieu</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -324,28 +324,22 @@
 		<div class="col-md-12 ">
 			<div class="row ">	
 				<div class="btn-group-vertical">
-					<button type="button" class="btn btn-default" style="width:100%"  onclick="window.location.href='../layout/TruongKhoa.html'">
+					<button type="button" class="btn btn-default" style="width:100%"  onclick="window.location.href='../layout/BanGiamHieu.html'">
 						<div class="danhmuc" style="float:left">Thông tin cá nhân</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='../layout/TruongKhoa_Dangkybieumau.html'">
-						<div class="danhmuc" style="float:left">Đăng Kí biểu mẫu</div>
+					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='../layout/BanGiamHieu_Xembieumaucb.html'">
+						<div class="danhmuc" style="float:left">Xem biểu mẫu cán bộ</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Quanlybieumaudadk.html'">
-						<div class="danhmuc" style="float:left">Quản lý biểu mẫu đã đăng kí</div>
+					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/BanGiamHieu_Bieumautruongkhoa.html'">
+						<div class="danhmuc" style="float:left">Quản lý biểu mẫu trưởng khoa</div>
 					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Bieumaugiangvien.html'"">
-						<div class="danhmuc" style="float:left">Biểu mẫu giảng viên</div>
-					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Phancongcongviec.html'"">
+					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/BanGiamHieu_Phancongcongviec.html'"">
 						<div class="danhmuc" style="float:left">Phân công công việc</div>
-					</button>	
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='../layout/TruongKhoa_Quanlybieumaukhoa.html'"">
-						<div class="danhmuc" style="float:left">Quản lý biểu mẫu khoa</div>
-					</button>	
-				</div>
+					</button>		
 			</div>
 		</div>
 	</div>
+</div>
 <div class="col-md-9">
 	<div class="container4">
 		<div class="row">
@@ -356,12 +350,42 @@
 			</div>
 		</div>
 		<ul class="nav nav-tabs">
-			<li ><a data-toggle="tab" href="#home">Duyệt biểu mẫu đã đăng ký của GV</a></li>
-			<li class="active"><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã đánh giá của GV</a></li>
+			<li class="active"><a data-toggle="tab" href="#home">Duyệt biểu mẫu đã đăng ký của trưởng khoa</a></li>
+			<li><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã đánh giá của trưởng khoa</a></li>
 		</ul>
 
 		<div class="tab-content">
-			<div id="home" class="tab-pane fade">
+			<div id="home" class="tab-pane fade in active">
+				<div class="container4" style="padding-top: 50px;padding-left: 10px;height: ">
+					<table>
+					<tr><th>Tên biểu mẫu</th>
+						<th>Kế hoạch</th>
+						<th>Chỉ tiêu</th>
+						<th>Duyệt</th>
+					</tr>
+					<tr>
+						<td>BM23</td>
+						<td>Hướng dẫn đồ án</td>
+						<td >40</td>
+						<td> <input type="checkbox"> </td>
+					</tr>
+					<tr>
+						<td>BM44</td>
+						<td>Nghiên cứu xyz</td>
+						<td >30</td>
+						<td> <input type="checkbox"> </td>
+					</tr>
+					<tr>
+						<td>BM55</td>
+						<td>Phổ biến abc</td>
+						<td >30</td>
+						<td> <input type="checkbox"> </td>
+					</tr>
+					
+				</table>
+				</div>
+			</div>
+			<div id="menu1" class="tab-pane fade">
 				<div class="container4" style="padding-top: 50px;padding-left: 10px">
 					<table>
 						<tr><th>Mã số cán bộ</th>
@@ -373,7 +397,7 @@
 							<td>123</td>
 							<td>Nguyễn Văn A</td>
 							<td >
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox"> </td>
 						</tr>
@@ -381,7 +405,7 @@
 							<td>222</td>
 							<td>Nguyễn Văn D</td>
 							<td>
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox" checked> </td>
 						</tr>
@@ -389,7 +413,7 @@
 							<td>333</td>
 							<td>Nguyễn Thị D</td>
 							<td>
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox" checked> </td>
 						</tr>
@@ -397,7 +421,7 @@
 							<td>345</td>
 							<td>Nguyễn Trung D</td>
 							<td>
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox"> </td>
 						</tr>
@@ -405,7 +429,7 @@
 							<td>123</td>
 							<td>Trần Văn A</td>
 							<td>
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox" checked> </td>
 						</tr>
@@ -413,7 +437,7 @@
 							<td>666</td>
 							<td>Trần Thị B</td>
 							<td>
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox" checked> </td>
 						</tr>
@@ -421,7 +445,7 @@
 							<td>222</td>
 							<td>Vũ Văn H</td>
 							<td>
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox"> </td>
 						</tr>
@@ -429,56 +453,10 @@
 							<td>111</td>
 							<td>Trần Văn B</td>
 							<td>
-								<a href="../layout/TruongKhoa_duyetbieumaudadkcuagv.html">xem</a>
+								<a href="../layout/../layout/BanGiamHieu_duyetbieumaudadanhgia.html">xem</a>
 							</td>
 							<td> <input type="checkbox"> </td>
 						</tr>
-					</table>
-				</div>
-			</div>
-			<div id="menu1" class="tab-pane fade in active">
-				<div class="container4" style="padding-top: 50px;padding-left: 10px">
-					<table>
-						<tr><th>Tên biểu mẫu</th>
-							<th>Kế hoạch</th>
-							<th>Mục tiêu</th>
-							<th>Kết quả</th>
-							<th>KPI max</th>
-							<th>KPI GV đánh giá</th>
-							<th>KPI TBM đánh giá</th>
-							<th>Duyệt</th>
-						</tr>
-						<tr>
-							<td>BM123</td>
-							<td>Giảng dạy 120 tiết</td>
-							<td >120 tiết</td>
-							<td>120 tiết</td>
-							<td>40</td>
-							<td>40</td>
-							<td> <input type="text" style="width: 60px"> </input></td>
-							<td> <input type="checkbox" checked> </td>
-						</tr>
-						<tr>
-							<td>BM222</td>
-							<td>Phân công abc</td>
-							<td >40 công việc</td>
-							<td>35 công việc</td>
-							<td>50</td>
-							<td>50</td>
-							<td> <input type="text" style="width: 60px"> </input></td>
-							<td> <input type="checkbox"> </td>
-						</tr>
-						<tr>
-							<td>BM333</td>
-							<td>Bảo vệ đồ án</td>
-							<td >2 đồ án</td>
-							<td>2 đồ án</td>
-							<td>60</td>
-							<td>60</td>
-							<td> <input type="text" style="width: 60px"> </input></td>
-							<td> <input type="checkbox" checked> </td>
-						</tr>
-						
 					</table>
 				</div>
 			</div>
@@ -486,7 +464,7 @@
 		<div class="row">
 			<div class="col-md-12 col-md-offset-8">
 				<button class="btn btn-primary">Duyệt biểu mẫu</button>
-				<button class="btn btn-primary" onclick="window.location.href='../layout/TruongKhoa_Bieumaugiangvien.html'">Quay về</button>
+				<button class="btn btn-primary" onclick="window.location.href='../layout/BanGiamHieu_Bieumautruongkhoa.html'">Quay về</button>
 			</div>
 		</div>
 	</div>
@@ -494,42 +472,39 @@
 </div>
 
 
-
-	<hr></hr>
-	<div class="footer">
+<hr></hr>
+<div class="footer">
+	<div class="row">
+		<h6>©2016 Đại học Sư Phạm Kỹ Thuật thành phố Hồ Chí Minh</h6>
 		<div class="row">
-			<h6>©2016 Đại học Sư Phạm Kỹ Thuật thành phố Hồ Chí Minh</h6>
-			<div class="row">
-				<h2 class="text-center"><u>Contact</u></h2>
-				<div class="col-md-5">
-					<div class="col-md-12">
-						<h6>Liên hệ với chúng tôi tại</h6>
+			<h2 class="text-center"><u>Contact</u></h2>
+			<div class="col-md-5">
+				<div class="col-md-12">
+					<h6>Liên hệ với chúng tôi tại</h6>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<span class="glyphicon glyphicon-map-marker"></span>
+						<h6>số 1 Võ Văn Ngân, Q.Thủ Đức, Tp.HCM</h6>
 					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<span class="glyphicon glyphicon-map-marker"></span>
-							<h6>số 1 Võ Văn Ngân, Q.Thủ Đức, Tp.HCM</h6>
-						</div>
-						<div class="col-md-4">
-							<span class="glyphicon glyphicon-phone"></span>
-							<h6>+841677618893</h6>
-						</div>
-						<div class="col-md-4">
-							<span class="glyphicon glyphicon-envelope"></span>
-							<h6>myemail@hcmute.edu.vn</h6>
-						</div>
+					<div class="col-md-4">
+						<span class="glyphicon glyphicon-phone"></span>
+						<h6>+841677618893</h6>
+					</div>
+					<div class="col-md-4">
+						<span class="glyphicon glyphicon-envelope"></span>
+						<h6>myemail@hcmute.edu.vn</h6>
 					</div>
 				</div>
-				<div class="col-md-2 col-md-offset-4" >
-					<img src="../img/social.png" style="width: 250px;height: 50px"/>
-				</div>
-			</div>			
-		</div>
+			</div>
+			<div class="col-md-2 col-md-offset-4" >
+				<img src="../img/social.png" style="width: 250px;height: 50px"/>
+			</div>
+		</div>			
 	</div>
 </div>
 </div>
-
-<!-- /container -->
+</div> <!-- /container -->
 
 </body>
 </html>

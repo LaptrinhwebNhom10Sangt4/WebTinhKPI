@@ -1,11 +1,6 @@
 	<div class="container">
 		<div id="header" >
 			<div class="row">
-				<div class="col-md-12 bordered" >
-					<img src="img/logo4.jpg" style="width:1140px;height:200px" />
-				</div>
-			</div>
-			<div class="row">
 				<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 				<script type="text/javascript" src="js/jssor.js"></script>
 				<script type="text/javascript" src="js/jssor.slider.js"></script>
@@ -167,16 +162,16 @@
 	<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1140px; height: 400px;
 	overflow: hidden;">
 	<div>
-		<a u=image href="#"><img src="img/landscape/slideshow2.jpg" /></a>
+		<a u=image href="#"><img src="img/landscape/1.jpg" /></a>
 	</div>
 	<div>
-		<a u=image href="#"><img src="img/landscape/slideshow1.jpg" /></a>
+		<a u=image href="#"><img src="img/landscape/slideshow2.jpg" /></a>
 	</div>
 	<div>
 		<a u=image href="#"><img src="img/landscape/slideshow3.jpg" /></a>
 	</div>
 	<div>
-		<a u=image href="#"><img src="img/landscape/slideshow4.jpg" /></a>
+		<a u=image href="#"><img src="img/landscape/slideshow1.jpg" /></a>
 	</div>
 </div>
 <!--#region Bullet Navigator Skin Begin -->

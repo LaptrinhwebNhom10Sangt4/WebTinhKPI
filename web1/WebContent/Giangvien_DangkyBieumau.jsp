@@ -2,7 +2,7 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<!document html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Giang Vien</title>
@@ -22,6 +22,7 @@
 
 </head>
 <body>
+
 	<div class="container">
 		<%@include file="header.jsp"%>
 		<div class="row">
@@ -67,27 +68,32 @@
 			<div class="col-md-3">
 				<div class="col-md-12 ">
 					<div class="row ">
-						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='GiangVien.jsp'">
-								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
-							</button>
-							<button type="button" class="btn btn-default active"
-								style="width: 100%"
-								onclick="window.location.href='Giangvien_DangkyBieumau.jsp'">
-								<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='Giangvien_Quanlybieumaudadangky.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									đã đăng kí</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'"">
-								<div class="danhmuc" style="float: left">Cập nhật tiến
-									trình được phân công</div>
-							</button>
-						</div>
+						<form action="FormLoad" method="post">
+							<div class="btn-group-vertical">
+								<button type="submit" class="btn btn-default" name="getform"
+									style="width: 100%" value="GiangVien.jsp">
+									<div class="danhmuc" style="float: left">Thông tin cá
+										nhân</div>
+								</button>
+								<button type="submit" name="getform"
+									class="btn btn-default active" style="width: 100%"
+									value="Giangvien_DangkyBieumau.jsp">
+									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='Giangvien_Quanlybieumaudadangky.jsp'">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+										đã đăng kí</div>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'"">
+									<div class="danhmuc" style="float: left">Cập nhật tiến
+										trình được phân công</div>
+								</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -115,40 +121,61 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<h1>DANH SÁCH BIỂU MẪU</h1>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">DANH SÁCH BIỂU MẪU</h3>
 					</div>
-					<div class="col-md-12">
-						<table>
-							<thead>
-								<tr>
-									<th>Mã biểu mẫu</th>
-									<th>Kế hoạch</th>
-									<th>Chi tiết kế hoạch</th>
-									<th>Tỷ trọng</th>
-									<th>Chỉ đạo</th>
-								</tr>
-							</thead>
-							<tbody>
+					<div style="overflow-x:auto;">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Mã biểu mẫu</th>
+								<th>Kế hoạch</th>
+								<th>Chi tiết kế hoạch</th>
+								<th>Tỷ trọng</th>
+								<th>Chỉ đạo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+								int colCount = (int) request.getAttribute("colCount");
+								ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+								int count = 0;
+								int rowCol = form.size() / colCount;
+								for (int i = 1; i <= rowCol; i++) {
+							%>
+							<tr>
 								<%
-									int colCount = (int) request.getAttribute("colCount");
-									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-									int count=0;
-									int  rowCol = form.size()/colCount;
-									for(int i = 1 ;i<=rowCol;i++)
-									{%>
-										<tr>
-									<% 	for(int j = 1;j<=colCount;j++)
-										{%>
-											<td><%=form.get(count++) %></td>						
-									<% 	} %>
-										</tr>
-								<%  }%>
+									for (int j = 1; j <= colCount; j++) {
+											if (j == 3) {
+												String c, d = new String();
+												c = Integer.toString(count);
+												d = "#";
+												d = d.concat(c);
+								%>
+								<td><a role="button" data-toggle="collapse" href=<%=d%>
+									aria-expanded="false" aria-controls="collapseExample"> Chi
+										tiết </a>
+									<div class="collapse" id=<%=c%>>
+										<div class="well"><%=form.get(count++)%></div>
+									</div></td>
+								<%
+									} else {
+								%>
+								<td><%=form.get(count++)%></td>
+								<%
+									}
+								%>
+								<%
+									}
+								%>
+							</tr>
+							<%
+								}
+							%>
 
-							</tbody>
-						</table>
-
+						</tbody>
+					</table>
 					</div>
 				</div>
 				<div class="row">
@@ -168,7 +195,7 @@
 									<div class="modal-body">
 										<h4 class="text-center">
 											Đã đăng ký thành công <span class="glyphicon glyphicon-check"></span>
-											<h4>
+										</h4>
 									</div>
 
 								</div>
@@ -182,7 +209,5 @@
 	<hr></hr>
 	<%@include file="footer.jsp"%>
 	<!-- /container -->
-
-
 </body>
 </html>

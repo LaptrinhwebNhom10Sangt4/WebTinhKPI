@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.table.DefaultTableModel;
+
 
 import DataLoad.*;
 
@@ -23,7 +23,7 @@ public class ValidateLogin extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-        
+   
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         int eRole = ConnectAndCheck.checkUser(email, pass);
@@ -34,7 +34,7 @@ public class ValidateLogin extends HttpServlet {
         	session.setAttribute("email", email);
         	UserInfo ui = new UserInfo();
 			ArrayList<Object> info = (ArrayList<Object>)ui.getUserInfo(email);
-			request.setAttribute("info", info);
+			session.setAttribute("info", info);
 			//request.setAttribute("email", email);
         	switch(eRole){
         	case 1:request.getRequestDispatcher("GiangVien.jsp").forward(request,response);break;

@@ -33,8 +33,6 @@
 </script>
 </head>
 <body>
-<H2>${info.get(1)}</H2>
-<%= request.getParameter("email") %>
 	<div class="container">
 		<%@include file="header.jsp"%>
 		<div class=" row ">

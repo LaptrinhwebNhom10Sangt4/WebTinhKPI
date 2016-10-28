@@ -1,6 +1,8 @@
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<!document html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Giang Vien</title>
@@ -20,7 +22,7 @@
 
 </head>
 <body>
-${email}
+
 	<div class="container">
 		<%@include file="header.jsp"%>
 		<div class="row">
@@ -66,17 +68,16 @@ ${email}
 			<div class="col-md-3">
 				<div class="col-md-12 ">
 					<div class="row ">
-						<div class="row ">
+						<form action="FormLoad" method="post">
 							<div class="btn-group-vertical">
-								<button type="button" class="btn btn-default "
-									style="width: 100%"
-									onclick="window.location.href='GiangVien.jsp'">
+								<button type="submit" class="btn btn-default" name="getform"
+									style="width: 100%" value="GiangVien.jsp">
 									<div class="danhmuc" style="float: left">Thông tin cá
 										nhân</div>
 								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='Giangvien_DangkyBieumau.jsp'">
+								<button type="submit" name="getform"
+									class="btn btn-default" style="width: 100%"
+									value="Giangvien_DangkyBieumau.jsp">
 									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
 								</button>
 								<button type="button" class="btn btn-default active"
@@ -92,41 +93,41 @@ ${email}
 										trình được phân công</div>
 								</button>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
-					<div class="row">
-						<div class="dropdown">
-							<div class="col-md-2">
-								<button class="btn btn-default dropdown-toggle" type="button"
-									data-toggle="dropdown">
-									Lựa chọn <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu dropdown"
-									aria-labelledby="dropdownMenu1">
-									<li><a href="#">Tất cả</a></li>
-									<li><a href="#">Đề tài</a></li>
-									<li><a href="#">Môn học</a></li>
-								</ul>
-							</div>
-
+				<div class="row">
+					<div class="dropdown">
+						<div class="col-md-2">
+							<button class="btn btn-default dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Lựa chọn <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu dropdown"
+								aria-labelledby="dropdownMenu1">
+								<li><a href="#">Tất cả</a></li>
+								<li><a href="#">Đề tài</a></li>
+								<li><a href="#">Môn học</a></li>
+							</ul>
 						</div>
-						<div class="col-md-4 col-md-offset-6">
-							<div class="form-group">
-								<input type="text" class="form-control" name=""
-									placeholder="Tìm kiếm"> </input>
-							</div>
+
+					</div>
+					<div class="col-md-4 col-md-offset-6">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm"> 
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<h1>BIỂU MẪU ĐÃ ĐĂNG KÝ</h1>
-						</div>
-						<div class="col-md-12">
-							<table>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
+					</div>
+					<div  style="overflow-x:auto;">
+					<table>
+						<thead>
 								<tr>
 									<th>Tên biểu mẫu</th>
 									<th>Kế hoạch</th>
@@ -136,6 +137,8 @@ ${email}
 									<th>Tình trạng</th>
 									<th>Chọn</th>
 								</tr>
+							</thead>
+							<tbody>
 								<tr>
 									<td>BM123</td>
 									<td>Giảng dạy 120 tiết</td>
@@ -326,14 +329,14 @@ ${email}
 									<td><a href="#">link</a></td>
 									<td><input type="checkbox"></td>
 								</tr>
+								</tbody>
 							</table>
-
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 col-md-offset-10" style="margin-top: 10px">
-							<button class="btn btn-primary">Xóa biểu mẫu</button>
-						</div>
+							</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-md-offset-9">
+						<button class="btn btn-primary">Duyệt biểu mẫu</button>
+						
 					</div>
 				</div>
 			</div>
@@ -341,5 +344,6 @@ ${email}
 	</div>
 	<hr></hr>
 	<%@include file="footer.jsp"%>
+	<!-- /container -->
 </body>
 </html>

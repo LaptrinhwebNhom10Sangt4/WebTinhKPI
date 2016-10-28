@@ -68,14 +68,14 @@
 				<div class="row ">
 						<form action="FormLoad" method="post">
 							<div class="btn-group-vertical">
-								<button type="button" class="btn btn-default active"
+								<button type="button" class="btn btn-default"
 									style="width: 100%"
 									onclick="window.location.href='TruongKhoa.jsp'">
 									<div class="danhmuc" style="float: left">Thông tin cá
 										nhân</div>
 								</button>
 
-								<button type="submit" name="getform" class="btn btn-default"
+								<button type="submit" name="getform" class="btn btn-default active"
 									value="TruongKhoa_Dangkybieumau.jsp" style="width: 100%">
 									<div class="danhmuc active" style="float: left">Đăng Kí biểu mẫu</div>
 								</button>
@@ -109,89 +109,111 @@
 			</div>
 		</div>
 		<div class="col-md-9">
-			<div class="row">
-				<div class="dropdown">
-					<div class="col-md-2">
-						<button class="btn btn-default dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Lựa chọn <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
-							<li><a href="#">Tất cả</a></li>
-							<li><a href="#">Đề tài</a></li>
-							<li><a href="#">Môn học</a></li>
-						</ul>
+				<div class="row">
+					<div class="dropdown">
+						<div class="col-md-2">
+							<button class="btn btn-default dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Lựa chọn <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu dropdown"
+								aria-labelledby="dropdownMenu1">
+								<li><a href="#">Tất cả</a></li>
+								<li><a href="#">Đề tài</a></li>
+								<li><a href="#">Môn học</a></li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="col-md-4 col-md-offset-6">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm"> </input>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">DANH SÁCH BIỂU MẪU</h3>
 					</div>
 
-				</div>
-				<div class="col-md-4 col-md-offset-6">
-					<div class="form-group">
-						<input type="text" class="form-control" name=""
-							placeholder="Tìm kiếm"> </input>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h1>DANH SÁCH BIỂU MẪU</h1>
-				</div>
-				<div class="col-md-12">
-					<table>
-							<thead>
-								<tr>
-									<th>Mã biểu mẫu</th>
-									<th>Kế hoạch</th>
-									<th>Chi tiết kế hoạch</th>
-									<th>Tỷ trọng</th>
-									<th>Chỉ đạo</th>
-								</tr>
-							</thead>
-							<tbody>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Mã biểu mẫu</th>
+								<th>Kế hoạch</th>
+								<th>Chi tiết kế hoạch</th>
+								<th>Tỷ trọng</th>
+								<th>Chỉ đạo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+								int colCount = (int) request.getAttribute("colCount");
+								ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+								int count = 0;
+								int rowCol = form.size() / colCount;
+								for (int i = 1; i <= rowCol; i++) {
+							%>
+							<tr>
 								<%
-									int colCount = (int) request.getAttribute("colCount");
-									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-									int count=0;
-									int  rowCol = form.size()/colCount;
-									for(int i = 1 ;i<=rowCol;i++)
-									{%>
-										<tr>
-									<% 	for(int j = 1;j<=colCount;j++)
-										{%>
-											<td><%=form.get(count++) %></td>						
-									<% 	} %>
-										</tr>
-								<%  }%>
+									for (int j = 1; j <= colCount; j++) {
+											if (j == 3) {
+												String c, d = new String();
+												c = Integer.toString(count);
+												d = "#";
+												d = d.concat(c);
+								%>
+								<td><a role="button" data-toggle="collapse" href=<%=d%>
+									aria-expanded="false" aria-controls="collapseExample"> Chi
+										tiết </a>
+									<div class="collapse" id=<%=c%>>
+										<div class="well"><%=form.get(count++)%></div>
+									</div></td>
+								<%
+									} else {
+								%>
+								<td><%=form.get(count++)%></td>
+								<%
+									}
+								%>
+								<%
+									}
+								%>
+							</tr>
+							<%
+								}
+							%>
 
-							</tbody>
-						</table>
+						</tbody>
+					</table>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-md-offset-10">
-					<button class="btn btn-primary" data-toggle="modal"
-						data-target="#myModal">Đăng ký</button>
-					<!-- Modal -->
-					<div class="modal fade" id="myModal" role="dialog">
-						<div class="modal-dialog">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-10">
+						<button class="btn btn-primary" data-toggle="modal"
+							data-target="#myModal">Đăng ký</button>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
 
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h3>Thông báo</h3>
-								</div>
-								<div class="modal-body">
-									<h4 class="text-center">
-										Đã đăng ký thành công <span class="glyphicon glyphicon-check"></span>
-										<h4>
-								</div>
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h3>Thông báo</h3>
+									</div>
+									<div class="modal-body">
+										<h4 class="text-center">
+											Đã đăng ký thành công <span class="glyphicon glyphicon-check"></span>
+											<h4>
+									</div>
 
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 	<hr></hr>
 	<%@include file="footer.jsp"%>

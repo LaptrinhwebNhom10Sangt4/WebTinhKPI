@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="java.util.ArrayList"%>
-<!document html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Truong Bo Mon</title>
@@ -67,33 +67,39 @@
 			<div class="col-md-3">
 				<div class="col-md-12 ">
 					<div class="row ">
-						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongBoMon.jsp'">
-								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
-							</button>
-							<button type="button" class="btn btn-default active"
-								style="width: 100%"
-								onclick="window.location.href='TBD_Dangkybieumau.jsp'">
-								<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TBD_Quanlybieumaudadk.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									đã đăng kí</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TBD_Bieumaugiangvien.jsp'"">
-								<div class="danhmuc" style="float: left">Biểu mẫu giảng
-									viên</div>
-							</button>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TBD_Phancongcongviec.jsp'"">
-								<div class="danhmuc" style="float: left">Phân công công
-									việc</div>
-							</button>
-						</div>
+						<form action="FormLoad" method="post">
+							<div class="btn-group-vertical">
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='TruongBoMon.jsp'">
+									<div class="danhmuc" style="float: left">Thông tin cá
+										nhân</div>
+								</button>
+								<button type="submit" name="getform" class="btn btn-default active"
+									value="TBD_Dangkybieumau.jsp" style="width: 100%">
+									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='TBD_Quanlybieumaudadk.jsp'">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+										đã đăng kí</div>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='TBD_Bieumaugiangvien.jsp'"">
+									<div class="danhmuc" style="float: left">Biểu mẫu giảng
+										viên</div>
+								</button>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='TBD_Phancongcongviec.jsp'"">
+									<div class="danhmuc" style="float: left">Phân công công
+										việc</div>
+								</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -121,40 +127,61 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<h1>DANH SÁCH BIỂU MẪU</h1>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">DANH SÁCH BIỂU MẪU</h3>
 					</div>
-					<div class="col-md-12">
-						<table>
-							<thead>
-								<tr>
-									<th>Mã biểu mẫu</th>
-									<th>Kế hoạch</th>
-									<th>Chi tiết kế hoạch</th>
-									<th>Tỷ trọng</th>
-									<th>Chỉ đạo</th>
-								</tr>
-							</thead>
-							<tbody>
-								<%
-									int colCount = (int) request.getAttribute("colCount");
-									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-									int count=0;
-									int  rowCol = form.size()/colCount;
-									for(int i = 1 ;i<=rowCol;i++)
-									{%>
-										<tr>
-									<% 	for(int j = 1;j<=colCount;j++)
-										{%>
-											<td><%=form.get(count++) %></td>						
-									<% 	} %>
-										</tr>
-								<%  }%>
 
-							</tbody>
-						</table>
-					</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Mã biểu mẫu</th>
+								<th>Kế hoạch</th>
+								<th>Chi tiết kế hoạch</th>
+								<th>Tỷ trọng</th>
+								<th>Chỉ đạo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+								int colCount = (int) request.getAttribute("colCount");
+								ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+								int count = 0;
+								int rowCol = form.size() / colCount;
+								for (int i = 1; i <= rowCol; i++) {
+							%>
+							<tr>
+								<%
+									for (int j = 1; j <= colCount; j++) {
+											if (j == 3) {
+												String c, d = new String();
+												c = Integer.toString(count);
+												d = "#";
+												d = d.concat(c);
+								%>
+								<td><a role="button" data-toggle="collapse" href=<%=d%>
+									aria-expanded="false" aria-controls="collapseExample"> Chi
+										tiết </a>
+									<div class="collapse" id=<%=c%>>
+										<div class="well"><%=form.get(count++)%></div>
+									</div></td>
+								<%
+									} else {
+								%>
+								<td><%=form.get(count++)%></td>
+								<%
+									}
+								%>
+								<%
+									}
+								%>
+							</tr>
+							<%
+								}
+							%>
+
+						</tbody>
+					</table>
 				</div>
 				<div class="row">
 					<div class="col-md-12 col-md-offset-10">

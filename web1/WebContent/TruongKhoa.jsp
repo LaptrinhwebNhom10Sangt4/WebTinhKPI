@@ -107,38 +107,51 @@
 				</div>
 			</div>
 			<div class="col-md-9 ">
-				<div class="row">
-					<div class="col-md-4 ">
-					<div class="row ">
-						<div class="col-md-12">
-							<img src="img/avatar.jpg" style="width: 100%; height: 250px;" />
-						</div>
-					</div>
+				<div class="panel panel-default">
 					<div class="row">
-						<div class="col-md-12 ">
-							<div class="panel panel-primary">
-								<div class="panel-heading">Thông tin cơ bản:</div>
-								<table>
-									<tr><td>Họ và tên: ${info.get(1)}</td></tr>
-									<tr><td>Giới tính: ${info.get(2)}</td></tr>
-									<tr><td>MSCB: ${info.get(3)}</td></tr>
-									<tr><td>Khoa: ${info.get(4)}</td></tr>
-									<tr><td>Địa chỉ: ${info.get(5)}</td></tr>
-								</table>
+						<div class="col-md-4 ">
+							<div class="row ">
+								<div class="col-md-12">
+									<img class="img-responsive img-thumbnail" src="img/avatar.jpg"
+										style="width: 100%; height: 250px;" />
+								</div>
 							</div>
-							
+							<div class="row">
+								<div class="col-md-12 ">
+									<div class="panel panel-primary">
+										<div class="panel-heading">Thông tin cơ bản:</div>
+										<table>
+											<tr>
+												<td>Họ và tên: ${info.get(1)}</td>
+											</tr>
+											<tr>
+												<td>Giới tính: ${info.get(2)}</td>
+											</tr>
+											<tr>
+												<td>MSCB: ${info.get(3)}</td>
+											</tr>
+											<tr>
+												<td>Khoa: ${info.get(4)}</td>
+											</tr>
+											<tr>
+												<td>Địa chỉ: ${info.get(5)}</td>
+											</tr>
+										</table>
+									</div>
+
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-					<div class="col-md-8">
-						<div class="row ">
-							<div class="col-md-12 ttct ">Thông tin chi tiết:</div>
-						</div>
-						<div class="row dieuchinh">
-							<div class="col-md-12 cs" style="float: right">
-								<button type="button" class="btn btn-info">Chỉnh sửa</button>
-								<a href="TrangChu.jsp" target="_blank"><input type="button"
-									value="Thoát" class="btn btn-info"></a>
+						<div class="col-md-8">
+							<div class="panel panel-primary" style="height: 500px">
+								<div class="panel-heading">Thông tin chi tiết</div>
+							</div>
+							<div class="row dieuchinh">
+								<div class="col-md-12 cs" style="float: right">
+									<button type="button" class="btn btn-info">Chỉnh sửa</button>
+									<a href="TrangChu.jsp" target="_blank"><input type="button"
+										value="Thoát" class="btn btn-info"></a>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -23,6 +23,20 @@
 }
 </style>
 </head>
+<script>
+		function open_window(url, width, height) {
+			var my_window;
+
+    //screen.width = Desktop Width
+    //screen.height = Desktop Height
+
+    var center_left = (screen.width / 2) - (width / 2);
+    var center_top = (screen.height / 2) - (height / 2);
+
+    my_window = window.open(url, "Title", "scrollbars=0, width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top);
+    my_window.focus();
+}
+</script>
 <body>
 
 	<div class="container">
@@ -366,7 +380,6 @@
 														</table>
 													</div>
 												</div></td>
-
 										</tr>
 									</tbody>
 								</table>
@@ -376,7 +389,7 @@
 							<div class="col-sm-4 col-sm-offset-9">
 								<div class="btn-group" role="group">
 									<button type="button" class="btn btn-primary"
-										onclick="window.location.href='TBD_TaoCV.jsp'">Tạo
+										onClick="javascript:open_window('TBD_TaoCV.jsp',600,600);">Tạo
 										công việc</button>
 									<button type="button" class="btn btn-danger">Hủy</button>
 								</div>

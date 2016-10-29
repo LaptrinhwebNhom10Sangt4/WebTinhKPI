@@ -340,7 +340,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 col-md-offset-9">
-						<button class="btn btn-primary">Duyệt biểu mẫu</button>
+						<button class="btn btn-primary">Xóa biểu mẫu</button>
 
 					</div>
 				</div>

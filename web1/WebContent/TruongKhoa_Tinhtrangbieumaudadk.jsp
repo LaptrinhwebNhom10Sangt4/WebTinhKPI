@@ -75,50 +75,58 @@
 								onclick="window.location.href='TruongKhoa_Dangkybieumau.jsp'">
 								<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
 							</button>
-							<button type="button" class="btn btn-default active" style="width: 100%"
+							<button type="button" class="btn btn-default active"
+								style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									đã đăng kí</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Bieumaugiangvien.jsp'"">
-								<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
+								<div class="danhmuc" style="float: left">Biểu mẫu giảng
+									viên</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Phancongcongviec.jsp'"">
-								<div class="danhmuc" style="float: left">Phân công công việc</div>
+								<div class="danhmuc" style="float: left">Phân công công
+									việc</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Quanlybieumaukhoa.jsp'"">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu khoa</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									khoa</div>
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
-					<div class="row">
-						<div class="col-md-4 col-md-offset-6">
-							<div class="form-group">
-								<input type="text" class="form-control" name=""
-									placeholder="Tìm kiếm"> </input>
-							</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-6">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm"> </input>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<h1>CHI TIẾT BIỂU MẪU</h1>
-						</div>
-						<div class="col-md-12">
-							<table>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">TÌNH TRẠNG BIỂU MẪU</h3>
+					</div>
+					<div style="overflow-x: auto;">
+						<table>
+							<thead>
 								<tr>
 									<th>Chỉ tiêu kế hoạch</th>
 									<th>Tiến trình kế hoạch</th>
 									<th>KPI max</th>
 									<th>KPI tự đánh giá</th>
 									<th>KPI cấp trên</th>
-									<th>Ban giám hiệu</th>
+									<th>Trưởng bộ môn duyệt</th>
+									<th>Trưởng khoa duyệt</th>
 								</tr>
+							</thead>
+							<tbody>
 								<tr>
 									<td>120 tiết</td>
 									<td><input type="text" placeholder="30 tiết"></td>
@@ -126,23 +134,27 @@
 									<td><input type="text" placeholder="30"></td>
 									<td>20</td>
 									<td><input type="checkbox"></td>
+									<td><input type="checkbox"></td>
 								</tr>
-							</table>
-
-						</div>
+							</tbody>
+						</table>
 					</div>
-					<div class="row">
-						<div class="col-md-12 col-md-offset-8" style="margin-top: 330px">
-							<button class="btn btn-primary">Duyệt biểu mẫu</button>
-							<button class="btn btn-primary"
-								onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">Quay
-								về</button>
-						</div>
-					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-9">
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary">Duyệt biểu
+						mẫu</button>
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">Quay
+						về</button>
 				</div>
 
 			</div>
 		</div>
+
 	</div>
 	<hr></hr>
 	<%@include file="footer.jsp"%>

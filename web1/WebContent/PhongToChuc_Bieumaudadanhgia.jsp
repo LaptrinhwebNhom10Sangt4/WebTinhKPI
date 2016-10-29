@@ -87,83 +87,96 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
-					<div class="row">
-						<div class="dropdown">
-							<div class="col-md-2">
-								<button class="btn btn-default dropdown-toggle" type="button"
-									data-toggle="dropdown">
-									Lựa chọn <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu dropdown"
-									aria-labelledby="dropdownMenu1">
-									<li><a href="#">Tất cả</a></li>
-									<li><a href="#">Đề tài</a></li>
-									<li><a href="#">Môn học</a></li>
-								</ul>
-							</div>
-
+				<div class="row">
+					<div class="dropdown">
+						<div class="col-md-2">
+							<button class="btn btn-default dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Lựa chọn <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu dropdown"
+								aria-labelledby="dropdownMenu1">
+								<li><a href="#">Tất cả</a></li>
+								<li><a href="#">Đề tài</a></li>
+								<li><a href="#">Môn học</a></li>
+							</ul>
 						</div>
-						<div class="col-md-4 col-md-offset-6">
-							<div class="form-group">
-								<input type="text" class="form-control" name=""
-									placeholder="Tìm kiếm"> </input>
-							</div>
+
+					</div>
+					<div class="col-md-4 col-md-offset-6">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm">
 						</div>
 					</div>
-					<h2 class="text-center">Biểu mẫu đã đánh giá</h2>
-					<div class="row">
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">BIỂU MẪU ĐÃ ĐÁNH GIÁ</h3>
+					</div>
+					<div style="overflow-x: auto;">
 						<table>
-							<tr>
-								<th>Tên biểu mẫu</th>
-								<th>Kế hoạch</th>
-								<th>Mục tiêu</th>
-								<th>Kết quả</th>
-								<th>KPI max</th>
-								<th>KPI GV đánh giá</th>
-								<th>KPI TBM đánh giá</th>
-								<th>Duyệt</th>
-							</tr>
-							<tr>
-								<td>BM123</td>
-								<td>Giảng dạy 120 tiết</td>
-								<td>120 tiết</td>
-								<td>120 tiết</td>
-								<td>40</td>
-								<td>40</td>
-								<td><input class="form-control text-center" type="text"
-									style="width: 60px" disabled="disabled" placeholder="50">
-									</input></td>
-								<td><input type="checkbox" checked></td>
-							</tr>
-							<tr>
-								<td>BM222</td>
-								<td>Phân công abc</td>
-								<td>40 công việc</td>
-								<td>35 công việc</td>
-								<td>50</td>
-								<td>50</td>
-								<td><input class="form-control text-center" type="text"
-									style="width: 60px" disabled="disabled" placeholder="30">
-									</input></td>
-								<td><input type="checkbox"></td>
-							</tr>
-							<tr>
-								<td>BM333</td>
-								<td>Bảo vệ đồ án</td>
-								<td>2 đồ án</td>
-								<td>2 đồ án</td>
-								<td>60</td>
-								<td>60</td>
-								<td><input class="form-control text-center" type="text"
-									style="width: 60px" disabled="disabled" placeholder="40">
-									</input></td>
-								<td><input type="checkbox" checked></td>
-							</tr>
-
+							<thead>
+								<tr>
+									<th>Tên biểu mẫu</th>
+									<th>Kế hoạch</th>
+									<th>Mục tiêu</th>
+									<th>Kết quả</th>
+									<th>KPI max</th>
+									<th>KPI GV đánh giá</th>
+									<th>KPI TBM đánh giá</th>
+									<th>Duyệt</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>BM123</td>
+									<td>Giảng dạy 120 tiết</td>
+									<td>120 tiết</td>
+									<td>120 tiết</td>
+									<td>40</td>
+									<td>40</td>
+									<td><input class="form-control text-center" type="text"
+										style="width: 60px" disabled="disabled" placeholder="50">
+										</input></td>
+									<td><input type="checkbox" checked></td>
+								</tr>
+								<tr>
+									<td>BM222</td>
+									<td>Phân công abc</td>
+									<td>40 công việc</td>
+									<td>35 công việc</td>
+									<td>50</td>
+									<td>50</td>
+									<td><input class="form-control text-center" type="text"
+										style="width: 60px" disabled="disabled" placeholder="30">
+										</input></td>
+									<td><input type="checkbox"></td>
+								</tr>
+								<tr>
+									<td>BM333</td>
+									<td>Bảo vệ đồ án</td>
+									<td>2 đồ án</td>
+									<td>2 đồ án</td>
+									<td>60</td>
+									<td>60</td>
+									<td><input class="form-control text-center" type="text"
+										style="width: 60px" disabled="disabled" placeholder="40">
+										</input></td>
+									<td><input type="checkbox" checked></td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-sm-2 col-sm-offset-10">
+						<button class="btn btn-primary"
+							onclick="window.location.href='PhongToChuc_Xembieumaucb.jsp'">Quay
+							về</button>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

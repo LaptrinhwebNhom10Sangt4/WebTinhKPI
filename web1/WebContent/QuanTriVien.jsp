@@ -94,18 +94,36 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
-					<div class="row">
-						<div class="col-md-4 col-md-offset-6">
-							<div class="form-group">
-								<input type="text" class="form-control" name=""
-									placeholder="Tìm kiếm"> </input>
-							</div>
+				<div class="row">
+					<div class="dropdown">
+						<div class="col-md-2">
+							<button class="btn btn-default dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Lựa chọn <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu dropdown"
+								aria-labelledby="dropdownMenu1">
+								<li><a href="#">Tất cả</a></li>
+								<li><a href="#">Đề tài</a></li>
+								<li><a href="#">Môn học</a></li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="col-md-4 col-md-offset-6">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm"> 
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<table>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
+					</div>
+					<div  style="overflow-x:auto;">
+					<table>
+							<thead>
 								<tr>
 									<th>MSCB</th>
 									<th>Khoa</th>
@@ -114,6 +132,7 @@
 									<th>Is active</th>
 									<th>Chi tiết</th>
 								</tr>
+								</thead>
 								<tbody>
 									<tr>
 										<td>1111</td>
@@ -181,22 +200,20 @@
 									</tr>
 								</tbody>
 							</table>
-						</div>
-					</div>
-					<div class="row" style="padding-top: 195px; margin-left: 450px">
-						<div class="col-md-12">
+							</div>
+				</div>
+				<div class="row">
+						<div class="col-md-6 col-md-offset-6">
 							<div class="btn-group">
 								<button type="button" class="btn btn-primary"
-									onClick="window.location.href='QuanTriVien_Themnguoidung.jsp'">Thêm
+								onClick="javascript:open_window('QuanTriVien_Themnguoidung.jsp',600,600);">Thêm
 									người dùng</button>
 								<button class="btn btn-danger">Xóa người dùng</button>
 								<button class="btn btn-success">Chỉnh sửa</button>
 							</div>
 						</div>
 					</div>
-				</div>
 			</div>
-		</div>
 	</div>
 	<hr></hr>
 	<%@include file="footer.jsp"%>

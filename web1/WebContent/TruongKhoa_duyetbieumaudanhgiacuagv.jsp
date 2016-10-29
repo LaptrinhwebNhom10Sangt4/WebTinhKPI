@@ -77,28 +77,32 @@
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									đã đăng kí</div>
 							</button>
-							<button type="button" class="btn btn-default active" style="width: 100%"
+							<button type="button" class="btn btn-default active"
+								style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Bieumaugiangvien.jsp'"">
-								<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
+								<div class="danhmuc" style="float: left">Biểu mẫu giảng
+									viên</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Phancongcongviec.jsp'"">
-								<div class="danhmuc" style="float: left">Phân công công việc</div>
+								<div class="danhmuc" style="float: left">Phân công công
+									việc</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Quanlybieumaukhoa.jsp'"">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu khoa</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									khoa</div>
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
 					<div class="row">
-						<div class="col-md-4 col-md-offset-6">
+						<div class="col-md-4 col-md-offset-8">
 							<div class="form-group">
 								<input type="text" class="form-control" name=""
 									placeholder="Tìm kiếm"> </input>
@@ -183,64 +187,69 @@
 							</div>
 						</div>
 						<div id="menu1" class="tab-pane fade in active">
-							<div class="container4"
-								style="padding-top: 50px; padding-left: 10px">
-								<table>
-									<tr>
-										<th>Tên biểu mẫu</th>
-										<th>Kế hoạch</th>
-										<th>Mục tiêu</th>
-										<th>Kết quả</th>
-										<th>KPI max</th>
-										<th>KPI GV đánh giá</th>
-										<th>KPI TBM đánh giá</th>
-										<th>Duyệt</th>
-									</tr>
-									<tr>
-										<td>BM123</td>
-										<td>Giảng dạy 120 tiết</td>
-										<td>120 tiết</td>
-										<td>120 tiết</td>
-										<td>40</td>
-										<td>40</td>
-										<td><input type="text" style="width: 60px"> </input></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>BM222</td>
-										<td>Phân công abc</td>
-										<td>40 công việc</td>
-										<td>35 công việc</td>
-										<td>50</td>
-										<td>50</td>
-										<td><input type="text" style="width: 60px"> </input></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>BM333</td>
-										<td>Bảo vệ đồ án</td>
-										<td>2 đồ án</td>
-										<td>2 đồ án</td>
-										<td>60</td>
-										<td>60</td>
-										<td><input type="text" style="width: 60px"> </input></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-
-								</table>
+							<div class="panel panel-default">
+								<div style="overflow-x: auto;">
+									<table>
+										<thead>
+											<tr>
+												<th>Tên biểu mẫu</th>
+												<th>Kế hoạch</th>
+												<th>Mục tiêu</th>
+												<th>Kết quả</th>
+												<th>KPI max</th>
+												<th>KPI GV đánh giá</th>
+												<th>KPI TBM đánh giá</th>
+												<th>Duyệt</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>BM123</td>
+												<td>Giảng dạy 120 tiết</td>
+												<td>120 tiết</td>
+												<td>120 tiết</td>
+												<td>40</td>
+												<td>40</td>
+												<td><input type="text" style="width: 60px"></td>
+												<td><input type="checkbox" checked></td>
+											</tr>
+											<tr>
+												<td>BM222</td>
+												<td>Phân công abc</td>
+												<td>40 công việc</td>
+												<td>35 công việc</td>
+												<td>50</td>
+												<td>50</td>
+												<td><input type="text" style="width: 60px"></td>
+												<td><input type="checkbox"></td>
+											</tr>
+											<tr>
+												<td>BM333</td>
+												<td>Bảo vệ đồ án</td>
+												<td>2 đồ án</td>
+												<td>2 đồ án</td>
+												<td>60</td>
+												<td>60</td>
+												<td><input type="text" style="width: 60px"></td>
+												<td><input type="checkbox" checked></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-9">
+									<div class="btn-group" role="group">
+										<button type="button" class="btn btn-primary"
+											onclick="window.location.href=''">Duyệt
+											biểu mẫu</button>
+										<button type="button" class="btn btn-danger">Hủy</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12 col-md-offset-8">
-							<button class="btn btn-primary">Duyệt biểu mẫu</button>
-							<button class="btn btn-primary"
-								onclick="window.location.href='TruongKhoa_Bieumaugiangvien.jsp'">Quay
-								về</button>
-						</div>
-					</div>
 				</div>
-			</div>
 		</div>
 	</div>
 	<hr></hr>

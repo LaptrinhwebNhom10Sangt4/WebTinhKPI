@@ -161,7 +161,7 @@
 							<div class="col-sm-4 col-sm-offset-9">
 								<div class="btn-group" role="group">
 									<button type="button" class="btn btn-primary"
-										onclick="window.location.href='TBD_Bieumaugiangvien.jsp'">Duyệt
+										onclick="window.location.href=''">Duyệt
 										biểu mẫu</button>
 									<button type="button" class="btn btn-danger">Hủy</button>
 								</div>

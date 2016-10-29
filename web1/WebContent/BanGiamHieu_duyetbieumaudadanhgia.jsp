@@ -3,7 +3,7 @@
 <!document html>
 <html>
 <head>
-<title>Ban giam hieu</title>
+<title>Truong khoa</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,6 @@
 <link href="css/styles.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
 
 </head>
 <body>
@@ -89,156 +88,167 @@
 							</button>
 						</div>
 					</div>
+
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
-					<div class="row">
-						<div class="col-md-4 col-md-offset-6">
-							<div class="form-group">
-								<input type="text" class="form-control" name=""
-									placeholder="Tìm kiếm"> </input>
-							</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-8">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm">
 						</div>
 					</div>
-					<ul class="nav nav-tabs">
-						<li><a data-toggle="tab" href="#home">Duyệt biểu mẫu đã
-								đăng ký của trưởng khoa</a></li>
-						<li class="active"><a data-toggle="tab" href="#menu1">Duyệt
-								biểu mẫu đã đánh giá của trưởng khoa</a></li>
-					</ul>
-
-					<div class="tab-content">
-						<div id="home" class="tab-pane fade">
-							<div class="container4"
-								style="padding-top: 50px; padding-left: 10px">
+				</div>
+				<ul class="nav nav-tabs">
+					<li ><a data-toggle="tab" href="#home">Duyệt
+							biểu mẫu đã đăng ký của GV</a></li>
+					<li class="active"><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã
+							đánh giá của GV</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade ">
+						<div class="panel panel-default">
+							<div style="overflow-x: auto;">
 								<table>
-									<tr>
-										<th>Mã số cán bộ</th>
-										<th>Tên giáo viên</th>
-										<th>Các biểu mẫu đã đăng ký</th>
-										<th>Duyệt</th>
-									</tr>
-									<tr>
-										<td>123</td>
-										<td>Nguyễn Văn A</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>222</td>
-										<td>Nguyễn Văn D</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>333</td>
-										<td>Nguyễn Thị D</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>345</td>
-										<td>Nguyễn Trung D</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>123</td>
-										<td>Trần Văn A</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>666</td>
-										<td>Trần Thị B</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>222</td>
-										<td>Vũ Văn H</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>111</td>
-										<td>Trần Văn B</td>
-										<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-								</table>
-							</div>
-						</div>
-						<div id="menu1" class="tab-pane fade in active">
-							<div class="container4"
-								style="padding-top: 50px; padding-left: 10px">
-								<table>
-									<tr>
-										<th>Tên biểu mẫu</th>
-										<th>Kế hoạch</th>
-										<th>Mục tiêu</th>
-										<th>Kết quả</th>
-										<th>KPI max</th>
-										<th>KPI GV đánh giá</th>
-										<th>KPI BGH đánh giá</th>
-										<th>Duyệt</th>
-									</tr>
-									<tr>
-										<td>BM123</td>
-										<td>Giảng dạy 120 tiết</td>
-										<td>120 tiết</td>
-										<td>120 tiết</td>
-										<td>40</td>
-										<td>40</td>
-										<td><input class="form-control text-center" type="text"
-									style="width: 60px" disabled="disabled" placeholder="50">
-									</input></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>BM222</td>
-										<td>Phân công abc</td>
-										<td>40 công việc</td>
-										<td>35 công việc</td>
-										<td>50</td>
-										<td>50</td>
-										<td><input class="form-control text-center" type="text"
-									style="width: 60px" disabled="disabled" placeholder="30">
-									</input></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>BM333</td>
-										<td>Bảo vệ đồ án</td>
-										<td>2 đồ án</td>
-										<td>2 đồ án</td>
-										<td>60</td>
-										<td>60</td>
-										<td><input class="form-control text-center" type="text"
-									style="width: 60px" disabled="disabled" placeholder="20">
-									</input></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-
+									<thead>
+										<tr>
+											<th>Mã số cán bộ</th>
+											<th>Tên giáo viên</th>
+											<th>Các biểu mẫu đã đăng ký</th>
+											<th>Duyệt</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>123</td>
+											<td>Nguyễn Văn A</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
+											</td>
+											<td><input type="checkbox"></td>
+										</tr>
+										<tr>
+											<td>222</td>
+											<td>Nguyễn Văn D</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
+											<td><input type="checkbox" checked></td>
+										</tr>
+										<tr>
+											<td>333</td>
+											<td>Nguyễn Thị D</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
+											<td><input type="checkbox" checked></td>
+										</tr>
+										<tr>
+											<td>345</td>
+											<td>Nguyễn Trung D</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
+											<td><input type="checkbox"></td>
+										</tr>
+										<tr>
+											<td>123</td>
+											<td>Trần Văn A</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
+											<td><input type="checkbox" checked></td>
+										</tr>
+										<tr>
+											<td>666</td>
+											<td>Trần Thị B</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
+											<td><input type="checkbox" checked></td>
+										</tr>
+										<tr>
+											<td>222</td>
+											<td>Vũ Văn H</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
+											<td><input type="checkbox"></td>
+										</tr>
+										<tr>
+											<td>111</td>
+											<td>Trần Văn B</td>
+											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
+											<td><input type="checkbox"></td>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+					<div id="menu1" class="tab-pane fade in active">
+						<div class="panel panel-default">
+							<div style="overflow-x: auto;">
+								<table>
+									<thead>
+										<tr>
+											<th>Tên biểu mẫu</th>
+											<th>Kế hoạch</th>
+											<th>Mục tiêu</th>
+											<th>Kết quả</th>
+											<th>KPI max</th>
+											<th>KPI GV đánh giá</th>
+											<th>KPI BGH đánh giá</th>
+											<th>Duyệt</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>BM123</td>
+											<td>Giảng dạy 120 tiết</td>
+											<td>120 tiết</td>
+											<td>120 tiết</td>
+											<td>40</td>
+											<td>40</td>
+											<td><input class="form-control text-center" type="text"
+												style="width: 60px"  placeholder="50">
+												</input></td>
+											<td><input type="checkbox" checked></td>
+										</tr>
+										<tr>
+											<td>BM222</td>
+											<td>Phân công abc</td>
+											<td>40 công việc</td>
+											<td>35 công việc</td>
+											<td>50</td>
+											<td>50</td>
+											<td><input class="form-control text-center" type="text"
+												style="width: 60px"  placeholder="30">
+												</input></td>
+											<td><input type="checkbox"></td>
+										</tr>
+										<tr>
+											<td>BM333</td>
+											<td>Bảo vệ đồ án</td>
+											<td>2 đồ án</td>
+											<td>2 đồ án</td>
+											<td>60</td>
+											<td>60</td>
+											<td><input class="form-control text-center" type="text"
+												style="width: 60px" placeholder="20">
+												</input></td>
+											<td><input type="checkbox" checked></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 					<div class="row">
-						<div class="col-md-12 col-md-offset-8">
-							<button class="btn btn-primary">Duyệt biểu mẫu</button>
-							<button class="btn btn-primary"
+						<div class="col-md-4 col-md-offset-8">
+						<div class="btn-group">
+						<button class="btn btn-primary">Duyệt biểu mẫu</button>
+							<button class="btn btn-danger"
 								onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">Quay
 								về</button>
+						</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
+	
 	<hr></hr>
 	<%@include file="footer.jsp"%>
-
 </body>
 </html>

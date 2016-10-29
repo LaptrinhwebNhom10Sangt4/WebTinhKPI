@@ -136,7 +136,6 @@
 					<div class="panel-heading">
 						<h3 class="text-center">DANH SÁCH BIỂU MẪU</h3>
 					</div>
-
 					<table class="table">
 						<thead>
 							<tr>

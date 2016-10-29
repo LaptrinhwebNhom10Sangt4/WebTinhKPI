@@ -77,7 +77,7 @@
 							</button>
 							<button type="button" class="btn btn-default active"
 								style="width: 100%"
-								onclick="window.location.href='TruongKhoa _Quanlybieumaudadk.jsp'">
+								onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">
 								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
 									đã đăng kí</div>
 							</button>
@@ -101,7 +101,6 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
 					<div class="row">
 						<div class="dropdown">
 							<div class="col-md-2">
@@ -125,12 +124,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<h1>BIỂU MẪU ĐÃ ĐĂNG KÝ</h1>
-						</div>
-						<div class="col-md-12">
-							<table>
+					<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
+					</div>
+					<div style="overflow-x: auto;">
+						<table>
+							<thead>
 								<tr>
 									<th>Tên biểu mẫu</th>
 									<th>Kế hoạch</th>
@@ -140,6 +140,8 @@
 									<th>Tình trạng</th>
 									<th>Chọn</th>
 								</tr>
+							</thead>
+							<tbody>
 								<tr>
 									<td>BM123</td>
 									<td>Giảng dạy 120 tiết</td>
@@ -330,16 +332,15 @@
 									<td><a href="#">link</a></td>
 									<td><input type="checkbox"></td>
 								</tr>
-							</table>
-
-						</div>
+							</tbody>
+						</table>
 					</div>
+				</div>
 					<div class="row">
 						<div class="col-md-12 col-md-offset-10" style="margin-top: 10px">
 							<button class="btn btn-primary">Xóa biểu mẫu</button>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	</div>

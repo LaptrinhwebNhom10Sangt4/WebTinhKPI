@@ -112,16 +112,17 @@
 					<div class="col-md-4 col-md-offset-6">
 						<div class="form-group">
 							<input type="text" class="form-control" name=""
-								placeholder="Tìm kiếm"> </input>
+								placeholder="Tìm kiếm"> 
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<h1>DANH SÁCH BIỂU MẪU</h1>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
 					</div>
-					<div class="col-md-12">
-						<table>
+					<div  style="overflow-x:auto;">
+					<table>
+						<thead>
 							<tr>
 								<th>Mã biểu mẫu</th>
 								<th>Tên kế hoạch</th>
@@ -131,6 +132,8 @@
 								<th>Thời hạn</th>
 								<th>KPI max</th>
 							</tr>
+							</thead>
+							<tbody>
 							<tr>
 								<td>BM123</td>
 								<td>Giảng dạy 120 tiết</td>
@@ -264,23 +267,20 @@
 								<td>15/9/2016-22/9/2016</td>
 								<td>20</td>
 							</tr>
+							</tbody>
 						</table>
-
-					</div>
+							</div>
 				</div>
-				<div class="row" style="padding-top: 10px; margin-left: 420px">
-					<div class="col-md-12">
-						<div class="btn-group">
-							<button type="button" class="btn btn-primary"
-								onClick="window.location.href='Taobieumau.jsp'">Tạo
-								biểu mẫu</button>
-							<button type="button" class="btn btn-danger">Xóa biểu
-								mẫu</button>
-							<button type="button" class="btn btn-success">Thêm biểu
-								mẫu</button>
+				<div class="row">
+						<div class="col-md-6 col-md-offset-7">
+							<div class="btn-group">
+								<button type="button" class="btn btn-primary"
+								onClick="javascript:open_window('Taobieumau.jsp',600,600);">Tạo biểu mẫu</button>
+								<button class="btn btn-danger">Xóa người dùng</button>
+								<button class="btn btn-success">Chỉnh sửa</button>
+							</div>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	</div>

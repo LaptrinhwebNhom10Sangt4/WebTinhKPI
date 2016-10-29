@@ -71,32 +71,13 @@
 							</div>
 
 
-							<div class="row" style="padding-top: 20px">
+							<div class="row">
 								<div class="col-sm-10 col-sm-offset-1">
-									<div class="form-group"
-										style="padding-top: 20px">
-										<table border="1">
-											<tr>
-												<th>Công việc chi tiết</th>
-											</tr>
-											<tbody>
-												<tr>
-													<td contenteditable='true'></td>
-												</tr>
-												<tr>
-													<td contenteditable='true'></td>
-												</tr>
-												<tr>
-													<td contenteditable='true'></td>
-												</tr>
-												<tr>
-													<td contenteditable='true'></td>
-												</tr>
-												<tr>
-													<td contenteditable='true'></td>
-												</tr>
-											</tbody>
-										</table>
+									<div style="padding-top: 20px">
+										<textarea name="" id="" cols="50" rows="10"
+											placeholder="Nội dung chi tiết" class="form-control"></textarea>
+										<span id="helpBlock" class="help-block">Không quá 500
+											từ</span>
 									</div>
 								</div>
 							</div>

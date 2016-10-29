@@ -110,28 +110,25 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="container4">
-					<div class="row">
-						<div class="col-md-4 col-md-offset-6">
-							<div class="form-group">
-								<input type="text" class="form-control" name=""
-									placeholder="Tìm kiếm"> </input>
-							</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-8">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm">
 						</div>
 					</div>
-					<div class="row">
-						<ul class="nav nav-tabs">
-							<li class="active"><a data-toggle="tab" href="#home">Phân
-									công</a></li>
-							<li><a data-toggle="tab" href="#menu1">Danh sách công
-									việc</a></li>
-						</ul>
-					</div>
-					<div class="row" style="padding-top: 10px">
-						<div class="col-md-12">
-							<div class="tab-content">
-								<div id="home" class="tab-pane fade in active">
-									<table>
+				</div>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#home">Phân
+							công</a></li>
+					<li><a data-toggle="tab" href="#menu1">Danh sách công việc</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+						<div class="panel panel-default">
+							<div style="overflow-x: auto;">
+								<table>
+									<thead>
 										<tr>
 											<th>Mã công việc</th>
 											<th>Tên công việc</th>
@@ -139,6 +136,8 @@
 											<th>Chỉ đạo</th>
 											<th>Thời hạn</th>
 										</tr>
+									</thead>
+									<tbody>
 										<tr>
 											<td><select class="dropdown semi-square" id="cboRole"
 												style="color: 000000; height: 30px">
@@ -175,16 +174,26 @@
 													<option value="3">CV4</option>
 													<option value="4">CV5</option>
 											</select></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
 										</tr>
-
-									</table>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3 col-sm-offset-9">
+								<div class="btn-group" role="group">
+									<button type="button" class="btn btn-primary"
+										onclick="window.location.href="#">Phân công</button>
+									<button type="button" class="btn btn-danger">Hủy</button>
 								</div>
-								<div id="menu1" class="tab-pane fade">
-									<table>
+							</div>
+						</div>
+					</div>
+					<div id="menu1" class="tab-pane fade">
+						<div class="panel panel-default">
+							<div style="overflow-x: auto;">
+								<table>
+									<thead>
 										<tr>
 											<th>Mã công việc</th>
 											<th>Tên công việc</th>
@@ -192,23 +201,24 @@
 											<th>Thời hạn</th>
 											<th>Công việc chi tiết</th>
 										</tr>
-										<tr>
-											<td>KPI123</td>
-											<td>Phổ biến sd KPI cho GV</td>
-											<td>Nguyễn Văn A</td>
-											<td>10/9/2016-21/12/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-															</tr>
-														</table>
-													</div>
-												</div></td>
+									</thead>
+									<tbody>
+										<td>KPI123</td>
+										<td>Phổ biến sd KPI cho GV</td>
+										<td>Nguyễn Văn A</td>
+										<td>10/9/2016-21/12/2016</td>
+										<td><a role="button" data-toggle="collapse"
+											href="#collapseExample1" aria-expanded="false"
+											aria-controls="collapseExample"> Xem </a>
+											<div class="collapse" id="collapseExample1">
+												<div class="well">
+													<table>
+														<tr>
+															<td>Xây dựng web kpi</td>
+														</tr>
+													</table>
+												</div>
+											</div></td>
 
 										</tr>
 										<tr>
@@ -361,19 +371,17 @@
 												</div></td>
 
 										</tr>
-
-									</table>
-									<div class="row" style="padding-top: 10px">
-										<div class="col-md-12 col-md-offset-8">
-											<div class="btn-group">
-												<button type="button" class="btn btn-primary"
-													onClick="javascript:open_window('TBD_TaoCV.jsp',600,600);">Tạo
-													công việc</button>
-												<button type="button" class="btn btn-primary">Xóa
-													công việc</button>
-											</div>
-										</div>
-									</div>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-9">
+								<div class="btn-group" role="group">
+									<button type="button" class="btn btn-primary"
+										onClick="javascript:open_window('TBD_TaoCV.jsp',600,600);">Tạo
+										công việc</button>
+									<button type="button" class="btn btn-danger">Hủy</button>
 								</div>
 							</div>
 						</div>

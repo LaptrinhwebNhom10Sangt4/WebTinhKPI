@@ -4,13 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import DataLoad.formRegistration;
 
 @WebServlet("/FormLoad")
@@ -21,6 +18,7 @@ public class FormLoad extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
@@ -31,8 +29,8 @@ public class FormLoad extends HttpServlet {
 		//	UserInfo ui = new UserInfo();
 		//	request.setAttribute("info", info);
 		//}		
-		HttpSession session = request.getSession();
-		session.setAttribute("url", url);
+		//HttpSession session = request.getSession();
+		//session.setAttribute("url", url);
 		formRegistration fr= new formRegistration();
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
 		//ArrayList<Object> form1 =  (ArrayList<Object>)fr.getForm();

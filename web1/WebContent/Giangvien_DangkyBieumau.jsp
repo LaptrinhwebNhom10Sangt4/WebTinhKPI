@@ -88,7 +88,7 @@
 								</button>
 								<button type="button" class="btn btn-default"
 									style="width: 100%"
-									onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'"">
+									onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'">
 									<div class="danhmuc" style="float: left">Cập nhật tiến
 										trình được phân công</div>
 								</button>
@@ -117,7 +117,7 @@
 					<div class="col-md-4 col-md-offset-6">
 						<div class="form-group">
 							<input type="text" class="form-control" name=""
-								placeholder="Tìm kiếm"> </input>
+								placeholder="Tìm kiếm"> 
 						</div>
 					</div>
 				</div>
@@ -134,6 +134,8 @@
 								<th>Chi tiết kế hoạch</th>
 								<th>Tỷ trọng</th>
 								<th>Chỉ đạo</th>
+								<th>Chỉ tiêu</th>
+								<th>KPI max</th>
 							</tr>
 						</thead>
 						<tbody>

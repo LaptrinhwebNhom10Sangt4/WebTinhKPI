@@ -71,10 +71,10 @@
 							<button type="submit" name="getform" class="btn btn-default"
 								style="width: 100%" value="Giangvien_DangkyBieumau.jsp">
 								<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
-							</button>
-
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='Giangvien_Quanlybieumaudadangky.jsp'">
+							</button>  
+							<button type="button"
+								onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=Giangvien_Quanlybieumaudadangky.jsp&email=${email}'"
+								class="btn btn-default" style="width: 100%">
 								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
 									đã đăng kí</div>
 							</button>

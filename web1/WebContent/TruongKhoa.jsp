@@ -77,9 +77,9 @@
 									value="TruongKhoa_Dangkybieumau.jsp" style="width: 100%">
 									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
 								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}'"
+									class="btn btn-default" style="width: 100%">
 									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
 										đã đăng kí</div>
 								</button>

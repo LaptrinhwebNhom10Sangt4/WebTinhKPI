@@ -172,7 +172,7 @@
 										}
 									%>
 									<td><a
-										onclick="window.location.href='<%=request.getContextPath()%>/Tinhtranngbm?mabieumau=<%=mabm %>&email=${email}'">Chi
+										onclick="window.location.href='<%=request.getContextPath()%>/Tinhtrang?mabieumau=<%=mabm %>&email=${email}&url=<%=url%>'">Chi
 											tiết</a></td>
 								</tr>
 								<%

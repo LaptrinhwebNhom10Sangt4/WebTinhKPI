@@ -10,15 +10,15 @@ import server.Datasource;
 public class BieuMauDaDK {
 	ResultSet rs = null;
 	String filter = new String();
-	public BieuMauDaDK(String email)
+	public BieuMauDaDK(String email,String mabieumau)
 	{
-		filter = "email = " +"'"+email+"'";
+		filter = "email= '"+email+"' and bieumaudadk.MABIEUMAU = '"+mabieumau+"' and regform.MABIEUMAU=bieumaudadk.MABIEUMAU";
 	}
 	public void getData()
 	{
 		Datasource ds = new Datasource();
-		String source = "bieumaudadk";
-		String columns = "*";
+		String source = "regform,bieumaudadk";
+		String columns = "CHITIEU,TIENTRINH,KPIMAX,KPIDANHGIA,KPICAPTREN,TBMDUYET,TRKDUYET,BGHDUYET";
 		rs = ds.getDataObject(source, columns,filter);
 	}
 	public ArrayList<Object> getForm(){

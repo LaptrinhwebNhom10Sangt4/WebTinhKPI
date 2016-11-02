@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import="java.util.ArrayList"%>
 <!document html>
 <html>
 <head>
@@ -138,200 +138,52 @@
 									<th>Tỷ trọng</th>
 									<th>Chỉ đạo</th>
 									<th>Tình trạng</th>
-									<th>Chọn</th>
 								</tr>
 							</thead>
 							<tbody>
+								<%
+									int colCount = (int) request.getAttribute("colCount");
+									String url = "TruongKhoa_Tinhtrangbieumaudadk.jsp";
+									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+									int count = 0;
+									int rowCol = form.size() / colCount;
+									Object mabm = new Object();
+									for (int i = 1; i <= rowCol; i++) {
+										mabm = form.get(count);
+								%>
 								<tr>
-									<td>BM123</td>
-									<td>Giảng dạy 120 tiết</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
+									<%
+										for (int j = 1; j <= colCount; j++) {
+												if (j == 3) {
+													String c, d = new String();
+													c = Integer.toString(count);
+													d = "#";
+													d = d.concat(c);
+									%>
+									<td><a role="button" data-toggle="collapse" href=<%=d%>
+										aria-expanded="false" aria-controls="collapseExample"> Chi
+											tiết </a>
+										<div class="collapse" id=<%=c%>>
+											<div class="well"><%=form.get(count++)%></div>
 										</div></td>
-									<td>80</td>
-									<td>Nguyễn Văn A</td>
-									<td><a href="TruongKhoa_Tinhtrangbieumaudadk.jsp">link</a></td>
-									<td><input type="checkbox"></td>
+									<%
+										} else {
+									%>
+									<td><%=form.get(count++)%></td>
+									<%
+										}
+									%>
+									<%
+										}
+									%>
+									<td><a
+										onclick="window.location.href='<%=request.getContextPath()%>/Tinhtrang?mabieumau=<%=mabm %>&email=${email}&url=<%=url%>'">Chi
+											tiết</a></td>
 								</tr>
-								<tr>
-									<td>BM143</td>
-									<td>Giảng dạy 120 tiết</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample1" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample1">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>10</td>
-									<td>Nguyễn Văn A</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM345</td>
-									<td>Hướng dẫn abc</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample2" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample2">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>20</td>
-									<td>Lê Thị B</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM789</td>
-									<td>Chỉ đạo xyz</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample10" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample10">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>40</td>
-									<td>Trần Thị A</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM345</td>
-									<td>Phân công</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample9" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample9">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>50</td>
-									<td>Nguyễn Thị C</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM8904</td>
-									<td>Chỉ đạo xyz</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample8" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample8">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>80</td>
-									<td>Vũ Văn H</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM684</td>
-									<td>Phổ biến abc</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample7" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample7">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>20</td>
-									<td>Lê Văn B</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM980</td>
-									<td>Chỉ đạo xyz</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample6" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample6">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>60</td>
-									<td>Võ Văn B</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM342</td>
-									<td>Chỉ đạo ttt</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample5" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample5">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>70</td>
-									<td>Trần văn C</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
-								<tr>
-									<td>BM789</td>
-									<td>Chỉ đạo 123</td>
-									<td><a role="button" data-toggle="collapse"
-										href="#collapseExample4" aria-expanded="false"
-										aria-controls="collapseExample"> Chi tiết </a>
-										<div class="collapse" id="collapseExample4">
-											<div class="well">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit. Necessitatibus quia provident,
-												reprehenderit itaque velit optio quisquam facilis, animi
-												blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-												adipisci, libero quasi reprehenderit excepturi quae ipsum
-												eius nam quis quia error perferendis alias, harum.</div>
-										</div></td>
-									<td>40</td>
-									<td>Lê Thị T</td>
-									<td><a href="#">link</a></td>
-									<td><input type="checkbox"></td>
-								</tr>
+								<%
+									}
+								%>
+
 							</tbody>
 						</table>
 					</div>

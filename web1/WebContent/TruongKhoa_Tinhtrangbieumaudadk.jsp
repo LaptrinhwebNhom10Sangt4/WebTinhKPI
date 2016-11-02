@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import="java.util.ArrayList"%>
 <!document html>
 <html>
 <head>
@@ -109,52 +109,62 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="text-center">TÌNH TRẠNG BIỂU MẪU</h3>
+				<form action="updateForm" method="get">
+					<%String mabieumau =(String) request.getAttribute("mabieumau"); %>
+					<input type="hidden" name="email" value=${email}/>
+					<input type="hidden" name="mabieumau" value=<%=mabieumau%>/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="text-center">TÌNH TRẠNG BIỂU MẪU</h3>
+						</div>
+
+						<div style="overflow-x: auto;">
+							<table>
+								<thead>
+									<tr>
+										<th>Chỉ tiêu kế hoạch</th>
+										<th>Tiến trình kế hoạch</th>
+										<th>KPI max</th>
+										<th>KPI tự đánh giá</th>
+										<th>KPI cấp trên</th>
+										<th>BGH duyệt</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+									%>
+									<tr>
+										<td><%=form.get(0)%></td>
+										<td><input type="text" name="tientrinh"
+											placeholder=<%=form.get(1)%>></input></td>
+										<td><%=form.get(2)%></td>
+										<td><input type="text" name="kpidanhgia"
+											placeholder=<%=form.get(3)%>></input></td>
+										<td><%=form.get(4)%></td>
+											<%String bgh = new String();
+											if ((boolean) form.get(7))
+												bgh = "checked";%>
+										<td><input type="checkbox" disabled <%=bgh%>></input></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="row">
+							<div class="col-md-4 col-md-offset-8">
+								<div class="btn-group">
+									<button type="submit" class="btn btn-primary">Duyệt
+										biểu mẫu</button>
+									<button type="button" class="btn btn-danger"
+										onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}'">Quay
+										về</button>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div style="overflow-x: auto;">
-						<table>
-							<thead>
-								<tr>
-									<th>Chỉ tiêu kế hoạch</th>
-									<th>Tiến trình kế hoạch</th>
-									<th>KPI max</th>
-									<th>KPI tự đánh giá</th>
-									<th>KPI cấp trên</th>
-									<th>Trưởng bộ môn duyệt</th>
-									<th>Trưởng khoa duyệt</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>120 tiết</td>
-									<td><input type="text" placeholder="30 tiết"></td>
-									<td>40</td>
-									<td><input type="text" placeholder="30"></td>
-									<td>20</td>
-									<td><input type="checkbox"></td>
-									<td><input type="checkbox"></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-3 col-md-offset-9">
-				<div class="btn-group">
-					<button type="button" class="btn btn-primary">Duyệt biểu
-						mẫu</button>
-					<button type="button" class="btn btn-danger"
-						onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">Quay
-						về</button>
-				</div>
-
-			</div>
-		</div>
-
 	</div>
 	<hr></hr>
 	<%@include file="footer.jsp"%>

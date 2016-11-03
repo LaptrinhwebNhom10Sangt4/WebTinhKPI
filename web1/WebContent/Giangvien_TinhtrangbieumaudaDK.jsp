@@ -16,8 +16,6 @@
 <link href="css/styles.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
-
 </head>
 <body>
 	<div class="container">
@@ -106,7 +104,7 @@
 					<%
 						String mabieumau = (String) request.getAttribute("mabieumau");
 					%>
-					<input type="hidden" name="email" value=${email }/> <input
+					<input type="hidden" name="email" value=${email } /> <input
 						type="hidden" name="mabieumau" value=<%=mabieumau%> />
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -179,4 +177,59 @@
 
 
 </body>
+<script type="text/javascript">
+	$("#email_error").hide();
+	$("#pass_error").hide();
+	var em = false;
+	var pa = false;
+
+	var error_email = false;
+	var error_pass = false;
+	
+	$('#email').popover('show');
+	
+	$(".triggerBtn").click(function () {
+		$('#email').popover('destroy');
+	});
+	
+	$("#email").focusout(function() {
+		pop = false;
+		check_email();
+		label("#email", em);
+	});
+	$("#password").focusout(function() {
+		check_pass();
+		label('#password', pa)
+	});
+	
+	function check_email() {
+		var username_length = $("#email").val().length;
+		if (username_length == 0) {
+			$("#email_error").html("Không được để trống");
+			$("#email_error").show();
+			em = true;
+		} else {
+			$("#email_error").hide();
+			em = false
+		}
+	}
+	function label(id, bool) {
+		var div = $(id).closest("div");
+		if (bool)
+			div.addClass("has-error");
+		else
+			div.removeClass("has-error");
+	}
+	function check_pass() {
+		var pass_length = $("#password").val().length;
+		if (pass_length == 0) {
+			$("#pass_error").html("Không được để trống");
+			$("#pass_error").show();
+			pa = true;
+		} else {
+			$("#pass_error").hide();
+			pa = false;
+		}
+	}
+</script>
 </html>

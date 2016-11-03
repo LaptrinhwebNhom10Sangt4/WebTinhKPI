@@ -27,11 +27,11 @@ public class ValidateLogin extends HttpServlet {
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         int eRole = ConnectAndCheck.checkUser(email, pass);
+        HttpSession session = request.getSession();
+    	session.setAttribute("email", email);
        // request.setAttribute("email",email); 
-        if (eRole == -1) response.sendRedirect("errorLogin.jsp");
+        if (eRole == -1) request.getRequestDispatcher("TrangChu2.jsp").forward(request,response);
         else {
-        	HttpSession session = request.getSession();
-        	session.setAttribute("email", email);
         	UserInfo ui = new UserInfo();
 			ArrayList<Object> info = (ArrayList<Object>)ui.getUserInfo(email);
 			session.setAttribute("info", info);

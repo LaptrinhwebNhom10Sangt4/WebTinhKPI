@@ -4,9 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Trang Chu</title>
+
+<meta charset="UTF-8">
+<title>Document</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,15 +20,27 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/css/result-light.css">
+<style>
+#container {
+	padding: 15px;
+}
+
+.popover {
+	background: #d9534f;
+	color: #ffffff;
+}
+
+.popover.right>.arrow:after {
+	border-right-color: #d9534f;
+}
+</style>
+<!-- Ghi sai ten  -->
 </head>
 <body>
-	<!--<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost/kpidatabase" user="root"
-		password="huyhoang" />-->
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<div class="container1">
-		<form id= "registration_form" class="login text-center" action="ValidateLogin" method="post">
+		<form id="registration_form" class="login text-center"
+			action="ValidateLogin" method="post">
 			<div>
 				<h1>Website tính KPI</h1>
 			</div>
@@ -33,16 +48,19 @@
 				style="width: 300px; height: 150px;" />
 			<div class="form-inline" id="form">
 				<h4>
-						<input class="form-control" id="email" type="text" name="email"
-							placeholder="Tên đăng nhập" style="width: 300px" />
-							<span style="color:#FF0E00" id="email_error"></span>
+					<input data-placement="right"
+						data-toggle="popover" data-trigger="hover"
+						data-content="Sai email hoặc password" class="form-control triggerBtn"
+						id="email" type="text" name="email" placeholder="Tên đăng nhập"
+						value=${email } style="width: 300px" /> <span
+						style="color: #FF0E00" id="email_error"></span>
 				</h4>
 			</div>
 			<div class="form-inline">
 				<h4>
 					<input class="form-control" id="password" type="password"
-						name="pass" placeholder="password" style="width: 300px" />
-						<span style="color:#FF0E00" id="pass_error"></span>
+						name="pass" placeholder="password" style="width: 300px" /> <span
+						style="color: #FF0E00" id="pass_error"></span>
 				</h4>
 			</div>
 			<button id="btnLogin" type="submit" value="ValidateLogin"
@@ -59,50 +77,56 @@
 <script type="text/javascript">
 	$("#email_error").hide();
 	$("#pass_error").hide();
-	var em=false;
-	var pa=false;
+	var em = false;
+	var pa = false;
+
+	var error_email = false;
+	var error_pass = false;
 	
-	var error_email=false;
-	var error_pass=false;
+	$('#email').popover('show');
 	
-	$("#email").focusout(function(){
+	$(".triggerBtn").click(function () {
+		$('#email').popover('destroy');
+	});
+	
+	$("#email").focusout(function() {
+		pop = false;
 		check_email();
-		label("#email",em);
+		label("#email", em);
 	});
-	$("#password").focusout(function(){
+	$("#password").focusout(function() {
 		check_pass();
-		label('#password',pa)
+		label('#password', pa)
 	});
 	
-	function check_email(){
+	function check_email() {
 		var username_length = $("#email").val().length;
-		if(username_length == 0){
+		if (username_length == 0) {
 			$("#email_error").html("Không được để trống");
 			$("#email_error").show();
-			em=true;		
-		}
-		else{
+			em = true;
+		} else {
 			$("#email_error").hide();
-			em=false
+			em = false
 		}
 	}
-	function label(id,bool){
+	function label(id, bool) {
 		var div = $(id).closest("div");
-		if (bool) div.addClass("has-error");
-		else div.removeClass("has-error");
+		if (bool)
+			div.addClass("has-error");
+		else
+			div.removeClass("has-error");
 	}
-	function check_pass(){
+	function check_pass() {
 		var pass_length = $("#password").val().length;
-		if(pass_length == 0){
+		if (pass_length == 0) {
 			$("#pass_error").html("Không được để trống");
 			$("#pass_error").show();
-			pa=true;
-		}
-		else{
+			pa = true;
+		} else {
 			$("#pass_error").hide();
-			pa=false;
+			pa = false;
 		}
 	}
 </script>
 </html>
-

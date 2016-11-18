@@ -100,17 +100,17 @@
 						</div>
 					</div>
 				</div>
-				<form action="updateForm" method="get">
+			
 					<%
 						String mabieumau = (String) request.getAttribute("mabieumau");
 					%>
-					<input type="hidden" name="email" value=${email } /> <input
-						type="hidden" name="mabieumau" value=<%=mabieumau%> />
+					<input type="hidden" name="email" value=${email } />
+					<input type="hidden" name="mabieumau" value=<%=mabieumau%> />
+					<input type="hidden" name="url" value="Giangvien_TinhtrangbieumaudaDK.jsp" />
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="text-center">TÌNH TRẠNG BIỂU MẪU</h3>
 						</div>
-
 						<div style="overflow-x: auto;">
 							<table>
 								<thead>
@@ -132,8 +132,8 @@
 										<td><%=form.get(0)%></td>
 										<td><input type="text" name="tientrinh"
 											placeholder=<%=form.get(1)%>></input></td>
-										<td><%=form.get(2)%></td>
-										<td><input type="text" name="kpidanhgia"
+										<td><input type="hidden" name="kpimax" value=<%=form.get(2)%> id="kpimax"/> <%=form.get(2)%></td>
+										<td><input id="kpidanhgia" type="text" name="kpidanhgia"
 											placeholder=<%=form.get(3)%>></input></td>
 										<td><%=form.get(4)%></td>
 										<%
@@ -155,7 +155,7 @@
 						<div class="row">
 							<div class="col-md-4 col-md-offset-8">
 								<div class="btn-group">
-									<button type="submit" class="btn btn-primary">Duyệt
+									<button name="submit" class="btn btn-primary">Duyệt
 										biểu mẫu</button>
 									<button type="button" class="btn btn-danger"
 										onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=Giangvien_Quanlybieumaudadangky.jsp&email=${email}'">Quay
@@ -164,7 +164,6 @@
 							</div>
 						</div>
 					</div>
-				</form>
 			</div>
 		</div>
 
@@ -178,58 +177,36 @@
 
 </body>
 <script type="text/javascript">
-	$("#email_error").hide();
-	$("#pass_error").hide();
-	var em = false;
-	var pa = false;
-
-	var error_email = false;
-	var error_pass = false;
 	
-	$('#email').popover('show');
 	
-	$(".triggerBtn").click(function () {
-		$('#email').popover('destroy');
+	$(document).ready(function() {
+		var $submit = $('button[name="submit"]');
+		$submit.prop('disabled', true);
+		$('input[name="kpidanhgia"]').on('input change', function() { //'input change keyup paste'
+			$submit.prop('disabled', !$(this).val().length);
+		});
 	});
 	
-	$("#email").focusout(function() {
-		pop = false;
-		check_email();
-		label("#email", em);
-	});
-	$("#password").focusout(function() {
-		check_pass();
-		label('#password', pa)
-	});
-	
-	function check_email() {
-		var username_length = $("#email").val().length;
-		if (username_length == 0) {
-			$("#email_error").html("Không được để trống");
-			$("#email_error").show();
-			em = true;
-		} else {
-			$("#email_error").hide();
-			em = false
+	$('button[name="submit"]').click(function() {
+		var kpi = document.getElementById('kpidanhgia').value;
+		var kpimax = document.getElementById('kpimax').value;
+		if(kpi > kpimax || kpi >= 100)
+		{
+			alert('kpi đánh giá phải bé hơn hoặc bằng kpi max');
+			document.getElementById('kpidanhgia').focus();
+			$('button[name="submit"]').prop('disabled', true);
+			
 		}
-	}
-	function label(id, bool) {
-		var div = $(id).closest("div");
-		if (bool)
-			div.addClass("has-error");
 		else
-			div.removeClass("has-error");
-	}
-	function check_pass() {
-		var pass_length = $("#password").val().length;
-		if (pass_length == 0) {
-			$("#pass_error").html("Không được để trống");
-			$("#pass_error").show();
-			pa = true;
-		} else {
-			$("#pass_error").hide();
-			pa = false;
-		}
-	}
+		{
+			var email = $('input[name="email"]').val();
+			var mabm = $('input[name="mabieumau"]').val();
+			var url = $('input[name="url"]').val();
+			var tientrinh = $('input[name="tientrinh"]').val()
+			//String a = new String ()
+			window.location.href="/web1/updateForm?email="+email+"&mabieumau="+mabm+"&url="+url+"&tientrinh="+tientrinh+"&kpi="+kpi;}
+
+	})
+	
 </script>
 </html>

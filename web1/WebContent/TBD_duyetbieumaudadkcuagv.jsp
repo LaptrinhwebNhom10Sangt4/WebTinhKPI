@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-<!document html>
+<%@ page import="java.net.URLEncoder"%>
+<%@ page import="java.util.ArrayList"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Truong Bo Mon</title>
@@ -89,14 +90,13 @@
 								</button>
 								<button type="button" class="btn btn-default active"
 									style="width: 100%"
-									onclick="window.location.href='TBD_Bieumaugiangvien.jsp'"">
+									onclick="window.location.href='TBD_Bieumaugiangvien.jsp'">
 									<div class="danhmuc" style="float: left">Biểu mẫu giảng
 										viên</div>
 								</button>
-								</button>
 								<button type="button" class="btn btn-default"
 									style="width: 100%"
-									onclick="window.location.href='TBD_Phancongcongviec.jsp'"">
+									onclick="window.location.href='TBD_Phancongcongviec.jsp'">
 									<div class="danhmuc" style="float: left">Phân công công
 										việc</div>
 								</button>
@@ -121,52 +121,109 @@
 							đánh giá của GV</a></li>
 				</ul>
 				<div class="tab-content">
+					<%
+						String tengv = (String) request.getAttribute("tengv");
+						int colCount = (int) request.getAttribute("colCount");
+						String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
+						String email = new String((String) request.getAttribute("email"));
+						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+						int count = 0;
+						int rowCol = form.size() / colCount;
+						Object val = new Object();
+					%>
 					<div id="home" class="tab-pane fade in active">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-									<thead>
-										<tr>
-											<th>Tên biểu mẫu</th>
-											<th>Kế hoạch</th>
-											<th>Chỉ tiêu</th>
-											<th>Duyệt</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>BM23</td>
-											<td>Hướng dẫn đồ án</td>
-											<td>40</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>BM44</td>
-											<td>Nghiên cứu xyz</td>
-											<td>30</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>BM55</td>
-											<td>Phổ biến abc</td>
-											<td>30</td>
-											<td><input type="checkbox"></td>
-										</tr>
-									</tbody>
+						<form action="QLbmdk2" method="get">
+							<%
+								
+							%>
+							<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
+								type="hidden" name="email" value=<%=email%> /> 
+									<input type="hidden" name="url" value="TBD_duyetbieumaudadkcuagv.jsp" />
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="text-center">
+										Biểu mẫu đã đăng kí của GV
+										<%=tengv%></h3>
+								</div>
+							
+								<%
+									//tengv = tengv.replaceAll(" ", "%20");
+									tengv = URLEncoder.encode(tengv,"UTF-8");
+								%>
+								<input
+								type="hidden" name="tengv" value=<%=tengv%> />
+								<div style="overflow-x: auto;">
 
-								</table>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-4 col-sm-offset-9">
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-primary"
-										onclick="window.location.href=''">Duyệt
-										biểu mẫu</button>
-									<button type="button" class="btn btn-danger">Hủy</button>
+									<table>
+										<thead>
+											<tr>
+												<th style="width: 50px">Mã biểu mẫu</th>
+												<th>Kế hoạch</th>
+												<th>Chi tiết kế hoạch</th>
+												<th style="width: 50px">Tỷ trọng</th>
+												<th>KPI max</th>
+												<th>Đã duyệt</th>
+											</tr>
+										</thead>
+										<tbody>
+											<%
+												for (int i = 1; i <= rowCol; i++) {
+													val = form.get(count);
+											%>
+											<tr>
+												<%
+													for (int j = 1; j <= colCount; j++) {
+															if (j == 3) {
+																String c, d = new String();
+																c = Integer.toString(count);
+																d = "#";
+																d = d.concat(c);
+												%>
+												<td><a role="button" data-toggle="collapse" href=<%=d%>
+													aria-expanded="false" aria-controls="collapseExample">
+														Chi tiết </a>
+													<div class="collapse" id=<%=c%>>
+														<div class="well"><%=form.get(count++)%></div>
+													</div></td>
+												<%
+													continue;
+															}
+															if (j == 6) {
+																String checked = new String();
+																String disable = new String();
+																if ((boolean) form.get(count++)) {
+																	checked = "checked";
+																	disable = "disabled";
+																}
+												%>
+												<td><input type="checkbox" name=<%=i%> value=<%=val%>
+													<%=disable%> <%=checked%>></input></td>
+												<%
+													continue;
+															}
+												%>
+												<td><%=form.get(count++)%></td>
+												<%
+													}
+												%>
+											</tr>
+											<%
+												}
+											%>
+										</tbody>
+									</table>
 								</div>
 							</div>
-						</div>
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-9">
+									<div class="btn-group" role="group">
+										<button type="submit" class="btn btn-primary">Duyệt
+											biểu mẫu</button>
+										<button type="button" class="btn btn-danger">Hủy</button>
+									</div>
+								</div>
+							</div>
+						</form>
 					</div>
 					<div id="menu1" class="tab-pane fade">
 						<div class="panel panel-default">

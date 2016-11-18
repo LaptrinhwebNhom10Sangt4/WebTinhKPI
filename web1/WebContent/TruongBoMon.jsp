@@ -84,12 +84,11 @@
 									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
 										đã đăng kí</div>
 								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TBD_Bieumaugiangvien.jsp'"">
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TBD_Bieumaugiangvien.jsp&email=${email}'"
+									class="btn btn-default" style="width: 100%">
 									<div class="danhmuc" style="float: left">Biểu mẫu giảng
 										viên</div>
-								</button>
 								</button>
 								<button type="button" class="btn btn-default"
 									style="width: 100%"
@@ -154,8 +153,9 @@
 				</div>
 			</div>
 		</div>
-		<hr></hr>
-		<!-- /container -->
-		<%@include file="footer.jsp"%>
+	</div>
+	<hr></hr>
+	<!-- /container -->
+	<%@include file="footer.jsp"%>
 </body>
 </html>

@@ -102,7 +102,7 @@
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="text-center">CÔNG VIỆC PHÂN CÔNG</h3>
+					<h3 class="text-center">CÔNG VIỆC ĐƯỢC PHÂN CÔNG</h3>
 				</div>
 				<div style="overflow-x: auto;">
 					<table>
@@ -420,7 +420,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 col-md-offset-10" style="margin-top: 10px">
-			<button class="btn btn-primary">Xóa biểu mẫu</button>
+			<button class="btn btn-primary">Cập nhật</button>
 		</div>
 	</div>
 

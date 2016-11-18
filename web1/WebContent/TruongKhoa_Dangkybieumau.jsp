@@ -144,6 +144,8 @@
 								<th>Chi tiết kế hoạch</th>
 								<th>Tỷ trọng</th>
 								<th>Chỉ đạo</th>
+								<th>Chỉ tiêu</th>
+								<th>Kpi max</th>
 							</tr>
 						</thead>
 						<tbody>

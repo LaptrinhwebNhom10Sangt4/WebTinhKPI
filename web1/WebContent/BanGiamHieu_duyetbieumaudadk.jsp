@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import="java.util.ArrayList"%>
 <!document html>
 <html>
 <head>
@@ -107,8 +107,14 @@
 							đánh giá của GV</a></li>
 				</ul>
 				<div class="tab-content">
+					<%
+						String email = new String((String) request.getAttribute("email"));
+					%>
 					<div id="home" class="tab-pane fade in active">
 						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="text-center"><%=email %></h3>
+							</div>
 							<div style="overflow-x: auto;">
 								<table>
 									<thead>
@@ -120,24 +126,18 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>BM23</td>
-											<td>Hướng dẫn đồ án</td>
-											<td>40</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>BM44</td>
-											<td>Nghiên cứu xyz</td>
-											<td>30</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>BM55</td>
-											<td>Phổ biến abc</td>
-											<td>30</td>
-											<td><input type="checkbox"></td>
-										</tr>
+										<%
+											int colCount = (int) request.getAttribute("colCount");
+											ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+											int count = 0;
+											int rowCol = form.size() / colCount;
+											String url = new String("TBD_duyetbieumaudadkcuagv.jsp");
+											for (int i = 1; i <= rowCol; i++) {
+										%>
+										<%
+											}
+										%>
+										<%=%>
 									</tbody>
 								</table>
 							</div>
@@ -145,8 +145,10 @@
 						<div class="row">
 							<div class="col-md-4 col-md-offset-8">
 								<div class="btn-group">
-									<button class="btn btn-primary" >Duyệt biểu mẫu</button>
-									<button class="btn btn-danger" onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">Quay về</button>
+									<button class="btn btn-primary">Duyệt biểu mẫu</button>
+									<button class="btn btn-danger"
+										onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">Quay
+										về</button>
 								</div>
 							</div>
 						</div>

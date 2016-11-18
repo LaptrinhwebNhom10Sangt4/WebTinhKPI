@@ -30,9 +30,13 @@ public class callme extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html;charset=UTF-8");
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		String a = request.getParameter("param");
+		if (a == null) a="";
 		String b = request.getParameter("param1");
+		if (b == null) b="";
+		b = b.replaceAll("+", " ");
 		//String c = request.getParameter("param2");
 		//PrintWriter out = response.getWriter();
 		//out.print("hello "+a+" "+b+" "+c);

@@ -140,6 +140,8 @@
 								<th>Chi tiết kế hoạch</th>
 								<th>Tỷ trọng</th>
 								<th>Chỉ đạo</th>
+								<th>Chỉ tiêu</th>
+								<th>KPI max</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -210,7 +212,7 @@
 				</div>
 			</div>
 		</div>
-
+</div>
 	<hr></hr>
 
 	<%@include file="footer.jsp"%>

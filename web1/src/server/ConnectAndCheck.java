@@ -11,16 +11,6 @@ public class ConnectAndCheck {
 		int st = -1;
 		try {
 			DB db = new DB();
-//			
-//			Datasource ds = new Datasource();
-//			String source = "users";
-//			String columns = "*";
-//			String filter = "EMAIL = '" + email + "' AND PASS = '" + pass + "'";
-//			ResultSet rs = ds.getDataObject(source, columns, filter);
-//			
-//			if (rs.next()) {
-//				
-//			}
 			CallableStatement stmt = (CallableStatement) db.connection.prepareCall("{? = call CHECKUSER(?, ?)}");
 			stmt.registerOutParameter(1, java.sql.Types.INTEGER);
 			stmt.setString(2, email);

@@ -91,19 +91,24 @@
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									đã đăng kí</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Bieumaugiangvien.jsp'"">
-								<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
+								<div class="danhmuc" style="float: left">Biểu mẫu giảng
+									viên</div>
 							</button>
-							<button type="button" class="btn btn-default active" style="width: 100%"
+							<button type="button" class="btn btn-default active"
+								style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Phancongcongviec.jsp'"">
-								<div class="danhmuc" style="float: left">Phân công công việc</div>
+								<div class="danhmuc" style="float: left">Phân công công
+									việc</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='TruongKhoa_Quanlybieumaukhoa.jsp'"">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu khoa</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									khoa</div>
 							</button>
 						</div>
 					</div>
@@ -119,8 +124,8 @@
 					</div>
 				</div>
 				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#home">Phân
-							công</a></li>
+					<li class="active"><a data-toggle="tab" href="#home">Công
+							việc được phân công</a></li>
 					<li><a data-toggle="tab" href="#menu1">Danh sách công việc</a></li>
 				</ul>
 				<div class="tab-content">
@@ -132,59 +137,311 @@
 										<tr>
 											<th>Mã công việc</th>
 											<th>Tên công việc</th>
-											<th>MSGV</th>
-											<th>Chỉ đạo</th>
+											<th>Chỉ đạo và hướng dẫn</th>
 											<th>Thời hạn</th>
+											<th>Công việc chi tiết</th>
+											<th>Tiến trình</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td><select class="dropdown semi-square" id="cboRole"
-												style="color: 000000; height: 30px">
-													<option value="">CV1</option>
-													<option value="1">CV2</option>
-													<option value="2">CV3</option>
-													<option value="3">CV4</option>
-													<option value="4">CV5</option>
-											</select></td>
-											<td>Hướng dẫn đồ án</td>
-											<td><input type="text"></td>
+											<td>KPI123</td>
+											<td>Phổ biến sd KPI cho GV</td>
 											<td>Nguyễn Văn A</td>
-											<td>12/3/2015-22/9/2016</td>
+											<td>10/9/2016-21/12/2016</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample1" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample1">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+																<td><input type="checkbox"></td>
+															</tr>
+															<tr>
+																<td>Phổ biến cho toàn bộ GV</td>
+																<td><input type="checkbox"></td>
+															</tr>
+															<tr>
+																<td>Hướng dẫn GV</td>
+																<td><input type="checkbox"></td>
+															</tr>
+														</table>
+													</div>
+												</div></td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar" role="progressbar"
+														aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+														style="width: 60%;">
+														<span class="sr-only">60% Complete</span>
+													</div>
+												</div>
+											</td>
 										</tr>
 										<tr>
-											<td><select class="dropdown semi-square" id="cboRole"
-												style="color: 000000; height: 30px">
-													<option value="1">CV2</option>
-													<option value="2">CV3</option>
-													<option value="3">CV4</option>
-													<option value="4">CV5</option>
-											</select></td>
-											<td>Phân công abcd</td>
-											<td><input type="text"></td>
-											<td>Nguyễn Thị C</td>
-											<td>1/4/2016-2/11/2017</td>
+											<td>KPI123</td>
+											<td>Giảng dạy abc</td>
+											<td>Nguyễn Văn b</td>
+											<td>11/10/2016-1/2/2017</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample2" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample2">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Phổ biến cho toàn bộ GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Hướng dẫn GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+														</table>
+													</div>
+												</div></td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar-info" role="progressbar"
+														aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+														style="width: 60%;">
+														<span class="sr-only">60% Complete</span>
+													</div>
+												</div>
+											</td>
 										</tr>
 										<tr>
-											<td><select class="dropdown semi-square" id="cboRole"
-												style="color: 000000; height: 30px">
-													<option>Chọn</option>
-													<option value="1">CV2</option>
-													<option value="2">CV3</option>
-													<option value="3">CV4</option>
-													<option value="4">CV5</option>
-											</select></td>
+											<td>CV33</td>
+											<td>Hướng dẫn xzy</td>
+											<td>Lê Văn B</td>
+											<td>12/11/2016-1/12/2016</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample3" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample3">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Phổ biến cho toàn bộ GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Hướng dẫn GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+														</table>
+													</div>
+												</div></td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-danger"
+														role="
+												progressbar" aria-valuenow="60"
+														aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+														<span class="sr-only">60% Complete</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>CV234</td>
+											<td>Thực hiện abc</td>
+											<td>Lê Thị D</td>
+											<td>1/5/2016-21/12/2017</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample1" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample1">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Phổ biến cho toàn bộ GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Hướng dẫn GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+														</table>
+													</div>
+												</div></td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-warning"
+														role="progressbar" aria-valuenow="60" aria-valuemin="0"
+														aria-valuemax="100" style="width: 90%;">
+														<span class="sr-only">60% Complete</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>CV454</td>
+											<td>Cung cấp xyz</td>
+											<td>Trần Thị A</td>
+											<td>20/9/2016-15/12/2016</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample1" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample1">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Phổ biến cho toàn bộ GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Hướng dẫn GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+														</table>
+													</div>
+												</div></td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-success"
+														role="progressbar" aria-valuenow="60" aria-valuemin="0"
+														aria-valuemax="100" style="width: 20%;">
+														<span class="sr-only">60% Complete</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>CV144</td>
+											<td>Thực hiện ttt</td>
+											<td>Nguyễn Văn D</td>
+											<td>20/5/2016-11/11/2016</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample1" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample1">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Phổ biến cho toàn bộ GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Hướng dẫn GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+														</table>
+													</div>
+												</div></td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-danger"
+														role="progressbar" aria-valuenow="60" aria-valuemin="0"
+														aria-valuemax="100" style="width: 70%;">
+														<span class="sr-only">60% Complete</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>CV234</td>
+											<td>Phân công xxy</td>
+											<td>Lê Thị A</td>
+											<td>1/2/2016-11/12/2016</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample1" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample1">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Phổ biến cho toàn bộ GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+															<tr>
+																<td>Hướng dẫn GV</td>
+																<td>
+																<td><input type="checkbox"></td>
+
+															</tr>
+														</table>
+													</div>
+												</div></td>
+											<td>
+												<div class="progress">
+													<div class="progress-bar progress-bar-info"
+														role="progressbar" aria-valuenow="60" aria-valuemin="0"
+														aria-valuemax="100" style="width: 85%;">
+														<span class="sr-only">60% Complete</span>
+													</div>
+												</div>
+											</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-3 col-sm-offset-9">
+							<div class="col-sm-2 col-sm-offset-10">
 								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-primary"
-										onclick="window.location.href="#">Phân công</button>
-									<button type="button" class="btn btn-danger">Hủy</button>
+									<button type="button" class="btn btn-primary">Phân
+										công</button>
 								</div>
 							</div>
 						</div>
@@ -200,27 +457,29 @@
 											<th>Chỉ đạo và hướng dẫn</th>
 											<th>Thời hạn</th>
 											<th>Công việc chi tiết</th>
+											<th>Phân công</th>
 										</tr>
 									</thead>
 									<tbody>
-										<td>KPI123</td>
-										<td>Phổ biến sd KPI cho GV</td>
-										<td>Nguyễn Văn A</td>
-										<td>10/9/2016-21/12/2016</td>
-										<td><a role="button" data-toggle="collapse"
-											href="#collapseExample1" aria-expanded="false"
-											aria-controls="collapseExample"> Xem </a>
-											<div class="collapse" id="collapseExample1">
-												<div class="well">
-													<table>
-														<tr>
-															<td>Xây dựng web kpi</td>
-														</tr>
-													</table>
-												</div>
-											</div></td>
-
-										</tr>
+										<tr>
+											<td>KPI123</td>
+											<td>Phổ biến sd KPI cho GV</td>
+											<td>Nguyễn Văn A</td>
+											<td>10/9/2016-21/12/2016</td>
+											<td><a role="button" data-toggle="collapse"
+												href="#collapseExample1" aria-expanded="false"
+												aria-controls="collapseExample"> Xem </a>
+												<div class="collapse" id="collapseExample1">
+													<div class="well">
+														<table>
+															<tr>
+																<td>Xây dựng web kpi</td>
+															</tr>
+														</table>
+													</div>
+												</div></td>
+												<td><a href="TruongKhoa_Chitietphancong.jsp">Chi tiết</a></td>
+										<tr>
 										<tr>
 											<td>KPI123</td>
 											<td>Giảng dạy abc</td>

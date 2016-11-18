@@ -102,22 +102,24 @@
 			</div>
 			<div class="col-md-9">
 				<div class="row">
-					<div class="col-md-4 col-md-offset-6">
+					<div class="col-md-4 col-md-offset-8">
 						<div class="form-group">
 							<input type="text" class="form-control" name=""
-								placeholder="Tìm kiếm"> </input>
+								placeholder="Tìm kiếm">
 						</div>
 					</div>
 				</div>
-				<form action="updateForm" method="get">
-					<%String mabieumau =(String) request.getAttribute("mabieumau"); %>
-					<input type="hidden" name="email" value=${email}/>
-					<input type="hidden" name="mabieumau" value=<%=mabieumau%>/>
+			
+					<%
+						String mabieumau = (String) request.getAttribute("mabieumau");
+					%>
+					<input type="hidden" name="email" value=${email } />
+					<input type="hidden" name="mabieumau" value=<%=mabieumau%> />
+					<input type="hidden" name="url" value="TruongKhoa_Tinhtrangbieumaudadk.jsp" />
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="text-center">TÌNH TRẠNG BIỂU MẪU</h3>
 						</div>
-
 						<div style="overflow-x: auto;">
 							<table>
 								<thead>
@@ -138,14 +140,16 @@
 										<td><%=form.get(0)%></td>
 										<td><input type="text" name="tientrinh"
 											placeholder=<%=form.get(1)%>></input></td>
-										<td><%=form.get(2)%></td>
-										<td><input type="text" name="kpidanhgia"
+										<td><input type="hidden" name="kpimax" value=<%=form.get(2)%> id="kpimax"/> <%=form.get(2)%></td>
+										<td><input id="kpidanhgia" type="text" name="kpidanhgia"
 											placeholder=<%=form.get(3)%>></input></td>
 										<td><%=form.get(4)%></td>
-											<%String bgh = new String();
+										<%
+											String trk = new String();
 											if ((boolean) form.get(7))
-												bgh = "checked";%>
-										<td><input type="checkbox" disabled <%=bgh%>></input></td>
+												trk = "checked";
+										%>
+										<td><input type="checkbox" disabled <%=trk%>></input></td>
 									</tr>
 								</tbody>
 							</table>
@@ -153,7 +157,7 @@
 						<div class="row">
 							<div class="col-md-4 col-md-offset-8">
 								<div class="btn-group">
-									<button type="submit" class="btn btn-primary">Duyệt
+									<button name="submit" class="btn btn-primary">Duyệt
 										biểu mẫu</button>
 									<button type="button" class="btn btn-danger"
 										onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}'">Quay
@@ -162,11 +166,40 @@
 							</div>
 						</div>
 					</div>
-				</form>
 			</div>
 		</div>
 	</div>
 	<hr></hr>
 	<%@include file="footer.jsp"%>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var $submit = $('button[name="submit"]');
+		$submit.prop('disabled', true);
+		$('input[name="kpidanhgia"]').on('input change', function() { //'input change keyup paste'
+			$submit.prop('disabled', !$(this).val().length);
+		});
+	});
+	
+	$('button[name="submit"]').click(function() {
+		var kpi = document.getElementById('kpidanhgia').value;
+		var kpimax = document.getElementById('kpimax').value;
+		if(kpi > kpimax || kpi >= 100)
+		{
+			alert('kpi đánh giá phải bé hơn hoặc bằng kpi max');
+			document.getElementById('kpidanhgia').focus();
+			$('button[name="submit"]').prop('disabled', true);
+			
+		}
+		else
+		{
+			var email = $('input[name="email"]').val();
+			var mabm = $('input[name="mabieumau"]').val();
+			var url = $('input[name="url"]').val();
+			var tientrinh = $('input[name="tientrinh"]').val()
+			//String a = new String ()
+			window.location.href="/web1/updateForm?email="+email+"&mabieumau="+mabm+"&url="+url+"&tientrinh="+tientrinh+"&kpi="+kpi;}
+
+	})
+</script>
 </html>

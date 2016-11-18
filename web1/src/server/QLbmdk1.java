@@ -9,28 +9,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DataLoad.BieuMauDaDK;
+import DataLoad.Duyetbmdadk1;
 
-@WebServlet("/Bieumaudadk")
-public class TinhTrangbmdadk extends HttpServlet {
+/**
+ * Servlet implementation class QLbmdk1
+ */
+@WebServlet("/QLbmdk1")
+public class QLbmdk1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public TinhTrangbmdadk() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public QLbmdk1() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
-	//	String mabieumau = request.getParameter("mabieumau");
-		String email = request.getParameter("email");
 		String url = request.getParameter("url");
-		BieuMauDaDK bm = new BieuMauDaDK(email, url);
-		ArrayList<Object> form = (ArrayList<Object>)bm.getForm();
-		int colCount = bm.size();
+		String email = request.getParameter("email");
+		String tengv = request.getParameter("tengv");
+		Duyetbmdadk1 fr = new Duyetbmdadk1(email);
+		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
+		int colCount =fr.size();
 		request.setAttribute("form", form);
 		request.setAttribute("colCount", colCount);
-		request.getRequestDispatcher(url).forward(request, response);
+		request.setAttribute("tengv", tengv);
+		request.setAttribute("email", email);
+		request.getRequestDispatcher(url).forward(request,response);
 	}
 
 }

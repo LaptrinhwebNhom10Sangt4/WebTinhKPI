@@ -27,6 +27,18 @@ public class Datasource {
 		return object;
 	}
 	
+	public void updateDataObject(String source, String table, String filter){
+		String sql = "update " + table + " set " + source + " where " + filter;
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private ResultSet execQuery(String sql){
 		PreparedStatement ps;
 		ResultSet rs = null;

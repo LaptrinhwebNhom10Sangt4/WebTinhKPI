@@ -38,11 +38,11 @@ public class ValidateLogin extends HttpServlet {
 			//request.setAttribute("email", email);
         	switch(eRole){
         	case 1:request.getRequestDispatcher("GiangVien.jsp").forward(request,response);break;
-        	case 2:request.getRequestDispatcher("QuanTriVien.jsp").forward(request,response);break;
-        	case 3:request.getRequestDispatcher("PhongToChuc_CanBo.jsp").forward(request,response);break;
-        	case 4:request.getRequestDispatcher("TruongBoMon.jsp").forward(request,response);break;
-        	case 5:request.getRequestDispatcher("TruongKhoa.jsp").forward(request,response);break;
-        	case 6:request.getRequestDispatcher("BanGiamHieu.jsp").forward(request,response);break;
+        	case 2:request.getRequestDispatcher("TruongBoMon.jsp").forward(request,response);break;
+        	case 3:request.getRequestDispatcher("TruongKhoa.jsp").forward(request,response);break;
+        	case 4:request.getRequestDispatcher("BanGiamHieu.jsp").forward(request,response);break;
+        	case 5:request.getRequestDispatcher("PhongToChuc_CanBo.jsp").forward(request,response);break;
+        	case 6:request.getRequestDispatcher("QuanTriVien.jsp").forward(request,response);break;
         	}
         	
         }

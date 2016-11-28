@@ -127,6 +127,7 @@
 					</div>
 				</div>
 				<%
+					String tengv = (String) request.getAttribute("tengv");
 					int colCount = (int) request.getAttribute("colCount");
 					String url = "TBD_Tinhtrangbieumaudadk.jsp";
 					ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
@@ -140,7 +141,7 @@
 					<input type="hidden" name="quantity" value=<%=rowCol%> />
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
+							<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÍ</h3>
 						</div>
 						<div style="overflow-x: auto;">
 							<table>

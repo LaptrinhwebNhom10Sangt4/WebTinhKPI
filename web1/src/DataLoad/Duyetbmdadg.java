@@ -18,7 +18,7 @@ public class Duyetbmdadg {
 	{
 		Datasource ds = new Datasource();
 		String source = "bieumaudadk,regform";
-		String columns = "regform.mabieumau,kehoach,chitieu,kpimax,tientrinh,kpidanhgia,kpicaptren,daduyetdg";
+		String columns = "regform.mabieumau,kehoach,chitieu,kpimax,tientrinh,kpidanhgia,kpicaptren,tbmduyet,trkduyet,bghduyet";
 		rs = ds.getDataObject(source, columns,filter);
 	}
 	public ArrayList<Object> getForm(){

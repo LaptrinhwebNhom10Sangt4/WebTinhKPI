@@ -3,7 +3,7 @@
 <!document html>
 <html>
 <head>
-<title>Truong khoa</title>
+<title>Ban giam hieu</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -108,10 +108,12 @@
 						<table>
 							<thead>
 								<tr>
-									<th>Mã số cán bộ</th>
+									<th style="width: 80px">Mã số cán bộ</th>
 									<th>Tên giáo viên</th>
-									<th style="width: 150px">Các biểu mẫu đã đăng ký</th>
-									<th style="width: 150px">Các biểu mẫu đã đánh giá</th>
+									<th>Chức vụ</th>
+									<th>Khoa</th>
+									<th style="width: 110px">Các biểu mẫu đã đăng ký</th>
+									<th style="width: 110px">Các biểu mẫu đã đánh giá</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -125,34 +127,34 @@
 									String tengv = new String();
 									String role = new String();
 									for (int i = 1; i <= rowCol; i++) {
-										role = form.get(count).toString();
+										
 								%>
 								<tr>
 									<%
 										for (int j = 1; j <= colCount; j++) {
-												if (j == 1) {
-													count++;
-													continue;
-												}
-												if(j==3)
+											if (j == 3) {
+												role = form.get(count).toString();
+												String cv ="";
+												switch((Integer)form.get(count++)){
+												case(1):cv="Giảng viên";break;
+												case(2):cv="Trưởng bộ môn";break;
+												case(3):cv="Trưởng khoa";break;
+												}%>
+								<td><%=cv %></td>
+								<%continue;
+											}
+												if(j==2)
 												{
 													tengv = form.get(count).toString();
 												}
-												if (j == 4) {
-													if (role.equals("3")) {
+												if (j == 5) {
+													
 									%>
 									<td><a
-										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email=<%=form.get(count)%>&url=<%=url%>&tengv=<%=tengv%>'">Chitiết</a>
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email=<%=form.get(count)%>&url=<%=url%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
 									</td>
-									<%
-										} else {
-									%>
-									<td></td>
-									<%
-										}
-									%>
 									<td><a
-										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdg?email=<%=form.get(count++)%>&url=<%=url1%>&tengv=<%=tengv%>'">Chitiết</a>
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdg?email=<%=form.get(count++)%>&url=<%=url1%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
 									</td>
 									<%
 										continue;

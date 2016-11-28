@@ -18,7 +18,7 @@ public class Duyetbmdadk {
 	{
 		Datasource ds = new Datasource();
 		String source = "userinfo,users";
-		String columns = " distinct users.ROLE,mscb, name,users.email ";
+		String columns = " distinct mscb, name,users.ROLE,faculty,users.email ";
 		rs = ds.getDataObject(source, columns,filter);
 	}
 	public ArrayList<Object> getForm(){

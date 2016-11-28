@@ -120,6 +120,7 @@
 						//String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
 						String email = new String((String) request.getAttribute("email"));
 						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+						String role = new String((String) request.getAttribute("role"));
 						int count = 0;
 						int rowCol = form.size() / colCount;
 						Object val = new Object();
@@ -128,6 +129,7 @@
 							<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
 								type="hidden" name="email" value=<%=email%> /> 
 									<input type="hidden" name="url" value="TBD_duyetbieumaudadkcuagv.jsp" />
+									<input type="hidden" name="role" value=<%=role%> />
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h3 class="text-center">

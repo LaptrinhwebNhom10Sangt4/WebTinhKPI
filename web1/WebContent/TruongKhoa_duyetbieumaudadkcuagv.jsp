@@ -110,6 +110,13 @@
 						//String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
 						String email = new String((String) request.getAttribute("email"));
 						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+						String title = "Biểu mẫu đã đăng ký của ";
+						String role = new String((String) request.getAttribute("role"));
+						switch(Integer.parseInt(role)){
+						case(1):title+=" GV ";break;
+						case(2):title+=" TBM ";break;
+						case(3):title+="Trưởng khoa ";break;
+						}
 						int count = 0;
 						int rowCol = form.size() / colCount;
 						Object val = new Object();
@@ -122,11 +129,11 @@
 							type="hidden" name="email" value=<%=email%> /> <input
 							type="hidden" name="url"
 							value="TruongKhoa_duyetbieumaudadkcuagv.jsp" />
+							<input type="hidden" name="role" value=<%=role%> />
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="text-center">
-									Biểu mẫu đã đăng kí của GV
-									<%=tengv%></h3>
+									<%=title+tengv%></h3>
 							</div>
 
 							<%

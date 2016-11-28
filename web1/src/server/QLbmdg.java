@@ -32,6 +32,7 @@ public class QLbmdg extends HttpServlet {
 		String url = request.getParameter("url");
 		String email = request.getParameter("email");
 		String tengv = request.getParameter("tengv");
+		String role = request.getParameter("role");
 		Duyetbmdadg fr = new Duyetbmdadg(email);
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
 		int colCount =fr.size();
@@ -39,6 +40,7 @@ public class QLbmdg extends HttpServlet {
 		request.setAttribute("colCount", colCount);
 		request.setAttribute("tengv", tengv);
 		request.setAttribute("email", email);
+		request.setAttribute("role", role);
 		request.getRequestDispatcher(url).forward(request,response);
 	}
 

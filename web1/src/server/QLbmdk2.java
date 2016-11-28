@@ -23,6 +23,7 @@ public class QLbmdk2 extends HttpServlet {
 		String email = request.getParameter("email");
 		String url = request.getParameter("url");
 		String tengv = request.getParameter("tengv");
+		String role = request.getParameter("role");
 		int count = 0;
 		ArrayList<String> mabieumau = new ArrayList<String>();
 		for(int i = 1 ; i <= quantity;i ++)
@@ -41,7 +42,7 @@ public class QLbmdk2 extends HttpServlet {
 			ds.updateDataObject(source, table, filter);	
 			//update ud = new update(source,table,filter);
 		}
-		response.sendRedirect("/web1/QLbmdk1?email="+email+"&url="+url+"&tengv="+tengv);
+		response.sendRedirect("/web1/QLbmdk1?email="+email+"&url="+url+"&tengv="+tengv+"&role="+role);
 	}
 
 }

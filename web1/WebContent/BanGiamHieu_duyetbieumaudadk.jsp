@@ -4,7 +4,7 @@
 <!document html>
 <html>
 <head>
-<title>Truong khoa</title>
+<title>Ban giam hieu</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,19 +106,26 @@
 						int colCount = (int) request.getAttribute("colCount");
 						String email = new String((String) request.getAttribute("email"));
 						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+						String role = new String((String) request.getAttribute("role"));
+						String title = "Biểu mẫu đã đăng ký của ";
+						switch(Integer.parseInt(role)){
+						case(1):title+=" GV ";break;
+						case(2):title+=" TBM ";break;
+						case(3):title+="Trưởng khoa ";break;
+						}
 						int count = 0;
 						int rowCol = form.size() / colCount;
 						Object val = new Object();
 					%>
 						<form action="QLbmdk2" method="get">
-							<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
-								type="hidden" name="email" value=<%=email%> /> 
-									<input type="hidden" name="url" value="BanGiamHieu_duyetbieumaudadk.jsp" />
+							<input type="hidden" name="quantity" value=<%=rowCol%> /> 
+							<input type="hidden" name="email" value=<%=email%> /> 
+							<input type="hidden" name="url" value="BanGiamHieu_duyetbieumaudadk.jsp" />
+							<input type="hidden" name="role" value=<%=role%> /> 
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h3 class="text-center">
-										Biểu mẫu đã đăng kí của GV
-										<%=tengv%></h3>
+										<%=title+tengv%></h3>
 								</div>
 							
 								<%
@@ -163,13 +170,17 @@
 												<%
 													continue;
 															}
-															if (j == 6) {
-																String checked = new String();
+															if (j == 6)	{															
 																String disable = new String();
+																String checked = new String();
 																if ((boolean) form.get(count++)) {
 																	checked = "checked";
 																	disable = "disabled";
 																}
+																if(role.equals("3")==false)
+																{
+																	disable = "disabled";
+																}												
 												%>
 												<td><input type="checkbox" name=<%=i%> value=<%=val%>
 													<%=disable%> <%=checked%>></input></td>
@@ -189,6 +200,7 @@
 									</table>
 								</div>
 							</div>
+							<%if (role.equals("3")){ %>
 							<div class="row">
 								<div class="col-sm-2 col-sm-offset-9">
 									<div class="btn-group" role="group">
@@ -197,6 +209,7 @@
 									</div>
 								</div>
 							</div>
+							<%} %>
 						</form>
 			</div>
 		</div>

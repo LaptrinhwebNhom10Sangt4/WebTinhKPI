@@ -31,6 +31,7 @@ public class QLbmdk1 extends HttpServlet {
 		String url = request.getParameter("url");
 		String email = request.getParameter("email");
 		String tengv = request.getParameter("tengv");
+		String role = request.getParameter("role");
 		Duyetbmdadk1 fr = new Duyetbmdadk1(email);
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
 		int colCount =fr.size();
@@ -38,6 +39,7 @@ public class QLbmdk1 extends HttpServlet {
 		request.setAttribute("colCount", colCount);
 		request.setAttribute("tengv", tengv);
 		request.setAttribute("email", email);
+		request.setAttribute("role", role);
 		request.getRequestDispatcher(url).forward(request,response);
 	}
 

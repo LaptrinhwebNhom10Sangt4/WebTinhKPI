@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class QLbmdg1
+ * Servlet implementation class QLbmdg2
  */
-@WebServlet("/QLbmdg1")
-public class QLbmdg1 extends HttpServlet {
+@WebServlet("/QLbmdg2")
+public class QLbmdg2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QLbmdg1() {
+    public QLbmdg2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +36,7 @@ public class QLbmdg1 extends HttpServlet {
 		String tengv = request.getParameter("tengv");
 		String ngduyet = request.getParameter("ngduyet");
 		String role = request.getParameter("role");
-		Hashtable<Integer,Integer> table = new Hashtable<Integer,Integer>();
+		Hashtable<Integer,String> table = new Hashtable<Integer,String>();
 		
 		for(int i = 1 ; i <= quantity;i ++)
 		{
@@ -45,18 +45,15 @@ public class QLbmdg1 extends HttpServlet {
 			String key = request.getParameter(conv);
 			if (key == "") continue;
 			String val = request.getParameter(key);
-			if (val == "") continue;
-			table.put(Integer.parseInt(key),Integer.parseInt(val));
+			if (val == "" || val == null) val = "FALSE";
+			table.put(Integer.parseInt(key),val);
 
 		}
 
 		
 		for (Integer key : table.keySet()){
 			String filter = new String(" email = '"+email+"' and MABIEUMAU = "+key);
-			String source = new String(" KPICAPTREN = "+table.get(key)+",DADUYETDG = TRUE ");
-			if(ngduyet.equals("tbm")) source+=" ,TBMDUYET = TRUE ";
-			if(ngduyet.equals("trk")) source+=" ,TRKDUYET = TRUE ";
-			if(ngduyet.equals("bgh")) source+=" ,BGHDUYET = TRUE ";
+			String source = new String(" TRKDUYET ="+table.get(key));
 			String table1 = new String(" bieumaudadk ");
 			Datasource ds = new Datasource();
 			ds.updateDataObject(source, table1, filter);	
@@ -64,4 +61,5 @@ public class QLbmdg1 extends HttpServlet {
 		
 		response.sendRedirect("/web1/QLbmdg?email="+email+"&url="+url+"&tengv="+tengv+"&role="+role);
 	}
+
 }

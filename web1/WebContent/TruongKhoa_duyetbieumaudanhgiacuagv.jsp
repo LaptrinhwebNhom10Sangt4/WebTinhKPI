@@ -115,22 +115,31 @@
 					int colCount = (int) request.getAttribute("colCount");
 					//String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
 					String email = new String((String) request.getAttribute("email"));
+					String role = new String((String) request.getAttribute("role"));
+					String title = "Biểu mẫu đã đăng ký của ";
+					switch(Integer.parseInt(role)){
+					case(1):title+=" GV ";break;
+					case(2):title+=" TBM ";break;
+					case(3):title+="Trưởng khoa ";break;
+					}
 					ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
 					int count = 0;
 					int rowCol = form.size() / colCount;
 					Object val = new Object();
+					if(role.equals("2"))
+					{
 				%>
 				<form action="QLbmdg1" method="get">
 					<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
 						type="hidden" name="email" value=<%=email%> /> <input
 						type="hidden" name="url"
-						value="TruongKhoa_duyetbieumaudanhgiacuagv.jsp" />
-						<input type="hidden" name="ngduyet" value="trk" /> 	
+						value="TruongKhoa_duyetbieumaudanhgiacuagv.jsp" /> <input
+						type="hidden" name="ngduyet" value="trk" /> <input type="hidden"
+						name="role" value=<%=role%> />
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="text-center">
-								Biểu mẫu đã đánh giá của GV
-								<%=tengv%></h3>
+								<%=title+tengv%></h3>
 						</div>
 
 						<%
@@ -146,7 +155,7 @@
 										<th>Chỉ tiêu</th>
 										<th>Kpi max</th>
 										<th>Kết quả</th>
-										<th style="width: 100px">KPI TBM đánh giá</th>
+										<th style="width: 100px">KPI tự đánh giá</th>
 										<th style="width: 100px">KPI trưởng khoa đánh giá</th>
 										<th>Duyệt</th>
 									</tr>
@@ -159,20 +168,21 @@
 									<tr>
 										<%
 											for (int j = 1; j <= colCount; j++) {
-													if (j == 1) {
+													if (j == 1 || j == 8 || j == 10) {
 														count++;
 														continue;
 													}
-													if (j == colCount - 1) {
+													if (j == 7) {
+														String disable = "";
+														if(role.equals("2")==false) disable = "disabled";
 										%>
 										<td><input type="hidden" name=<%="row"+i%> value=<%=val%> />
-											
-											<input type="text" id=<%=i%> name=<%=val%>
-											placeholder="<%=form.get(count++)%>" /></td>
+											<input style="width: 80px" <%=disable %> type="text"
+											id=<%=i%> name=<%=val%> placeholder="<%=form.get(count++)%>" /></td>
 										<%
 											continue;
 													}
-													if (j == colCount) {
+													if (j == 9) {
 														String check = "";
 														if ((boolean) form.get(count++))
 															check = "checked";
@@ -203,6 +213,101 @@
 						</div>
 					</div>
 				</form>
+				<%}
+				  else{%>
+				<form action="QLbmdg2" method="get">
+					<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
+						type="hidden" name="email" value=<%=email%> /> <input
+						type="hidden" name="url"
+						value="TruongKhoa_duyetbieumaudanhgiacuagv.jsp" /> <input
+						type="hidden" name="ngduyet" value="trk" /> <input type="hidden"
+						name="role" value=<%=role%> />
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="text-center">
+								<%=title+tengv%></h3>
+						</div>
+
+						<%
+							tengv = URLEncoder.encode(tengv, "UTF-8");
+						%>
+						<input type="hidden" name="tengv" value=<%=tengv%> />
+						<div style="overflow-x: auto;">
+
+							<table id="mytable">
+								<thead>
+									<tr>
+										<th>Tên kế hoạch</th>
+										<th>Chỉ tiêu</th>
+										<th>Kpi max</th>
+										<th>Kết quả</th>
+										<th style="width: 100px">KPI tự đánh giá</th>
+										<th style="width: 100px">KPI TBM đánh giá</th>
+										<th>TBM duyệt</th>
+										<th>TrKhoa duyệt</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										for (int i = 1; i <= rowCol; i++) {
+											val = form.get(count);
+									%>
+									<tr>
+										<%
+											for (int j = 1; j <= colCount; j++) {
+													if (j == 1 || j == 10) {
+														count++;
+														continue;
+													}
+													if (j == 7) {
+														String disable = "";
+														if(role.equals("2")==false) disable = "disabled";
+										%>
+										<td><input type="hidden" name=<%="row"+i%> value=<%=val%> />
+											<input style="width: 80px" <%=disable %> type="text"
+											 placeholder="<%=form.get(count++)%>" /></td>
+										<%
+											continue;
+													}
+													if (j == 8) {
+														String check = "";
+														if ((boolean) form.get(count++))
+															check = "checked";
+										%>
+										<td><input type="checkbox" disabled <%=check%> /></td>
+										<%
+											continue;
+													}
+													if(j == 9 ){
+														String trkcheck = "";
+														if((boolean)form.get(count++))
+															trkcheck = "checked";
+													
+										%>
+										<td><input name=<%=val%> type="checkbox" value="TRUE" <%=trkcheck%> /></td>
+										<%continue;
+											} %>
+										<td><%=form.get(count++)%></td>
+										<%
+											}
+										%>
+									</tr>
+									<%
+										}
+									%>
+								</tbody>
+							</table>
+							<div style="float: right">
+								<div class="btn-group" role="group">
+									<button type="submit" class="btn btn-primary"
+										onclick="window.location.href=''">Duyệt biểu mẫu</button>
+									<button name="abc" type="button" class="btn btn-danger">Hủy</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<%} %>
 			</div>
 		</div>
 	</div>

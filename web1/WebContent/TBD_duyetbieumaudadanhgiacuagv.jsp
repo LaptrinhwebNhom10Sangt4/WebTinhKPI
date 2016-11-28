@@ -121,7 +121,9 @@
 					int colCount = (int) request.getAttribute("colCount");
 					//String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
 					String email = new String((String) request.getAttribute("email"));
+					String role = new String((String) request.getAttribute("role"));
 					ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+					
 					int count = 0;
 					int rowCol = form.size() / colCount;
 					Object val = new Object();
@@ -132,6 +134,7 @@
 						type="hidden" name="url"
 						value="TBD_duyetbieumaudadanhgiacuagv.jsp" />
 						<input type="hidden" name="ngduyet" value="tbm" />
+						<input type="hidden" name="role" value=<%=role%> /> 
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="text-center">
@@ -153,8 +156,9 @@
 										<th>Kpi max</th>
 										<th>Kết quả</th>
 										<th style="width: 100px">KPI GV đánh giá</th>
-										<th style="width: 100px">KPI TBM đánh giá</th>
-										<th>Duyệt</th>
+										<th >KPI TBM đánh giá</th>
+										<th>TBM duyệt</th>
+										<th>Trưởng khoa duyệt</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -165,19 +169,19 @@
 									<tr>
 										<%
 											for (int j = 1; j <= colCount; j++) {
-													if (j == 1) {
+													if (j == 1 || j == 10) {
 														count++;
 														continue;
 													}
-													if (j == colCount - 1) {
+													if (j == 7) {
 										%>
 										<td><input type="hidden" name=<%="row"+i%> value=<%=val%> />
-											<input type="text" id=<%=i%> name=<%=val%>
+											<input style="width: 80px" type="text" id=<%=i%> name=<%=val%>
 											placeholder="<%=form.get(count++)%>" /></td>
 										<%
 											continue;
 													}
-													if (j == colCount) {
+													if (j == 8 || j == 9) {
 														String check = "";
 														if ((boolean) form.get(count++))
 															check = "checked";

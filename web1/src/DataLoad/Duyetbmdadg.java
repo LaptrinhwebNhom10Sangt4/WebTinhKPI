@@ -7,18 +7,18 @@ import java.util.ArrayList;
 
 import server.Datasource;
 
-public class Duyetbmdadk {
+public class Duyetbmdadg {
 	ResultSet rs = null;
 	String filter = new String();
-	public Duyetbmdadk(String email)
+	public Duyetbmdadg(String email)
 	{
-		filter ="users.ROLE < (select ROLE from users where email='"+email+"') and userinfo.email = users.email ";
+		filter = "bieumaudadk.MABIEUMAU = regform.MABIEUMAU and email = '"+email+"' and kpidanhgia is not null";
 	}
 	private void getData()
 	{
 		Datasource ds = new Datasource();
-		String source = "userinfo,users";
-		String columns = " distinct users.ROLE,mscb, name,users.email ";
+		String source = "bieumaudadk,regform";
+		String columns = "regform.mabieumau,kehoach,chitieu,kpimax,tientrinh,kpidanhgia,kpicaptren,daduyetdg";
 		rs = ds.getDataObject(source, columns,filter);
 	}
 	public ArrayList<Object> getForm(){

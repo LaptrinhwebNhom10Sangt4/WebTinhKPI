@@ -114,28 +114,17 @@
 						</div>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#home">Duyệt
-							biểu mẫu đã đăng ký của GV</a></li>
-					<li><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã
-							đánh giá của GV</a></li>
-				</ul>
-				<div class="tab-content">
 					<%
 						String tengv = (String) request.getAttribute("tengv");
 						int colCount = (int) request.getAttribute("colCount");
-						String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
+						//String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
 						String email = new String((String) request.getAttribute("email"));
 						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
 						int count = 0;
 						int rowCol = form.size() / colCount;
 						Object val = new Object();
 					%>
-					<div id="home" class="tab-pane fade in active">
 						<form action="QLbmdk2" method="get">
-							<%
-								
-							%>
 							<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
 								type="hidden" name="email" value=<%=email%> /> 
 									<input type="hidden" name="url" value="TBD_duyetbieumaudadkcuagv.jsp" />
@@ -224,70 +213,6 @@
 								</div>
 							</div>
 						</form>
-					</div>
-					<div id="menu1" class="tab-pane fade">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-									<tr>
-										<th>Mã số cán bộ</th>
-										<th>Tên giáo viên</th>
-										<th>Các biểu mẫu đã đánh giá</th>
-										<th>Duyệt</th>
-									</tr>
-									<tr>
-										<td>123</td>
-										<td>Nguyễn Văn A</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>222</td>
-										<td>Nguyễn Văn D</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>333</td>
-										<td>Nguyễn Thị D</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>345</td>
-										<td>Nguyễn Trung D</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>123</td>
-										<td>Trần Văn A</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>666</td>
-										<td>Trần Thị B</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>222</td>
-										<td>Vũ Văn H</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>111</td>
-										<td>Trần Văn B</td>
-										<td><a href="TBD_duyetbieumaudadanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

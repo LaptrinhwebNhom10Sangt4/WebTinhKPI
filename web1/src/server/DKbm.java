@@ -9,20 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/QLbmdk2")
-public class QLbmdk2 extends HttpServlet {
+/**
+ * Servlet implementation class DKbm
+ */
+@WebServlet("/DKbm")
+public class DKbm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public QLbmdk2() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DKbm() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String email = request.getParameter("email");
 		String url = request.getParameter("url");
-		String tengv = request.getParameter("tengv");
 		int count = 0;
 		ArrayList<String> mabieumau = new ArrayList<String>();
 		for(int i = 1 ; i <= quantity;i ++)
@@ -34,14 +44,15 @@ public class QLbmdk2 extends HttpServlet {
 		}
 		for(int i = 1; i <= mabieumau.size();i++)
 		{
-			String filter = new String("email = '"+email+"' and MABIEUMAU = "+mabieumau.get(i-1));
-			String source = new String("DADUYETDK = TRUE");
+			String source = new String("email = '"+email+"', MABIEUMAU = "+mabieumau.get(i-1));
 			String table = new String("bieumaudadk");
 			Datasource ds = new Datasource();
-			ds.updateDataObject(source, table, filter);	
+			ds.insertDataObject(table,source);	
 			//update ud = new update(source,table,filter);
 		}
-		response.sendRedirect("/web1/QLbmdk1?email="+email+"&url="+url+"&tengv="+tengv);
+		response.sendRedirect("/web1/FormLoad1?url="+url+"&email="+email);
 	}
+
+	
 
 }

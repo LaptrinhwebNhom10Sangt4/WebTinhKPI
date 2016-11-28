@@ -77,11 +77,11 @@
 								<div class="danhmuc" style="float: left">Xem biểu mẫu cán
 									bộ</div>
 							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									trưởng khoa</div>
-							</button>
+							<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=BanGiamHieu_Bieumautruongkhoa.jsp&email=${email}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu trưởng khoa</div>
+								</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='BanGiamHieu_Phancongcongviec.jsp'"">
 								<div class="danhmuc" style="float: left">Phân công công

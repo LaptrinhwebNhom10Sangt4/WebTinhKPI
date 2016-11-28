@@ -37,7 +37,9 @@ public class updateForm extends HttpServlet {
 		String filter = new String("email = '"+email+"' and MABIEUMAU = "+mabieumau);
 		String source = new String("TIENTRINH = '"+tientrinh+"',KPIDANHGIA =" +kpi);
 		String table = new String("bieumaudadk");
-		update update = new update(source,table,filter);
+		Datasource ds = new Datasource();
+		ds.updateDataObject(source, table, filter);	
+		//update update = new update(source,table,filter);
 		response.sendRedirect("/web1/Tinhtrang?mabieumau="+mabieumau+"&email="+email+"&url="+url);
 	}
 

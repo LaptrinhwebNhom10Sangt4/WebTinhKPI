@@ -74,9 +74,10 @@
 									<div class="danhmuc" style="float: left">Thông tin cá
 										nhân</div>
 								</button>
-								<button type="submit" name="getform" class="btn btn-default"
-									value="TBD_Dangkybieumau.jsp" style="width: 100%">
-									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TBD_Dangkybieumau.jsp&email=${email}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
 								</button>
 								<button type="button"
 									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TBD_Quanlybieumaudadk.jsp&email=${email}'"

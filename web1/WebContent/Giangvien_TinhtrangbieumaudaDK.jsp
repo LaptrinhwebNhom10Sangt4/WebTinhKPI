@@ -65,27 +65,27 @@
 					<div class="row ">
 						<form action="FormLoad" method="post">
 							<div class="btn-group-vertical">
-								<button type="submit" class="btn btn-default" name="getform"
-									style="width: 100%" value="GiangVien.jsp">
-									<div class="danhmuc" style="float: left">Thông tin cá
-										nhân</div>
-								</button>
-								<button type="submit" name="getform" class="btn btn-default"
-									style="width: 100%" value="Giangvien_DangkyBieumau.jsp">
-									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
-								</button>
-								<button type="button" class="btn btn-default active"
-									style="width: 100%"
-									onclick="window.location.href='Giangvien_Quanlybieumaudadangky.jsp'">
-									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-										đã đăng kí</div>
-								</button>
 								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'"">
-									<div class="danhmuc" style="float: left">Cập nhật tiến
-										trình được phân công</div>
-								</button>
+								style="width: 100%"
+								onclick="window.location.href='GiangVien.jsp'">
+								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
+							</button>
+							<button type="button"
+								onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=Giangvien_DangkyBieumau.jsp'"
+								class="btn btn-default" style="width: 100%">
+								<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
+							</button>
+							<button type="button"
+								onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=Giangvien_Quanlybieumaudadangky.jsp&email=${email}'"
+								class="btn btn-default active" style="width: 100%">
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									đã đăng kí</div>
+							</button>
+							<button type="button" class="btn btn-default" style="width: 100%"
+								onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'"">
+								<div class="danhmuc" style="float: left">Cập nhật tiến
+									trình được phân công</div>
+							</button>
 							</div>
 						</form>
 					</div>

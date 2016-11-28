@@ -18,20 +18,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <body>
-	<form action=callme method="get">
-
-		<input type="checkbox" name="param" value="Bike"> I have a
-		bike<br>
-		<!-- 		 <input type="checkbox" disabled name="param1" value="Car" checked> I have a car<br> -->
-		<% String temp = new String("Nguyen Van A");
-		temp = temp.replaceAll(" ", "+");
-			%>
-		<input type="hidden" value=<%=temp%> name="param1"  />
-		<button type="submit">submit</button>
-	</form>
-	<button type="button" class="btn btn-lg btn-danger"
-		data-toggle="popover" title="Popover title"
-		data-content="And here's some amazing content. It's very engaging. Right?">Click
-		to toggle popover</button>
+	 <img src="<%=request.getContextPath()%>/PhotoServlet?id=6" />
 </body>
 </html>

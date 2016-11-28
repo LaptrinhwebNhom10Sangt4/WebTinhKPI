@@ -101,98 +101,127 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-					<div class="row">
-						<div class="dropdown">
-							<div class="col-md-2">
-								<button class="btn btn-default dropdown-toggle" type="button"
-									data-toggle="dropdown">
-									Lựa chọn <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu dropdown"
-									aria-labelledby="dropdownMenu1">
-									<li><a href="#">Tất cả</a></li>
-									<li><a href="#">Đề tài</a></li>
-									<li><a href="#">Môn học</a></li>
-								</ul>
-							</div>
-
+				<div class="row">
+					<div class="dropdown">
+						<div class="col-md-2">
+							<button class="btn btn-default dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Lựa chọn <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu dropdown"
+								aria-labelledby="dropdownMenu1">
+								<li><a href="#">Tất cả</a></li>
+								<li><a href="#">Đề tài</a></li>
+								<li><a href="#">Môn học</a></li>
+							</ul>
 						</div>
-						<div class="col-md-4 col-md-offset-6">
-							<div class="form-group">
-								<input type="text" class="form-control" name=""
-									placeholder="Tìm kiếm"> </input>
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
-					</div>
-					<div style="overflow-x: auto;">
-						<table>
-							<thead>
-								<tr>
-									<th>Tên biểu mẫu</th>
-									<th>Kế hoạch</th>
-									<th>Chi tiết kế hoạch</th>
-									<th>Tỷ trọng</th>
-									<th>Chỉ đạo</th>
-									<th>Tình trạng</th>
-								</tr>
-							</thead>
-							<tbody>
-								<%
-									int colCount = (int) request.getAttribute("colCount");
-									String url = "TruongKhoa_Tinhtrangbieumaudadk.jsp";
-									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-									int count = 0;
-									int rowCol = form.size() / colCount;
-									Object mabm = new Object();
-									for (int i = 1; i <= rowCol; i++) {
-										mabm = form.get(count);
-								%>
-								<tr>
-									<%
-										for (int j = 1; j <= colCount; j++) {
-												if (j == 3) {
-													String c, d = new String();
-													c = Integer.toString(count);
-													d = "#";
-													d = d.concat(c);
-									%>
-									<td><a role="button" data-toggle="collapse" href=<%=d%>
-										aria-expanded="false" aria-controls="collapseExample"> Chi
-											tiết </a>
-										<div class="collapse" id=<%=c%>>
-											<div class="well"><%=form.get(count++)%></div>
-										</div></td>
-									<%
-										} else {
-									%>
-									<td><%=form.get(count++)%></td>
-									<%
-										}
-									%>
-									<%
-										}
-									%>
-									<td><a
-										onclick="window.location.href='<%=request.getContextPath()%>/Tinhtrang?mabieumau=<%=mabm %>&email=${email}&url=<%=url%>'">Chi
-											tiết</a></td>
-								</tr>
-								<%
-									}
-								%>
 
-							</tbody>
-						</table>
+					</div>
+					<div class="col-md-4 col-md-offset-6">
+						<div class="form-group">
+							<input type="text" class="form-control" name=""
+								placeholder="Tìm kiếm">
+						</div>
 					</div>
 				</div>
-					<div class="row">
-						<div class="col-md-12 col-md-offset-10" style="margin-top: 10px">
-							<button class="btn btn-primary">Xóa biểu mẫu</button>
+				<%
+					int colCount = (int) request.getAttribute("colCount");
+					String url = "TruongKhoa_Tinhtrangbieumaudadk.jsp";
+					ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+					int count = 0;
+					int rowCol = form.size() / colCount;
+					Object mabm = new Object();
+				%>
+				<form action="XoaBm" method="get">
+					<input type="hidden" name="email" value=${email } />
+					<input type="hidden" name="url" value="TruongKhoa_Quanlybieumaudadk.jsp" /> 
+					<input type="hidden" name="quantity" value=<%=rowCol%> />
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
+						</div>
+						<div style="overflow-x: auto;">
+							<table>
+								<thead>
+									<tr>
+										<th style="width: 50px">Tên biểu mẫu</th>
+										<th>Kế hoạch</th>
+										<th style="width: 80px">Chi tiết kế hoạch</th>
+										<th style="width: 50px">Tỷ trọng</th>
+										<th>Chỉ đạo</th>
+										<th style="width: 50px">Đã duyệt</th>
+										<th>Tình trạng</th>
+										<th>Chọn</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										for (int i = 1; i <= rowCol; i++) {
+											mabm = form.get(count);
+											boolean link = true;
+									%>
+									<tr>
+										<%
+											for (int j = 1; j <= colCount; j++) {
+													if (j == 3) {
+														String c, d = new String();
+														c = Integer.toString(count);
+														d = "#";
+														d = d.concat(c);
+										%>
+										<td><a role="button" data-toggle="collapse" href=<%=d%>
+											aria-expanded="false" aria-controls="collapseExample">
+												Chi tiết </a>
+											<div class="collapse" id=<%=c%>>
+												<div class="well"><%=form.get(count++)%></div>
+											</div></td>
+										<%
+											continue;
+													}
+													if (j == 6) {
+														String checked = new String("");
+
+														if ((boolean) form.get(count++) == true) {
+															checked = "checked";
+															link = false;
+														}
+										%>
+										<td><input type="checkbox" <%=checked%> disabled /></td>
+										<%
+											continue;
+													}
+										%>
+										<td><%=form.get(count++)%></td>
+
+										<%
+											}
+												if (link) {
+										%>
+										<td></td>
+										<%
+											} else {
+										%>
+										<td><a class="not-active"
+											onclick="window.location.href='<%=request.getContextPath()%>/Tinhtrang?mabieumau=<%=mabm %>&email=${email}&url=<%=url%>'">Chi
+												tiết</a></td>
+										<%
+											}
+										%>
+										<td><input type="checkbox" name=<%=i%> value=<%=mabm%> /></td>
+									</tr>
+									<%
+										}
+									%>
+
+								</tbody>
+							</table>
+							<div style="float: right; padding-top: 10px">
+								<button type="submit" class="btn btn-danger">Xóa biểu
+									mẫu</button>
+							</div>
 						</div>
 					</div>
+				</form>
 			</div>
 		</div>
 	</div>

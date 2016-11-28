@@ -73,9 +73,10 @@
 									<div class="danhmuc" style="float: left">Thông tin cá
 										nhân</div>
 								</button>
-								<button type="submit" name="getform" class="btn btn-default"
-									value="TruongKhoa_Dangkybieumau.jsp" style="width: 100%">
-									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TruongKhoa_Dangkybieumau.jsp&email=${email}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
 								</button>
 								<button type="button"
 									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}'"
@@ -83,9 +84,9 @@
 									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
 										đã đăng kí</div>
 								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TruongKhoa_Bieumaugiangvien.jsp'"">
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TruongKhoa_Bieumaugiangvien.jsp&email=${email}'"
+									class="btn btn-default" style="width: 100%">
 									<div class="danhmuc" style="float: left">Biểu mẫu giảng
 										viên</div>
 								</button>

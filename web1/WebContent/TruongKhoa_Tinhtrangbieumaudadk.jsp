@@ -153,9 +153,7 @@
 									</tr>
 								</tbody>
 							</table>
-						</div>
-						<div class="row">
-							<div class="col-md-4 col-md-offset-8">
+							<div style="float: right; padding-top: 10px">
 								<div class="btn-group">
 									<button name="submit" class="btn btn-primary">Duyệt
 										biểu mẫu</button>

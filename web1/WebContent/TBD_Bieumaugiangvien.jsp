@@ -17,15 +17,8 @@
 <link href="css/styles.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
-<style>
-.nav-tabs li a {
-	color: #777;
-}
-</style>
 </head>
 <body>
-
 	<div class="container">
 		<%@include file="header.jsp"%>
 		<div class="row">
@@ -116,115 +109,77 @@
 						</div>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#home">Duyệt
-							biểu mẫu đã đăng ký của GV</a></li>
-					<li><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã
-							đánh giá của GV</a></li>
-				</ul>
-				<div class="tab-content">
-					<div id="home" class="tab-pane fade in active">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-									<thead>
-										<tr>
-											<th>Mã số cán bộ</th>
-											<th style="width:400px">Tên giáo viên</th>
-											<th>Các biểu mẫu đã đăng ký</th>
-										</tr>
-									</thead>
-									<tbody>
-										<%
-											int colCount = (int) request.getAttribute("colCount");
-											ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-											int count = 0;
-											int rowCol = form.size() / colCount;
-											String url = new String("TBD_duyetbieumaudadkcuagv.jsp");
-											String tengv = new String();
-											for (int i = 1; i <= rowCol; i++) {
-										%>
-											<tr>
-												<%for (int j = 1; j <= colCount; j++){
-													if(j==2) tengv = (String)form.get(count);
-													if(j == colCount){
-														continue;
-													}%>
-													<td><%=form.get(count++) %></td>
-												<%}%>
-												<td><a onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email=<%=form.get(count) %>&url=<%=url%>&tengv=<%=tengv%>'">Chitiết</a> </td>
-											</tr>
-										<%	count++;
-											}%>
-									</tbody>
-								</table>
-							</div>
-						</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">BIỂU MẪU CỦA GIẢNG VIÊN</h3>
 					</div>
-					<div id="menu1" class="tab-pane fade">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-									<tr>
-										<th>Mã số cán bộ</th>
-										<th>Tên giáo viên</th>
-										<th>Các biểu mẫu đã đánh giá</th>
-										<th>Duyệt</th>
-									</tr>
-									<tr>
-										<td>123</td>
-										<td>Nguyễn Văn A</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>222</td>
-										<td>Nguyễn Văn D</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>333</td>
-										<td>Nguyễn Thị D</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>345</td>
-										<td>Nguyễn Trung D</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>123</td>
-										<td>Trần Văn A</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>666</td>
-										<td>Trần Thị B</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox" checked></td>
-									</tr>
-									<tr>
-										<td>222</td>
-										<td>Vũ Văn H</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<tr>
-										<td>111</td>
-										<td>Trần Văn B</td>
-										<td><a href="TruongKhoa_duyetbieumaudanhgiacuagv.jsp">xem</a></td>
-										<td><input type="checkbox"></td>
-									</tr>
-								</table>
-							</div>
-						</div>
-
+					<div style="overflow-x: auto;">
+						<table>
+							<thead>
+								<tr>
+									<th>Mã số cán bộ</th>
+									<th>Tên giáo viên</th>
+									<th style="width: 150px">Các biểu mẫu đã đăng ký</th>
+									<th style="width: 150px">Các biểu mẫu đã đánh giá</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%
+									int colCount = (int) request.getAttribute("colCount");
+									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+									int count = 0;
+									int rowCol = form.size() / colCount;
+									String url = new String("TBD_duyetbieumaudadkcuagv.jsp");
+									String url1 = new String("TBD_duyetbieumaudadanhgiacuagv.jsp");
+									String tengv = new String();
+									String role = new String();
+									for (int i = 1; i <= rowCol; i++) {
+										role = form.get(count).toString();
+								%>
+								<tr>
+									<%
+										for (int j = 1; j <= colCount; j++) {
+												if (j == 1) {
+													count++;
+													continue;
+												}
+												if(j==3)
+												{
+													tengv = form.get(count).toString();
+												}
+												if (j == 4) {
+													if (role.equals("1")) {
+									%>
+									<td><a
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email=<%=form.get(count)%>&url=<%=url%>&tengv=<%=tengv%>'">Chitiết</a>
+									</td>
+									<%
+										} else {
+									%>
+									<td></td>
+									<%
+										}
+									%>
+									<td><a
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdg?email=<%=form.get(count++)%>&url=<%=url1%>&tengv=<%=tengv%>'">Chitiết</a>
+									</td>
+									<%
+										continue;
+												}
+									%>
+									<td><%=form.get(count++)%></td>
+									<%
+										}
+									%>
+								</tr>
+								<%
+									}
+								%>
+							</tbody>
+						</table>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>

@@ -11,8 +11,10 @@ import server.Datasource;
 public class formRegistration {
 	ResultSet rs = null;
 	String filter = new String();
+	String filter1 = new String();
 	public formRegistration(String fil){
-		filter = " email = '"+fil+"' and bieumaudadk.MABIEUMAU = regform.MABIEUMAU";
+		filter = " regform.MABIEUMAU not in (select MABIEUMAU from  bieumaudadk where email = '"+fil+"')";
+		filter1 = " email = '"+fil+"' and bieumaudadk.MABIEUMAU = regform.MABIEUMAU";
 	}
 	public formRegistration(){
 	}
@@ -22,7 +24,7 @@ public class formRegistration {
 		String source = "regform";
 		String columns = "*";
 		//String filter = "email = '" + role + "'";
-		rs = ds.getDataObject(source, columns);
+		rs = ds.getDataObject(source, columns,filter);
 	}
 	
 	public ArrayList<Object> getForm(){
@@ -49,8 +51,8 @@ public class formRegistration {
 	{
 		Datasource ds = new Datasource();
 		String source = "regform ,bieumaudadk";
-		String columns = "bieumaudadk.MABIEUMAU,KEHOACH,CHITIETKEHOACH,TYTRONG,CHIDAO";
-		rs = ds.getDataObject(source, columns, filter);
+		String columns = "bieumaudadk.MABIEUMAU,KEHOACH,CHITIETKEHOACH,TYTRONG,CHIDAO,DADUYETDK";
+		rs = ds.getDataObject(source, columns, filter1);
 	}
 	
 	public ArrayList<Object> getFormWithFilter(){

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import="java.util.ArrayList"%>
 <!document html>
 <html>
 <head>
@@ -64,22 +64,30 @@
 		<div class="row ">
 			<div class="col-md-3">
 				<div class="col-md-12 ">
-					<div class="row ">	
-				<div class="btn-group-vertical">
-					<button type="button" class="btn btn-default" style="width:100%"  onclick="window.location.href='BanGiamHieu.jsp'">
-						<div class="danhmuc" style="float:left">Thông tin cá nhân</div>
-					</button>
-					<button type="button" class="btn btn-default" style="width:100%" onclick="window.location.href='BanGiamHieu_Xembieumaucb.jsp'">
-						<div class="danhmuc" style="float:left">Xem biểu mẫu cán bộ</div>
-					</button>
-					<button type="button" class="btn btn-default active" style="width:100% " onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">
-						<div class="danhmuc" style="float:left">Quản lý biểu mẫu trưởng khoa</div>
-					</button>
-					<button type="button" class="btn btn-default" style="width:100% " onclick="window.location.href='BanGiamHieu_Phancongcongviec.jsp'"">
-						<div class="danhmuc" style="float:left">Phân công công việc</div>
-					</button>		
-			</div>
-		</div>
+					<div class="row ">
+						<div class="btn-group-vertical">
+							<button type="button" class="btn btn-default" style="width: 100%"
+								onclick="window.location.href='BanGiamHieu.jsp'">
+								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
+							</button>
+							<button type="button" class="btn btn-default" style="width: 100%"
+								onclick="window.location.href='BanGiamHieu_Xembieumaucb.jsp'">
+								<div class="danhmuc" style="float: left">Xem biểu mẫu cán
+									bộ</div>
+							</button>
+							<button type="button" class="btn btn-default active"
+								style="width: 100%"
+								onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									trưởng khoa</div>
+							</button>
+							<button type="button" class="btn btn-default" style="width: 100%"
+								onclick="window.location.href='BanGiamHieu_Phancongcongviec.jsp'"">
+								<div class="danhmuc" style="float: left">Phân công công
+									việc</div>
+							</button>
+						</div>
+					</div>
 
 				</div>
 			</div>
@@ -92,177 +100,77 @@
 						</div>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#home">Duyệt
-							biểu mẫu đã đăng ký của GV</a></li>
-					<li><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã
-							đánh giá của GV</a></li>
-				</ul>
-				<div class="tab-content">
-					<div id="home" class="tab-pane fade in active">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-							<thead>
-							<tr><th>Mã số cán bộ</th>
-								<th>Tên giáo viên</th>
-								<th>Các biểu mẫu đã đăng ký</th>
-								<th>Duyệt</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<td>123</td>
-								<td>Nguyễn Văn A</td>
-								<td >
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
-							<tr>
-								<td>222</td>
-								<td>Nguyễn Văn D</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>333</td>
-								<td>Nguyễn Thị D</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>345</td>
-								<td>Nguyễn Trung D</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
-							<tr>
-								<td>123</td>
-								<td>Trần Văn A</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>666</td>
-								<td>Trần Thị B</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>222</td>
-								<td>Vũ Văn H</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
-							<tr>
-								<td>111</td>
-								<td>Trần Văn B</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
-							</tbody>
-						</table>
-							</div>
-						</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">BIỂU MẪU CỦA GIẢNG VIÊN</h3>
 					</div>
-					<div id="menu1" class="tab-pane fade">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-						<thead>
-							<tr><th>Mã số cán bộ</th>
-								<th>Tên giáo viên</th>
-								<th>Các biểu mẫu đã đánh giá</th>
-								<th>Duyệt</th>
-							</tr>
+					<div style="overflow-x: auto;">
+						<table>
+							<thead>
+								<tr>
+									<th>Mã số cán bộ</th>
+									<th>Tên giáo viên</th>
+									<th style="width: 150px">Các biểu mẫu đã đăng ký</th>
+									<th style="width: 150px">Các biểu mẫu đã đánh giá</th>
+								</tr>
 							</thead>
 							<tbody>
-							<tr>
-								<td>123</td>
-								<td>Nguyễn Văn A</td>
-								<td >
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
-							<tr>
-								<td>222</td>
-								<td>Nguyễn Văn D</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>333</td>
-								<td>Nguyễn Thị D</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>345</td>
-								<td>Nguyễn Trung D</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
-							<tr>
-								<td>123</td>
-								<td>Trần Văn A</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>666</td>
-								<td>Trần Thị B</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox" checked> </td>
-							</tr>
-							<tr>
-								<td>222</td>
-								<td>Vũ Văn H</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
-							<tr>
-								<td>111</td>
-								<td>Trần Văn B</td>
-								<td>
-									<a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-								</td>
-								<td> <input type="checkbox"> </td>
-							</tr>
+								<%
+									int colCount = (int) request.getAttribute("colCount");
+									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+									int count = 0;
+									int rowCol = form.size() / colCount;
+									String url = new String("BanGiamHieu_duyetbieumaudadk.jsp");
+									String url1 = new String("BanGiamHieu_duyetbieumaudadanhgia.jsp");
+									String tengv = new String();
+									String role = new String();
+									for (int i = 1; i <= rowCol; i++) {
+										role = form.get(count).toString();
+								%>
+								<tr>
+									<%
+										for (int j = 1; j <= colCount; j++) {
+												if (j == 1) {
+													count++;
+													continue;
+												}
+												if(j==3)
+												{
+													tengv = form.get(count).toString();
+												}
+												if (j == 4) {
+													if (role.equals("3")) {
+									%>
+									<td><a
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email=<%=form.get(count)%>&url=<%=url%>&tengv=<%=tengv%>'">Chitiết</a>
+									</td>
+									<%
+										} else {
+									%>
+									<td></td>
+									<%
+										}
+									%>
+									<td><a
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdg?email=<%=form.get(count++)%>&url=<%=url1%>&tengv=<%=tengv%>'">Chitiết</a>
+									</td>
+									<%
+										continue;
+												}
+									%>
+									<td><%=form.get(count++)%></td>
+									<%
+										}
+									%>
+								</tr>
+								<%
+									}
+								%>
 							</tbody>
 						</table>
-							</div>
-						</div>
-
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>

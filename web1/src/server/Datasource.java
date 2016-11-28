@@ -38,6 +38,28 @@ public class Datasource {
 			e.printStackTrace();
 		}
 	}
+	public void	insertDataObject(String table, String source){
+		String sql = "insert into " + table + " set " + source;
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void	deleteDataObject(String table, String source){
+		String sql = "delete from " + table + " where " + source;
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	private ResultSet execQuery(String sql){
 		PreparedStatement ps;

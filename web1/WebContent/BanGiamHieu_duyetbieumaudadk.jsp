@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.util.ArrayList"%>
 <!document html>
 <html>
@@ -100,135 +101,103 @@
 						</div>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#home">Duyệt
-							biểu mẫu đã đăng ký của GV</a></li>
-					<li><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã
-							đánh giá của GV</a></li>
-				</ul>
-				<div class="tab-content">
 					<%
+						String tengv = (String) request.getAttribute("tengv");
+						int colCount = (int) request.getAttribute("colCount");
 						String email = new String((String) request.getAttribute("email"));
+						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+						int count = 0;
+						int rowCol = form.size() / colCount;
+						Object val = new Object();
 					%>
-					<div id="home" class="tab-pane fade in active">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="text-center"><%=email %></h3>
-							</div>
-							<div style="overflow-x: auto;">
-								<table>
-									<thead>
-										<tr>
-											<th>Tên biểu mẫu</th>
-											<th>Kế hoạch</th>
-											<th>Chỉ tiêu</th>
-											<th>Duyệt</th>
-										</tr>
-									</thead>
-									<tbody>
-										<%
-											int colCount = (int) request.getAttribute("colCount");
-											ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-											int count = 0;
-											int rowCol = form.size() / colCount;
-											String url = new String("TBD_duyetbieumaudadkcuagv.jsp");
-											for (int i = 1; i <= rowCol; i++) {
-										%>
-										<%
-											}
-										%>
-										<%=%>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4 col-md-offset-8">
-								<div class="btn-group">
-									<button class="btn btn-primary">Duyệt biểu mẫu</button>
-									<button class="btn btn-danger"
-										onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">Quay
-										về</button>
+						<form action="QLbmdk2" method="get">
+							<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
+								type="hidden" name="email" value=<%=email%> /> 
+									<input type="hidden" name="url" value="BanGiamHieu_duyetbieumaudadk.jsp" />
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="text-center">
+										Biểu mẫu đã đăng kí của GV
+										<%=tengv%></h3>
+								</div>
+							
+								<%
+									//tengv = tengv.replaceAll(" ", "%20");
+									tengv = URLEncoder.encode(tengv,"UTF-8");
+								%>
+								<input
+								type="hidden" name="tengv" value=<%=tengv%> />
+								<div style="overflow-x: auto;">
+
+									<table>
+										<thead>
+											<tr>
+												<th style="width: 50px">Mã biểu mẫu</th>
+												<th>Kế hoạch</th>
+												<th>Chi tiết kế hoạch</th>
+												<th style="width: 50px">Tỷ trọng</th>
+												<th>KPI max</th>
+												<th>Đã duyệt</th>
+											</tr>
+										</thead>
+										<tbody>
+											<%
+												for (int i = 1; i <= rowCol; i++) {
+													val = form.get(count);
+											%>
+											<tr>
+												<%
+													for (int j = 1; j <= colCount; j++) {
+															if (j == 3) {
+																String c, d = new String();
+																c = Integer.toString(count);
+																d = "#";
+																d = d.concat(c);
+												%>
+												<td><a role="button" data-toggle="collapse" href=<%=d%>
+													aria-expanded="false" aria-controls="collapseExample">
+														Chi tiết </a>
+													<div class="collapse" id=<%=c%>>
+														<div class="well"><%=form.get(count++)%></div>
+													</div></td>
+												<%
+													continue;
+															}
+															if (j == 6) {
+																String checked = new String();
+																String disable = new String();
+																if ((boolean) form.get(count++)) {
+																	checked = "checked";
+																	disable = "disabled";
+																}
+												%>
+												<td><input type="checkbox" name=<%=i%> value=<%=val%>
+													<%=disable%> <%=checked%>></input></td>
+												<%
+													continue;
+															}
+												%>
+												<td><%=form.get(count++)%></td>
+												<%
+													}
+												%>
+											</tr>
+											<%
+												}
+											%>
+										</tbody>
+									</table>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div id="menu1" class="tab-pane fade">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-									<thead>
-										<tr>
-											<th>Mã số cán bộ</th>
-											<th>Tên giáo viên</th>
-											<th>Các biểu mẫu đã đánh giá</th>
-											<th>Duyệt</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>123</td>
-											<td>Nguyễn Văn A</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>222</td>
-											<td>Nguyễn Văn D</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>333</td>
-											<td>Nguyễn Thị D</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>345</td>
-											<td>Nguyễn Trung D</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>123</td>
-											<td>Trần Văn A</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>666</td>
-											<td>Trần Thị B</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>222</td>
-											<td>Vũ Văn H</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>111</td>
-											<td>Trần Văn B</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadanhgia.jsp">xem</a>
-											</td>
-											<td><input type="checkbox"></td>
-										</tr>
-									</tbody>
-								</table>
+							<div class="row">
+								<div class="col-sm-2 col-sm-offset-9">
+									<div class="btn-group" role="group">
+										<button type="submit" class="btn btn-primary">Duyệt
+											biểu mẫu</button>
+									</div>
+								</div>
 							</div>
-						</div>
-
-					</div>
-				</div>
+						</form>
 			</div>
 		</div>
 	</div>

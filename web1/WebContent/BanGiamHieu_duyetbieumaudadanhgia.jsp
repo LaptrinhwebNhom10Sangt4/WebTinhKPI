@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.net.URLEncoder"%>
 <!document html>
 <html>
 <head>
@@ -100,155 +101,122 @@
 						</div>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li ><a data-toggle="tab" href="#home">Duyệt
-							biểu mẫu đã đăng ký của GV</a></li>
-					<li class="active"><a data-toggle="tab" href="#menu1">Duyệt biểu mẫu đã
-							đánh giá của GV</a></li>
-				</ul>
-				<div class="tab-content">
-					<div id="home" class="tab-pane fade ">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-									<thead>
-										<tr>
-											<th>Mã số cán bộ</th>
-											<th>Tên giáo viên</th>
-											<th>Các biểu mẫu đã đăng ký</th>
-											<th>Duyệt</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>123</td>
-											<td>Nguyễn Văn A</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a>
-											</td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>222</td>
-											<td>Nguyễn Văn D</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>333</td>
-											<td>Nguyễn Thị D</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>345</td>
-											<td>Nguyễn Trung D</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>123</td>
-											<td>Trần Văn A</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>666</td>
-											<td>Trần Thị B</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>222</td>
-											<td>Vũ Văn H</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>111</td>
-											<td>Trần Văn B</td>
-											<td><a href="BanGiamHieu_duyetbieumaudadk.jsp">xem</a></td>
-											<td><input type="checkbox"></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
+				<%
+					String tengv = (String) request.getAttribute("tengv");
+					int colCount = (int) request.getAttribute("colCount");
+					//String url = "Giangvien_TinhtrangbieumaudaDK.jsp";
+					String email = new String((String) request.getAttribute("email"));
+					ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+					int count = 0;
+					int rowCol = form.size() / colCount;
+					Object val = new Object();
+				%>
+				<form action="QLbmdg1" method="get">
+					<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
+						type="hidden" name="email" value=<%=email%> /> <input
+						type="hidden" name="url"
+						value="BanGiamHieu_duyetbieumaudadanhgia.jsp" />
+						<input type="hidden" name="ngduyet" value="bgh" /> 	
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="text-center">
+								Biểu mẫu đã đánh giá của GV
+								<%=tengv%></h3>
 						</div>
-					</div>
-					<div id="menu1" class="tab-pane fade in active">
-						<div class="panel panel-default">
-							<div style="overflow-x: auto;">
-								<table>
-									<thead>
-										<tr>
-											<th>Tên biểu mẫu</th>
-											<th>Kế hoạch</th>
-											<th>Mục tiêu</th>
-											<th>Kết quả</th>
-											<th>KPI max</th>
-											<th>KPI GV đánh giá</th>
-											<th>KPI BGH đánh giá</th>
-											<th>Duyệt</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>BM123</td>
-											<td>Giảng dạy 120 tiết</td>
-											<td>120 tiết</td>
-											<td>120 tiết</td>
-											<td>40</td>
-											<td>40</td>
-											<td><input class="form-control text-center" type="text"
-												style="width: 60px"  placeholder="50">
-												</input></td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-										<tr>
-											<td>BM222</td>
-											<td>Phân công abc</td>
-											<td>40 công việc</td>
-											<td>35 công việc</td>
-											<td>50</td>
-											<td>50</td>
-											<td><input class="form-control text-center" type="text"
-												style="width: 60px"  placeholder="30">
-												</input></td>
-											<td><input type="checkbox"></td>
-										</tr>
-										<tr>
-											<td>BM333</td>
-											<td>Bảo vệ đồ án</td>
-											<td>2 đồ án</td>
-											<td>2 đồ án</td>
-											<td>60</td>
-											<td>60</td>
-											<td><input class="form-control text-center" type="text"
-												style="width: 60px" placeholder="20">
-												</input></td>
-											<td><input type="checkbox" checked></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4 col-md-offset-8">
-						<div class="btn-group">
-						<button class="btn btn-primary">Duyệt biểu mẫu</button>
-							<button class="btn btn-danger"
-								onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">Quay
-								về</button>
-						</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
+						<%
+							tengv = URLEncoder.encode(tengv, "UTF-8");
+						%>
+						<input type="hidden" name="tengv" value=<%=tengv%> />
+						<div style="overflow-x: auto;">
+
+							<table id="mytable">
+								<thead>
+									<tr>
+										<th>Tên kế hoạch</th>
+										<th>Chỉ tiêu</th>
+										<th>Kpi max</th>
+										<th>Kết quả</th>
+										<th style="width: 100px">KPI đánh giá</th>
+										<th style="width: 100px">KPI BGH đánh giá</th>
+										<th>Duyệt</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										for (int i = 1; i <= rowCol; i++) {
+											val = form.get(count);
+									%>
+									<tr>
+										<%
+											for (int j = 1; j <= colCount; j++) {
+													if (j == 1) {
+														count++;
+														continue;
+													}
+													if (j == colCount - 1) {
+										%>
+										<td><input type="hidden" name=<%="row"+i%> value=<%=val%> />
+											
+											<input type="text" id=<%=i%> name=<%=val%>
+											placeholder="<%=form.get(count++)%>" /></td>
+										<%
+											continue;
+													}
+													if (j == colCount) {
+														String check = "";
+														if ((boolean) form.get(count++))
+															check = "checked";
+										%>
+										<td><input type="checkbox" disabled <%=check%> /></td>
+										<%
+											continue;
+													}
+										%>
+
+										<td><%=form.get(count++)%></td>
+										<%
+											}
+										%>
+									</tr>
+									<%
+										}
+									%>
+								</tbody>
+							</table>
+							<div style="float: right">
+								<div class="btn-group" role="group">
+									<button type="submit" class="btn btn-primary"
+										onclick="window.location.href=''">Duyệt biểu mẫu</button>
+									<button name="abc" type="button" class="btn btn-danger">Hủy</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 	
 	<hr></hr>
 	<%@include file="footer.jsp"%>
 </body>
+<script type="text/javascript">
+	$('button[type="submit"]')
+			.click(
+					function() {
+
+						for (var i = 1; i <= document.getElementById('mytable').rows.length; i++) {
+							var val = document.getElementById("mytable").rows[i].cells[2].innerHTML;
+
+							var kpi = document.getElementById(i).value;
+							if (kpi > val || kpi >= 100) {
+								$('button[type="submit"]').attr("type",
+										"button");
+								alert("KPI đánh giá phải bé hơn hoặc bằng KPI max tại dòng thứ "
+										+ i);
+							}
+						}
+					})
+</script>
 </html>

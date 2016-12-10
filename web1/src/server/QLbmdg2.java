@@ -40,7 +40,6 @@ public class QLbmdg2 extends HttpServlet {
 		
 		for(int i = 1 ; i <= quantity;i ++)
 		{
-//			out.println(request.getParameter(Integer.toString(i)));
 			String conv = "row"+Integer.toString(i);
 			String key = request.getParameter(conv);
 			if (key == "") continue;

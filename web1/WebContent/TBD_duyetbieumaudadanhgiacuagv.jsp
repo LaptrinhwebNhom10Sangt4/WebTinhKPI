@@ -29,45 +29,6 @@
 	<div class="container">
 		<%@include file="header.jsp"%>
 		<div class="row">
-			<div class="col-md-12 drmenu">
-				<nav id="menu" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#"><span
-								class="glyphicon glyphicon-home"></span></a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-								<li><a href="#">Hướng Dẫn</a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<form class="navbar-form navbar-left" role="search">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Gv:Nguyễn Văn A">
-									</div>
-									<button type="button" class="btn btn-info"
-										onclick="window.location.href='TrangChu.jsp'">
-										<i class="fa fa-sign-out"></i>Đăng Xuất
-									</button>
-								</form>
-							</ul>
-						</div>
-						<!--/.nav-collapse -->
-					</div>
-					<!--/.container-fluid -->
-				</nav>
-			</div>
-		</div>
-		<div class="row">
 			<div class="col-md-3">
 				<div class="col-md-12 ">
 					<div class="row ">
@@ -176,7 +137,7 @@
 													if (j == 7) {
 										%>
 										<td><input type="hidden" name=<%="row"+i%> value=<%=val%> />
-											<input style="width: 80px" type="text" id=<%=i%> name=<%=val%>
+											<input class="form-control" style="width: 80px" type="text" id=<%=i%> name=<%=val%>
 											placeholder="<%=form.get(count++)%>" /></td>
 										<%
 											continue;
@@ -214,10 +175,10 @@
 				</form>
 			</div>
 		</div>
-	</div>
 	<!-- /container -->
 	<hr></hr>
 	<%@include file="footer.jsp"%>
+	</div>
 </body>
 <script type="text/javascript">
 	$('button[type="submit"]')

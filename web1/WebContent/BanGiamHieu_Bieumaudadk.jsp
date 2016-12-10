@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Giang Vien</title>
+<title>Ban giam hieu</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,45 +26,6 @@
 	<div class="container">
 		<%@include file="header.jsp"%>
 		<div class="row">
-			<div class="col-md-12 drmenu">
-				<nav id="menu" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#"><span
-								class="glyphicon glyphicon-home"></span></a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-								<li><a href="#">Hướng Dẫn</a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<form class="navbar-form navbar-left" role="search">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Gv:Nguyễn Văn A">
-									</div>
-									<button type="button" class="btn btn-info"
-										onclick="window.location.href='TrangChu.jsp'">
-										<i class="fa fa-sign-out"></i>Đăng Xuất
-									</button>
-								</form>
-							</ul>
-						</div>
-						<!--/.nav-collapse -->
-					</div>
-					<!--/.container-fluid -->
-				</nav>
-			</div>
-		</div>
-		<div class="row">
 			<div class="col-md-3">
 				<div class="col-md-12 ">
 					<div class="row ">
@@ -73,16 +34,9 @@
 								onclick="window.location.href='BanGiamHieu.jsp'">
 								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
 							</button>
-							<button type="button" class="btn btn-default active"
-								style="width: 100%"
-								onclick="window.location.href='BanGiamHieu_Xembieumaucb.jsp'">
-								<div class="danhmuc" style="float: left">Xem biểu mẫu cán
-									bộ</div>
-							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									trưởng khoa</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu cán bộ</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='BanGiamHieu_Phancongcongviec.jsp'"">
@@ -162,9 +116,10 @@
 				
 			</div>
 		</div>
-	</div>
+
 	<hr></hr>
 	<%@include file="footer.jsp"%>
+		</div>
 	<!-- /container -->
 </body>
 </html>

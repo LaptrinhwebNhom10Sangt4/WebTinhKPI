@@ -18,36 +18,9 @@
 	data-placement="bottom" data-original-title="Title"
 	data-trigger="hover" data-container="body" />
 <body>
-	<button type="button" class="btn btn-lg btn-danger"
-		data-toggle="popover" title="Popover title" 
-		data-content="And here's some amazing content. It's very engaging. Right?">Click
-		to toggle popover</button>
+	<form action="updateCV" method="Post">
+		<input name="1" value="TRUE" type="checkbox" />
+									<button type="submit" style="float: right;" class="btn btn-primary" >Cập nhật</button>
+	</form>
 </body>
-<script type="text/javascript">
-	$('#abc').popover({container: 'body'});
-	$(document).ready(function() {
-		var $submit = $('button[type="submit"]');
-		$submit.prop('disabled', true);
-		$('input[name="textField"]').on('input change', function() { //'input change keyup paste'
-			$submit.prop('disabled', !$(this).val().length);
-		});
-	});
-	$(function () {
-		  $('[data-toggle="popover"]').popover()
-		})
-	//var username_length = $("#email").val().length;
-	// $("#email").focusout(function(){
-	// 	var username_length = $("#email").val().length;
-	// 	if (username_length != 0) $('.inputDisabled').prop("disabled",true);
-	// });
-
-	// 	$(".triggerBtn").click(function() {
-	// 		$('.inputDisabled').prop("disabled",true);
-
-	// 	});
-	// 	$("#edit").click(function(event) {
-	// 		event.preventDefault();
-	// 		$('.inputDisabled').removeAttr("disabled");
-	// 	});​
-</script>
 </html>

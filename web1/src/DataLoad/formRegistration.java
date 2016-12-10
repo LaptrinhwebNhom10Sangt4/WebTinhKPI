@@ -12,8 +12,8 @@ public class formRegistration {
 	ResultSet rs = null;
 	String filter = new String();
 	String filter1 = new String();
-	public formRegistration(String fil){
-		filter = " regform.MABIEUMAU not in (select MABIEUMAU from  bieumaudadk where email = '"+fil+"')";
+	public formRegistration(String fil,String MaKhoa){
+		filter = " regform.MABIEUMAU not in (select MABIEUMAU from  bieumaudadk where email = '"+fil+"') and MaKhoa ='"+MaKhoa+"'";
 		filter1 = " email = '"+fil+"' and bieumaudadk.MABIEUMAU = regform.MABIEUMAU";
 	}
 	public formRegistration(){

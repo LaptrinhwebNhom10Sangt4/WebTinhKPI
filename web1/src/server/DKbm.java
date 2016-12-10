@@ -32,6 +32,7 @@ public class DKbm extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String email = request.getParameter("email");
+		String MaKhoa = request.getParameter("MaKhoa");
 		String url = request.getParameter("url");
 		int count = 0;
 		ArrayList<String> mabieumau = new ArrayList<String>();
@@ -50,7 +51,7 @@ public class DKbm extends HttpServlet {
 			ds.insertDataObject(table,source);	
 			//update ud = new update(source,table,filter);
 		}
-		response.sendRedirect("/web1/FormLoad1?url="+url+"&email="+email);
+		response.sendRedirect("/web1/FormLoad1?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
 	}
 
 	

@@ -30,7 +30,8 @@ public class FormLoad1 extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String email = request.getParameter("email");
-		formRegistration fr= new formRegistration(email);
+		String MaKhoa = request.getParameter("MaKhoa");
+		formRegistration fr= new formRegistration(email,MaKhoa);
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
 		//ArrayList<Object> form1 =  (ArrayList<Object>)fr.getForm();
 		int colCount =fr.size();

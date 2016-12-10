@@ -28,6 +28,7 @@ public class XoaBm extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String email = request.getParameter("email");
+		String MaKhoa = request.getParameter("MaKhoa");
 		String url = request.getParameter("url");
 		int count = 0;
 		ArrayList<String> mabieumau = new ArrayList<String>();
@@ -45,6 +46,6 @@ public class XoaBm extends HttpServlet {
 			Datasource ds = new Datasource();
 			ds.deleteDataObject(table,source);	
 		}
-		response.sendRedirect("/web1/BmGV?url="+url+"&email="+email);
+		response.sendRedirect("/web1/BmGV?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
 	}
 }

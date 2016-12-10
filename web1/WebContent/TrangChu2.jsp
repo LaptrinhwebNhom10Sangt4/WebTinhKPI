@@ -37,8 +37,8 @@
 </style>
 <!-- Ghi sai ten  -->
 </head>
-<body>
-	<div class="container1">
+<body style="background-color:#EDEDEC">
+	<div class="container1" style="background-color:white">
 		<form id="registration_form" class="login text-center"
 			action="ValidateLogin" method="post">
 			<div>

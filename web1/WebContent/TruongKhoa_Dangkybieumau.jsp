@@ -21,51 +21,12 @@
 
 </head>
 <body>
-
-	<%@include file="header.jsp"%>
-	<div class=" row ">
-		<div class="col-md-12 drmenu">
-			<nav id="menu" class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" data-target="#navbar"
-							aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#"><span
-							class="glyphicon glyphicon-home"></span></a>
-					</div>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-							<li><a href="#">Hướng Dẫn</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<form class="navbar-form navbar-left" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control"
-										placeholder="Gv:Nguyễn Văn A">
-								</div>
-								<button type="button" class="btn btn-info"
-									onclick="window.location.href='TrangChu.jsp'">
-									<i class="fa fa-sign-out"></i>Đăng Xuất
-								</button>
-							</form>
-						</ul>
-					</div>
-					<!--/.nav-collapse -->
-				</div>
-				<!--/.container-fluid -->
-			</nav>
-		</div>
-	</div>
-	<div class="row ">
-		<div class="col-md-3">
-			<div class="col-md-12 ">
-				<div class="row ">
+	<div class="container">
+		<%@include file="header.jsp"%>
+		<div class="row ">
+			<div class="col-md-3">
+				<div class="col-md-12 ">
+					<div class="row ">
 						<form action="FormLoad" method="post">
 							<div class="btn-group-vertical">
 								<button type="button" class="btn btn-default"
@@ -106,9 +67,9 @@
 							</div>
 						</form>
 					</div>
+				</div>
 			</div>
-		</div>
-		<div class="col-md-9">
+			<div class="col-md-9">
 				<div class="row">
 					<div class="dropdown">
 						<div class="col-md-2">
@@ -136,19 +97,22 @@
 					<div class="panel-heading">
 						<h3 class="text-center">DANH SÁCH BIỂU MẪU</h3>
 					</div>
-					<%int colCount = (int) request.getAttribute("colCount");
-					ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-					int count = 0;
-					int rowCol = form.size() / colCount; %>
+					<%
+						int colCount = (int) request.getAttribute("colCount");
+						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+						int count = 0;
+						int rowCol = form.size() / colCount;
+					%>
 					<form action="DKbm" method="get">
-						<input type="hidden" name="email" value=${email} />
-						<input type="hidden" name="url" value="TruongKhoa_Dangkybieumau.jsp" />
-						<input type="hidden" name="quantity" value=<%=rowCol %> />
+						<input type="hidden" name="MaKhoa" value=${MaKhoa } />
+						<input type="hidden" name="email" value=${email } /> <input
+							type="hidden" name="url" value="TruongKhoa_Dangkybieumau.jsp" />
+						<input type="hidden" name="quantity" value=<%=rowCol%> />
 						<div style="overflow-x: auto;">
 							<table class="table">
 								<thead>
 									<tr>
-										<th style="width:50px">Mã biểu mẫu</th>
+										<th style="width: 50px">Mã biểu mẫu</th>
 										<th>Kế hoạch</th>
 										<th>Chi tiết kế hoạch</th>
 										<th>Tỷ trọng</th>
@@ -159,15 +123,19 @@
 									</tr>
 								</thead>
 								<tbody>
-									<%for (int i = 1; i <= rowCol; i++) {
+									<%
+										for (int i = 1; i <= rowCol; i++) {
 											Object mabm = new Object();
 											mabm = form.get(count);
 									%>
 									<tr>
 										<%
 											for (int j = 1; j <= colCount; j++) {
-													if (j == 3)
-													{
+													if (j == colCount) {
+														count++;
+														continue;
+													}
+													if (j == 3) {
 														String c, d = new String();
 														c = Integer.toString(count);
 														d = "#";
@@ -180,14 +148,13 @@
 												<div class="well"><%=form.get(count++)%></div>
 											</div></td>
 										<%
-														continue;
-													} 
+											continue;
+													}
 										%>
 										<td><%=form.get(count++)%></td>
 
 										<%
 											}
-										
 										%>
 										<td><input type="checkbox" name=<%=i%> value=<%=mabm%> /></td>
 									</tr>
@@ -197,14 +164,15 @@
 
 								</tbody>
 							</table>
-								<button style="float: right;" class="btn btn-primary" data-toggle="modal"
-									data-target="#myModal">Đăng ký</button>
+							<button style="float: right;" class="btn btn-primary"
+								data-toggle="modal" type="submit">Đăng ký</button>
 						</div>
 					</form>
 				</div>
 			</div>
+		</div>
+		<hr></hr>
+		<%@include file="footer.jsp"%>
 	</div>
-	<hr></hr>
-	<%@include file="footer.jsp"%>
 </body>
 </html>

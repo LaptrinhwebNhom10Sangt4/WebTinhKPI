@@ -12,9 +12,11 @@
 	border-radius: 15px;
 	width:450px;
 	height:550px;
-	border: 3px solid #3B60A6;
-	margin:0 auto;
-	witdh:50%;
+	border: 3px solid #08BFBF;
+	margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+	box-shadow: 5px 3px 3px 3px #8888;
 }
 .container4{
 	width:850px;
@@ -232,26 +234,29 @@ hr {
     border-style: inset;
     border-width: 1px;
 }
-.modal-header,.close {
-    background-color: #227F61;
-    color: #fff !important;
-    text-align: center;
-    font-size: 30px;
-}
+
 
 .modal-header, .modal-body {
-    padding: 20px 20px;
+    background-color: #333;
+    color: #fff !important;
+   
 }
 .modal-content{
-	text-algin:center;
-	width:300px;
-	height:300px;
-	position: absolute;
-   	top: 50%;
-   	left: 50%;
-   	 margin-top: 150px;
-   	 margin-left: -130px;
-
+	 position: absolute;
+  left: 55%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+  /*
+  This doesn't work
+  margin-left: -25%;
+  margin-top: -25%;
+  */
+  
+  width: 40%;
+  height: 50%;
+  text-align: center;
+	
 }
 .a{
 	cursor: pointer;

@@ -12,7 +12,7 @@ public class Duyetbmdadk {
 	String filter = new String();
 	public Duyetbmdadk(String email)
 	{
-		filter ="users.ROLE < (select ROLE from users where email='"+email+"') and userinfo.email = users.email ";
+		filter ="users.ROLE < (select ROLE from users where email='"+email+"') and userinfo.email = users.email and users.ROLE != 4 ";
 	}
 	private void getData()
 	{

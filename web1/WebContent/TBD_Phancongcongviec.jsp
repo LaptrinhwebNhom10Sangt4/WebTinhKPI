@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="java.util.ArrayList"%>
 <!document html>
 <html>
 <head>
@@ -38,48 +39,8 @@
 }
 </script>
 <body>
-
 	<div class="container">
 		<%@include file="header.jsp"%>
-		<div class="row">
-			<div class="col-md-12 drmenu">
-				<nav id="menu" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#"><span
-								class="glyphicon glyphicon-home"></span></a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-								<li><a href="#">Hướng Dẫn</a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<form class="navbar-form navbar-left" role="search">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Gv:Nguyễn Văn A">
-									</div>
-									<button type="button" class="btn btn-info"
-										onclick="window.location.href='TrangChu.jsp'">
-										<i class="fa fa-sign-out"></i>Đăng Xuất
-									</button>
-								</form>
-							</ul>
-						</div>
-						<!--/.nav-collapse -->
-					</div>
-					<!--/.container-fluid -->
-				</nav>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-md-3">
 				<div class="col-md-12 ">
@@ -129,526 +90,263 @@
 					</div>
 				</div>
 				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#home">Công việc được phân công</a></li>
-					<li><a data-toggle="tab" href="#menu1">Danh sách công việc</a></li>
+					<li ><a data-toggle="tab" href="#home">Công
+							việc được phân công</a></li>
+					<li class="active"><a data-toggle="tab" href="#menu1">Danh sách công việc</a></li>
 				</ul>
 				<div class="tab-content">
-					<div id="home" class="tab-pane fade in active">
+					<div id="home" class="tab-pane fade ">
 						<div class="panel panel-default">
 							<div style="overflow-x: auto;">
-								<table>
-									<thead>
-										<tr>
-											<th>Mã công việc</th>
-											<th>Tên công việc</th>
-											<th>Chỉ đạo và hướng dẫn</th>
-											<th>Thời hạn</th>
-											<th>Công việc chi tiết</th>
-											<th>Tiến trình</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>KPI123</td>
-											<td>Phổ biến sd KPI cho GV</td>
-											<td>Nguyễn Văn A</td>
-											<td>10/9/2016-21/12/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-																<td><input type="checkbox"></td>
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-																<td><input type="checkbox"></td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-																<td><input type="checkbox"></td>
-															</tr>
-														</table>
+								<form action="updateCV" method="get">
+									<%
+										int colCount = (int) request.getAttribute("colCount");
+										ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+										int count = 0;
+										int rowCol = form.size() / colCount;
+										String[][] form1 = (String[][]) request.getAttribute("form1");
+										int rowCount = (int) request.getAttribute("rowCount");
+										int count1 = 1;
+									%>
+									<input name="quantity" type="hidden" value=<%=rowCount%> /> <input
+										name="email" type="hidden" value=${email } /> <input
+										name="url" type="hidden" value="TBD_Phancongcongviec.jsp" />
+									<table>
+										<thead>
+											<tr>
+												<th style="witdh: 80px">Mã CV</th>
+												<th>Tên công việc</th>
+												<th>Chỉ đạo</th>
+												<th>Thời hạn</th>
+												<th style="witdh: 80px">CV chi tiết</th>
+												<th>Tiến trình</th>
+											</tr>
+										</thead>
+										<tbody>
+											<%
+												for (int i = 1; i <= rowCol; i++) {
+													String Macv = form.get(count).toString();
+											%>
+											<tr>
+												<%
+													for (int j = 1; j <= 7; j++) {
+															if( j == 4 ){%>
+												<td><a role="button" data-toggle="collapse"
+													href="#<%="r"+i%>" aria-expanded="false"
+													aria-controls="collapseExample"> Xem </a>
+													<div class="collapse" id=<%="r"+i%>>
+														<div style="width: 150px" class="well">
+															<h6><%=form.get(count++)%></h6>
+															<h6><%=form.get(count++)%></h6>
+														</div>
+													</div></td>
+
+												<%continue;
+															}
+															if( j == 5 ) continue;
+															if (j == 6 ) {
+												%>
+												<td><a role="button" data-toggle="collapse"
+													href="#<%=i%>" aria-expanded="false"
+													aria-controls="collapseExample"> Xem </a>
+													<div class="collapse" id=<%=i%>>
+														<div style="witdh: 200px" class="well">
+															<table>
+																<%
+																	for (int row = 0; row < rowCount; row++) {
+																					if (form1[row][0].equals(Macv) == false)
+																						continue;
+																%>
+																<tr>
+																	<%
+																		for (int col = 0; col < 4; col++) {
+																							if (col == 0 || col == 1)
+																								continue;
+																							if (col == 3) {
+																								String checked = "";
+																								String disable = "";
+																								if (form1[row][col].equals("true")) {
+																									checked = "checked";
+																									disable = "disabled";
+																								}
+																	%>
+																	<td><input name=<%=count1%>
+																		value=<%=form1[row][1]%> type="checkbox" <%=checked%>
+																		<%=disable%> /></td>
+																	<%
+																		count1++;
+																								continue;
+																							}
+																	%>
+																	<td><%=form1[row][col]%></td>
+																	<%
+																		}
+																	%>
+																</tr>
+																<%
+																	}
+																%>
+															</table>
+														</div>
+													</div></td>
+												<%
+													continue;
+															}
+															if (j == 7) {
+																String progress1 = form.get(count).toString();
+																int progress = Integer.parseInt(progress1);
+																count++;
+																String color = "";
+																if (progress <= 33)
+																	color = "progress-bar-info";
+																if (progress > 33 && progress < 50)
+																	color = "progress-bar-success";
+																if (progress >= 50 && progress < 80)
+																	color = "progress-bar-warning";
+																if (progress >= 80)
+																	color = "progress-bar-danger";
+												%>
+												<td>
+													<div class="progress">
+														<div class="progress-bar <%=color%>" role="progressbar"
+															aria-valuenow=<%=progress1%> aria-valuemin="0"
+															aria-valuemax="100"
+															style="color:black;width: <%=progress + "%"%>;">
+															<%=progress + "%"%>
+														</div>
 													</div>
-												</div></td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar" role="progressbar"
-														aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-														style="width: 60%;">
-														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>KPI123</td>
-											<td>Giảng dạy abc</td>
-											<td>Nguyễn Văn b</td>
-											<td>11/10/2016-1/2/2017</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample2" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample2">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-																<td>
-																<td><input type="checkbox"></td>
+												</td>
+												<%
+													continue;
+															}%>
 
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-														</table>
-													</div>
-												</div></td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar-info" role="progressbar"
-														aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-														style="width: 60%;">
-														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>CV33</td>
-											<td>Hướng dẫn xzy</td>
-											<td>Lê Văn B</td>
-											<td>12/11/2016-1/12/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample3" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample3">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-														</table>
-													</div>
-												</div></td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar progress-bar-danger"
-														role="
-												progressbar" aria-valuenow="60"
-														aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>CV234</td>
-											<td>Thực hiện abc</td>
-											<td>Lê Thị D</td>
-											<td>1/5/2016-21/12/2017</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-														</table>
-													</div>
-												</div></td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar progress-bar-warning"
-														role="progressbar" aria-valuenow="60" aria-valuemin="0"
-														aria-valuemax="100" style="width: 90%;">
-														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>CV454</td>
-											<td>Cung cấp xyz</td>
-											<td>Trần Thị A</td>
-											<td>20/9/2016-15/12/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-														</table>
-													</div>
-												</div></td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar progress-bar-success"
-														role="progressbar" aria-valuenow="60" aria-valuemin="0"
-														aria-valuemax="100" style="width: 20%;">
-														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>CV144</td>
-											<td>Thực hiện ttt</td>
-											<td>Nguyễn Văn D</td>
-											<td>20/5/2016-11/11/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-														</table>
-													</div>
-												</div></td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar progress-bar-danger"
-														role="progressbar" aria-valuenow="60" aria-valuemin="0"
-														aria-valuemax="100" style="width: 70%;">
-														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>CV234</td>
-											<td>Phân công xxy</td>
-											<td>Lê Thị A</td>
-											<td>1/2/2016-11/12/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-																<td>
-																<td><input type="checkbox"></td>
-
-															</tr>
-														</table>
-													</div>
-												</div></td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar progress-bar-info"
-														role="progressbar" aria-valuenow="60" aria-valuemin="0"
-														aria-valuemax="100" style="width: 85%;">
-														<span class="sr-only">60% Complete</span>
-													</div>
-												</div>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-2 col-sm-offset-10">
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-primary">Cập nhật</button>
-								</div>
+												<td><%=form.get(count++)%></td>
+												<%
+													}
+												%>
+											</tr>
+											<%
+												}
+											%>
+										</tbody>
+									</table>
+									<button type="submit" style="float: right;"
+										class="btn btn-primary">Cập nhật</button>
+								</form>
 							</div>
 						</div>
 					</div>
-					<div id="menu1" class="tab-pane fade">
+					<div id="menu1" class="tab-pane fade in active">
 						<div class="panel panel-default">
+							<%
+								int colCount1 = (int) request.getAttribute("colCount1");
+								ArrayList<Object> form2 = (ArrayList<Object>) request.getAttribute("form2");
+								count = 0;
+								rowCol = form2.size() / colCount1;
+								
+								String[][] form3 = (String[][]) request.getAttribute("form3");
+								rowCount = (int) request.getAttribute("rowCount1");
+							%>
 							<div style="overflow-x: auto;">
 								<table>
 									<thead>
 										<tr>
-											<th>Mã công việc</th>
+											<th style="witdh: 80px">Mã CV</th>
 											<th>Tên công việc</th>
-											<th>Chỉ đạo và hướng dẫn</th>
+											<th>Chỉ đạo</th>
 											<th>Thời hạn</th>
-											<th>Công việc chi tiết</th>
+											<th>CV chi tiết</th>
 											<th>Phân công</th>
 										</tr>
 									</thead>
 									<tbody>
+										<%
+											for (int i = 1; i <= rowCol; i++) {
+												String Macv = form2.get(count).toString();
+										%>
 										<tr>
-											<td>KPI123</td>
-											<td>Giảng dạy abc</td>
-											<td>Nguyễn Văn b</td>
-											<td>11/10/2016-1/2/2017</td>
+											<%
+												for (int j = 1; j <= 7; j++) {
+													if( j == 4 ){%>
 											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
+												href="#<%="r1"+i%>" aria-expanded="false"
 												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-															</tr>
-														</table>
-													</div>
-												</div></td>
-												<td><a href="TBD_Chitietphancong.jsp">Chi tiết</a></td>
-										</tr>
-										<tr>
-											<td>KPI123</td>
-											<td>Giảng dạy abc</td>
-											<td>Nguyễn Văn b</td>
-											<td>11/10/2016-1/2/2017</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample2" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample2">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-															</tr>
-														</table>
+												<div class="collapse" id=<%="r1"+i%>>
+													<div style="width: 150px" class="well">
+														<h6><%=form2.get(count++)%></h6>
+														<h6><%=form2.get(count++)%></h6>
 													</div>
 												</div></td>
 
-										</tr>
-										<tr>
-											<td>CV33</td>
-											<td>Hướng dẫn xzy</td>
-											<td>Lê Văn B</td>
-											<td>12/11/2016-1/12/2016</td>
+											<%continue;
+												}
+												if( j == 5 ) continue;
+														if (j == 7) {
+											%>
+											<td><a
+												onclick="window.location.href='<%=request.getContextPath()%>/Phancong?url=TBD_Chitietphancong.jsp&MaCV=<%=Macv%>&email=${email } '">Chi
+													tiết</a></td>
+											<%
+												continue;
+														}
+														if (j == 6) {
+											%>
 											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample3" aria-expanded="false"
+												href="#<%=i + "2"%>" aria-expanded="false"
 												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample3">
+												<div class="collapse" id=<%=i + "2"%>>
 													<div class="well">
 														<table>
+															<%
+																for (int row = 0; row < rowCount; row++) {
+																				if (form3[row][0].equals(Macv) == false)
+																					continue;
+															%>
 															<tr>
-																<td>Xây dựng web kpi</td>
+																<%
+																	for (int col = 0; col < 3; col++) {
+																						if (col == 0 || col == 1)
+																							continue;
+																%>
+																<td><%=form3[row][col]%></td>
+																<%
+																	}
+																%>
 															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-															</tr>
+															<%
+																}
+															%>
 														</table>
 													</div>
 												</div></td>
-
+											<%
+												continue;
+														}
+											%>
+											<td><%=form2.get(count++)%></td>
+											<%
+												}
+											%>
 										</tr>
-										<tr>
-											<td>CV234</td>
-											<td>Thực hiện abc</td>
-											<td>Lê Thị D</td>
-											<td>1/5/2016-21/12/2017</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-															</tr>
-														</table>
-													</div>
-												</div></td>
-
-										</tr>
-										<tr>
-											<td>CV454</td>
-											<td>Cung cấp xyz</td>
-											<td>Trần Thị A</td>
-											<td>20/9/2016-15/12/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-															</tr>
-														</table>
-													</div>
-												</div></td>
-
-										</tr>
-										<tr>
-											<td>CV144</td>
-											<td>Thực hiện ttt</td>
-											<td>Nguyễn Văn D</td>
-											<td>20/5/2016-11/11/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-															</tr>
-														</table>
-													</div>
-												</div></td>
-
-										</tr>
-										<tr>
-											<td>CV234</td>
-											<td>Phân công xxy</td>
-											<td>Lê Thị A</td>
-											<td>1/2/2016-11/12/2016</td>
-											<td><a role="button" data-toggle="collapse"
-												href="#collapseExample1" aria-expanded="false"
-												aria-controls="collapseExample"> Xem </a>
-												<div class="collapse" id="collapseExample1">
-													<div class="well">
-														<table>
-															<tr>
-																<td>Xây dựng web kpi</td>
-															</tr>
-															<tr>
-																<td>Phổ biến cho toàn bộ GV</td>
-															</tr>
-															<tr>
-																<td>Hướng dẫn GV</td>
-															</tr>
-														</table>
-													</div>
-												</div></td>
-										</tr>
+										<%
+											}
+										%>
 									</tbody>
 								</table>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-4 col-sm-offset-9">
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-primary"
-										onClick="javascript:open_window('TBD_TaoCV.jsp',600,600);">Tạo
-										công việc</button>
-									<button type="button" class="btn btn-danger">Hủy</button>
+							<div class="col-sm-4 col-sm-offset-10">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#myModal">Tạo Công
+									việc</button>
+
+								<!-- Modal -->
+								<div style="left: 10%" class="modal fade" id="myModal"
+									tabindex="-5" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+										<%@include file="TaoCVPC.jsp"%>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -659,5 +357,6 @@
 		<!-- /container -->
 		<hr></hr>
 		<%@include file="footer.jsp"%>
+	</div>
 </body>
 </html>

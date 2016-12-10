@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.net.URLEncoder"%>
 <!document html>
 <html>
 <head>
@@ -23,45 +24,6 @@
 
 	<div class="container">
 		<%@include file="header.jsp"%>
-		<div class="row">
-			<div class="col-md-12 drmenu">
-				<nav id="menu" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#"><span
-								class="glyphicon glyphicon-home"></span></a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-								<li><a href="#">Hướng Dẫn</a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<form class="navbar-form navbar-left" role="search">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Gv:Nguyễn Văn A">
-									</div>
-									<button type="button" class="btn btn-info"
-										onclick="window.location.href='TrangChu.jsp'">
-										<i class="fa fa-sign-out"></i>Đăng Xuất
-									</button>
-								</form>
-							</ul>
-						</div>
-						<!--/.nav-collapse -->
-					</div>
-					<!--/.container-fluid -->
-				</nav>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-md-3">
 				<div class="col-md-12 ">
@@ -122,40 +84,49 @@
 						<div class="panel-heading">
 							<h3 class="text-center">TÌNH TRẠNG BIỂU MẪU</h3>
 						</div>
-						<div style="overflow-x: auto;">
-							<table>
-								<thead>
-									<tr>
-										<th>Chỉ tiêu kế hoạch</th>
-										<th>Tiến trình kế hoạch</th>
-										<th>KPI max</th>
-										<th>KPI tự đánh giá</th>
-										<th>KPI cấp trên</th>
-										<th>Trưởng khoa duyệt</th>
-									</tr>
-								</thead>
-								<tbody>
-									<%
+						<%
 										ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
-									%>
-									<tr>
-										<td><%=form.get(0)%></td>
-										<td><input type="text" name="tientrinh"
-											placeholder=<%=form.get(1)%>></input></td>
-										<td><input type="hidden" name="kpimax" value=<%=form.get(2)%> id="kpimax"/> <%=form.get(2)%></td>
-										<td><input id="kpidanhgia" type="text" name="kpidanhgia"
-											placeholder=<%=form.get(3)%>></input></td>
-										<td><%=form.get(4)%></td>
-										<%
-											String trk = new String();
-											if ((boolean) form.get(6))
-												trk = "checked";
+										String a = "abc&#10def";		
 										%>
-										<td><input type="checkbox" disabled <%=trk%>></input></td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="row ">
+							<div class="form-group col-md-offset-2 col-md-8 ">
+								<label>Chỉ tiêu kế hoạch</label> <input class="form-control"
+									placeholder=<%=form.get(0)%> disabled />
+							</div>
 						</div>
+						<div class="row">
+							<div class="form-group col-md-offset-2 col-md-8 ">
+								<label>KPI Max</label> <input class="form-control"
+									placeholder=<%=form.get(2)%> name="kpimax"
+									value=<%=form.get(2)%> id="kpimax" disabled />
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-offset-2 col-md-3">
+								<label>Tự đánh giá</label> <input class="form-control"
+									id="kpidanhgia" type="text" name="kpidanhgia"
+									placeholder=<%=form.get(3)%> />
+							</div>
+							<div class="form-group col-md-offset-2 col-xs-3">
+								<label>Cấp trên đánh giá</label> <input class="form-control"
+									placeholder=<%=form.get(4)%> disabled />
+							</div>
+						</div>
+						<div class="row ">
+						<div class="form-group col-md-offset-2 col-md-4">
+							<%
+								String trk = new String();
+								if ((boolean) form.get(6))
+									trk = "checked";
+							%>
+							<input type="checkbox" <%=trk%> disabled/> <label>TrKhoa duyệt</label>
+						</div>
+						</div>
+						<div class="form-group col-md-offset-2 col-md-8">
+							<label>Tiến trình</label>
+							<textarea name="tientrinh" class="form-control" rows="4"><%=form.get(1)%></textarea>
+						</div>
+						<div class="form-group">
 						<div class="row">
 							<div class="col-md-4 col-md-offset-8">
 								<div class="btn-group">
@@ -167,16 +138,17 @@
 								</div>
 							</div>
 						</div>
+						</div>
 					</div>
 			</div>
 		</div>
-	</div>
+	
 
 
 	<hr></hr>
 	<%@include file="footer.jsp"%>
 	<!-- /container -->
-
+</div>
 
 </body>
 <script type="text/javascript">
@@ -203,7 +175,7 @@
 			var email = $('input[name="email"]').val();
 			var mabm = $('input[name="mabieumau"]').val();
 			var url = $('input[name="url"]').val();
-			var tientrinh = $('input[name="tientrinh"]').val()
+			var tientrinh = $('textarea[name="tientrinh"]').val()
 			//String a = new String ()
 			window.location.href="/web1/updateForm?email="+email+"&mabieumau="+mabm+"&url="+url+"&tientrinh="+tientrinh+"&kpi="+kpi;}
 

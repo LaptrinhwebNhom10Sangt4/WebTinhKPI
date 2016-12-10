@@ -34,7 +34,8 @@ public class BmGV extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String email = request.getParameter("email");
-		formRegistration fr= new formRegistration(email);
+		String MaKhoa = request.getParameter("MaKhoa");
+		formRegistration fr= new formRegistration(email,MaKhoa);
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getFormWithFilter();
 		int colCount =fr.size2();
 		request.setAttribute("form", form);

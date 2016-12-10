@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DataLoad.ChiTietCv;
+
 
 
 
@@ -29,36 +31,9 @@ public class callme extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=UTF-8");
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		String a = request.getParameter("param");
-		if (a == null) a="";
-		String b = request.getParameter("param1");
-		if (b == null) b="";
-		b = b.replaceAll("+", " ");
-		//String c = request.getParameter("param2");
-		//PrintWriter out = response.getWriter();
-		//out.print("hello "+a+" "+b+" "+c);
-		response.setContentType("text/html;charset=UTF-8");
+		
 		PrintWriter out = response.getWriter();
-		out.print("i have a"+a+" "+b);
-		//if (url == "GiangVien.jsp")
-		//{
-		//	String email = (String)session.getAttribute("email");
-		//	UserInfo ui = new UserInfo();
-		//	request.setAttribute("info", info);
-		//}		
-		//HttpSession session = request.getSession();
-		//session.setAttribute("url", url);
-		//formRegistration fr= new formRegistration();
-		//ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
-		//ArrayList<Object> form1 =  (ArrayList<Object>)fr.getForm();
-		//int colCount =fr.size();
-		//session.setAttribute("form1", form1);
-		//request.setAttribute("form", form);
-		//request.setAttribute("colCount", colCount);
-		//request.getRequestDispatcher(url).forward(request,response);
+		out.println(0);
 	}
 
 	/**

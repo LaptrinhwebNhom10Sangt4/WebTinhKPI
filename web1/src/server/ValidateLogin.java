@@ -35,6 +35,17 @@ public class ValidateLogin extends HttpServlet {
         	UserInfo ui = new UserInfo();
 			ArrayList<Object> info = (ArrayList<Object>)ui.getUserInfo(email);
 			session.setAttribute("info", info);
+			faculty fc = new faculty(email);
+			ArrayList<Object> khoa = (ArrayList<Object>)fc.getForm();
+			String MaKhoa="";
+			String TenKhoa="";
+			if(khoa.size()!=0){
+				MaKhoa = khoa.get(0).toString();
+				TenKhoa = khoa.get(1).toString();
+			}
+			//String TenKhoa = DataLoad.faculty.TenKhoa;
+			session.setAttribute("MaKhoa", MaKhoa);
+			session.setAttribute("TenKhoa", TenKhoa);
 			//request.setAttribute("email", email);
         	switch(eRole){
         	case 1:request.getRequestDispatcher("GiangVien.jsp").forward(request,response);break;

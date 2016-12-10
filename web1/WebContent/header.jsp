@@ -1,4 +1,4 @@
-	<div class="container">
+	<%@ page contentType="text/html; charset=UTF-8"%>
 		<div id="header" >
 			<div class="row">
 				<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
@@ -265,3 +265,42 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+			<div class="col-md-12 drmenu">
+				<nav id="menu" class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar"
+								aria-expanded="false" aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="#"><span
+								class="glyphicon glyphicon-home"></span></a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
+								<li><a href="#">Hướng Dẫn</a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<form class="navbar-form navbar-left" role="search">
+									<div class="form-group">
+										<label style="color: #fff"><span class="glyphicon glyphicon-user " aria-hidden="true"></span>
+										${email }</label>
+									</div>
+									<button style="witdh:100px" type="button" class="btn btn-info"
+										onclick="window.location.href='TrangChu.jsp'">
+										<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+									</button>
+								</form>
+							</ul>
+						</div>
+						<!--/.nav-collapse -->
+					</div>
+					<!--/.container-fluid -->
+				</nav>
+			</div>
+			</div>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-<!document html>
+<%@ page import="java.util.ArrayList"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Phong to chuc can bo</title>
@@ -23,45 +23,6 @@
 
 	<div class="container">
 		<%@include file="header.jsp"%>
-		<div class=" row ">
-			<div class="col-md-12 drmenu">
-				<nav id="menu" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#"><span
-								class="glyphicon glyphicon-home"></span></a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-								<li><a href="#">Hướng Dẫn</a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<form class="navbar-form navbar-left" role="search">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Gv:Nguyễn Văn A">
-									</div>
-									<button type="button" class="btn btn-info"
-										onclick="window.location.href='TrangChu.jsp'">
-										<i class="fa fa-sign-out"></i>Đăng Xuất
-									</button>
-								</form>
-							</ul>
-						</div>
-						<!--/.nav-collapse -->
-					</div>
-					<!--/.container-fluid -->
-				</nav>
-			</div>
-		</div>
 		<div class="row ">
 			<div class="col-md-3">
 				<div class="col-md-12 ">
@@ -88,21 +49,6 @@
 			</div>
 			<div class="col-md-9">
 				<div class="row">
-					<div class="dropdown">
-						<div class="col-md-2">
-							<button class="btn btn-default dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Lựa chọn <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu dropdown"
-								aria-labelledby="dropdownMenu1">
-								<li><a href="#">Tất cả</a></li>
-								<li><a href="#">Đề tài</a></li>
-								<li><a href="#">Môn học</a></li>
-							</ul>
-						</div>
-
-					</div>
 					<div class="col-md-4 col-md-offset-6">
 						<div class="form-group">
 							<input type="text" class="form-control" name=""
@@ -112,89 +58,80 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="text-center">BIỂU MẪU CÁN BỘ</h3>
+						<h3 class="text-center">BIỂU MẪU CỦA CÁN BỘ</h3>
 					</div>
 					<div style="overflow-x: auto;">
 						<table>
 							<thead>
 								<tr>
-									<th>MSCB</th>
-									<th>Tên cán bộ</th>
+									<th style="width: 80px">Mã số cán bộ</th>
+									<th>Tên giáo viên</th>
 									<th>Chức vụ</th>
 									<th>Khoa</th>
-									<th>Biểu mẫu đã đăng ký</th>
-									<th>Biểu mẫu đã đánh giá</th>
+									<th style="width: 110px">Các biểu mẫu đã đăng ký</th>
+									<th style="width: 110px">Các biểu mẫu đã đánh giá</th>
 								</tr>
 							</thead>
 							<tbody>
+								<%
+									int colCount = (int) request.getAttribute("colCount");
+									ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+									int count = 0;
+									int rowCol = form.size() / colCount;
+									String url = new String("PhongToChuc_Bieumaudadk.jsp");
+									String url1 = new String("PhongToChuc_Bieumaudadanhgia.jsp");
+									String tengv = new String();
+									String role = new String();
+									for (int i = 1; i <= rowCol; i++) {
+										
+								%>
 								<tr>
-									<td>123</td>
-									<td>Nguyễn Văn A</td>
-									<td>Trưởng khoa</td>
-									<td>CNTT</td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadk.jsp">Xem</a></td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadanhgia.jsp">Xem</a></td>
+									<%
+										for (int j = 1; j <= colCount; j++) {
+											if (j == 3) {
+												role = form.get(count).toString();
+												String cv ="";
+												switch((Integer)form.get(count++)){
+												case(1):cv="Giảng viên";break;
+												case(2):cv="Trưởng bộ môn";break;
+												case(3):cv="Trưởng khoa";break;
+												}%>
+								<td><%=cv %></td>
+								<%continue;
+											}
+												if(j==2)
+												{
+													tengv = form.get(count).toString();
+												}
+												if (j == 5) {
+													
+									%>
+									<td><a
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email=<%=form.get(count)%>&url=<%=url%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
+									</td>
+									<td><a
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdg?email=<%=form.get(count++)%>&url=<%=url1%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
+									</td>
+									<%
+										continue;
+												}
+									%>
+									<td><%=form.get(count++)%></td>
+									<%
+										}
+									%>
 								</tr>
-								<tr>
-									<td>333</td>
-									<td>Nguyễn Văn B</td>
-									<td>Trưởng khoa</td>
-									<td>CNTT</td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadk.jsp">Xem</a></td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadanhgia.jsp">Xem</a></td>
-								</tr>
-								<tr>
-									<td>123</td>
-									<td>Lê Văn D</td>
-									<td>Trưởng bộ môn</td>
-									<td>CKM</td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadk.jsp">Xem</a></td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadanhgia.jsp">Xem</a></td>
-								</tr>
-								<tr>
-									<td>456</td>
-									<td>Trần Văn G</td>
-									<td>Giảng viên</td>
-									<td>Kinh tế</td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadk.jsp">Xem</a></td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadanhgia.jsp">Xem</a></td>
-								</tr>
-								<tr>
-									<td>567</td>
-									<td>Trần Văn D</td>
-									<td>Giảng viên</td>
-									<td>CNTT</td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadk.jsp">Xem</a></td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadanhgia.jsp">Xem</a></td>
-								</tr>
-								<tr>
-									<td>322</td>
-									<td>Nguyễn Văn H</td>
-									<td>Trưởng khoa</td>
-									<td>Hóa</td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadk.jsp">Xem</a></td>
-									<td class="text-center"><a
-										href="PhongToChuc_Bieumaudadanhgia.jsp">Xem</a></td>
-								</tr>
+								<%
+									}
+								%>
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
+		<hr></hr>
+		<%@include file="footer.jsp"%>
 	</div>
-	<hr></hr>
-	<%@include file="footer.jsp"%>
 </body>
 </html>

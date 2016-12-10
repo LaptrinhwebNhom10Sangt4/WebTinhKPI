@@ -22,45 +22,6 @@
 <body>
 	<div class="container">
 		<%@include file="header.jsp"%>
-		<div class=" row ">
-			<div class="col-md-12 drmenu">
-				<nav id="menu" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#"><span
-								class="glyphicon glyphicon-home"></span></a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-								<li><a href="#">Hướng Dẫn</a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<form class="navbar-form navbar-left" role="search">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Gv:Nguyễn Văn A">
-									</div>
-									<button type="button" class="btn btn-info"
-										onclick="window.location.href='TrangChu.jsp'">
-										<i class="fa fa-sign-out"></i>Đăng Xuất
-									</button>
-								</form>
-							</ul>
-						</div>
-						<!--/.nav-collapse -->
-					</div>
-					<!--/.container-fluid -->
-				</nav>
-			</div>
-		</div>
 		<div class="row ">
 			<div class="col-md-3">
 				<div class="col-md-12 ">
@@ -74,12 +35,12 @@
 										nhân</div>
 								</button>
 								<button type="button"
-									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TruongKhoa_Dangkybieumau.jsp&email=${email}'"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TruongKhoa_Dangkybieumau.jsp&email=${email}&MaKhoa=${MaKhoa }'"
 									class="btn btn-default" style="width: 100%">
 									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
 								</button>
 								<button type="button"
-									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}'"
+									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}&MaKhoa=${MaKhoa }'"
 									class="btn btn-default" style="width: 100%">
 									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
 										đã đăng kí</div>
@@ -132,10 +93,10 @@
 												<td>MSCB: ${info.get(3)}</td>
 											</tr>
 											<tr>
-												<td>Khoa: ${info.get(4)}</td>
+												<td>Khoa: ${TenKhoa}</td>
 											</tr>
 											<tr>
-												<td>Địa chỉ: ${info.get(5)}</td>
+												<td>Địa chỉ: ${info.get(4)}</td>
 											</tr>
 										</table>
 									</div>
@@ -159,10 +120,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<hr></hr>
-	<%@include file="footer.jsp"%>
-	<!-- /container -->
 
+		<hr></hr>
+		<%@include file="footer.jsp"%>
+		<!-- /container -->
+	</div>
 </body>
 </html>

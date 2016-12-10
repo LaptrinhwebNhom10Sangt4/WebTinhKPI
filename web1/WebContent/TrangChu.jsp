@@ -18,13 +18,13 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="css/styles.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background-color:#EDEDEC">
 	<!--<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost/kpidatabase" user="root"
 		password="huyhoang" />-->
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-	<div class="container1">
+	<div style="background-color:white" class="container1">
 		<form id= "registration_form" class="login text-center" action="ValidateLogin" method="post">
 			<div>
 				<h1>Website tính KPI</h1>

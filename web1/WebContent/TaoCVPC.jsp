@@ -4,8 +4,9 @@
 		<div class="panel panel-heading">
 			<h1 class="text-center"><span class=" glyphicon glyphicon-list-alt" aria-hidden="true"></span> Tạo công việc</h1>
 		</div>
-		<input type="hidden" name="url" value="TBD_Phancongcongviec.jsp" />
+		<input type="hidden" name="url" value=<%=url %> />
 		<input type="hidden" name="email" value=${email} />
+		<input type="hidden" name="MaKhoa" value= ${MaKhoa} />
 		<div class="panel panel-body">
 			<div class="form-group">
 				<div align="center" style="margin: 0 auto">

@@ -10,15 +10,17 @@ import server.Datasource;
 public class Duyetbmdadk {
 	ResultSet rs = null;
 	String filter = new String();
-	public Duyetbmdadk(String email)
+	public Duyetbmdadk(String email,String MaKhoa)
 	{
-		filter ="users.ROLE < (select ROLE from users where email='"+email+"') and userinfo.email = users.email and users.ROLE != 4 ";
+		filter ="MaKhoa = faculty and users.ROLE < (select ROLE from users where email='"+email+"') and userinfo.email = users.email and faculty = "+MaKhoa;
+		if(MaKhoa == "" || MaKhoa == null)
+			filter ="MaKhoa = faculty and users.ROLE < (select ROLE from users where email='"+email+"') and userinfo.email = users.email";
 	}
 	private void getData()
 	{
 		Datasource ds = new Datasource();
-		String source = "userinfo,users";
-		String columns = " distinct mscb, name,users.ROLE,faculty,users.email ";
+		String source = "userinfo,users,faculty";
+		String columns = " distinct mscb, name,users.ROLE,TenKhoa,users.email ";
 		rs = ds.getDataObject(source, columns,filter);
 	}
 	public ArrayList<Object> getForm(){

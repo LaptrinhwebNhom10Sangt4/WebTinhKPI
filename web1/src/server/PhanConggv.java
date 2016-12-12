@@ -28,6 +28,7 @@ public class PhanConggv extends HttpServlet {
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String MaCV = request.getParameter("MaCV");
 		String email = request.getParameter("email");
+		String MaKhoa = request.getParameter("MaKhoa");
 		String url = request.getParameter("url");
 		Hashtable<String, String> table = new Hashtable<String, String>();
 
@@ -48,7 +49,7 @@ public class PhanConggv extends HttpServlet {
 			Datasource ds = new Datasource();
 			ds.insertDataObject(table1, source);
 		}
-		response.sendRedirect("/web1/Phancong?url="+url+"&MaCV="+MaCV+"&email="+email);
+		response.sendRedirect("/web1/Phancong?url="+url+"&MaCV="+MaCV+"&email="+email+"&MaKhoa="+MaKhoa);
 
 	}
 

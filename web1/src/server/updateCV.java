@@ -32,6 +32,7 @@ public class updateCV extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String email = request.getParameter("email");
+		String MaKhoa = request.getParameter("MaKhoa");
 		String url = request.getParameter("url");
 		int count = 0;
 		ArrayList<String> macvct= new ArrayList<String>();
@@ -51,7 +52,7 @@ public class updateCV extends HttpServlet {
 			ds.updateDataObject(source, table, filter);	
 			//update ud = new update(source,table,filter);
 		}
-		response.sendRedirect("/web1/CvDcPc?url="+url+"&email="+email);
+		response.sendRedirect("/web1/CvDcPc?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
 	}
 
 }

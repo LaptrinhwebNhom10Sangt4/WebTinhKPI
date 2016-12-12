@@ -24,20 +24,6 @@
 }
 </style>
 </head>
-<script>
-		function open_window(url, width, height) {
-			var my_window;
-
-    //screen.width = Desktop Width
-    //screen.height = Desktop Height
-
-    var center_left = (screen.width / 2) - (width / 2);
-    var center_top = (screen.height / 2) - (height / 2);
-
-    my_window = window.open(url, "Title", "scrollbars=0, width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top);
-    my_window.focus();
-}
-</script>
 <body>
 	<div class="container">
 		<%@include file="header.jsp"%>
@@ -108,9 +94,10 @@
 										int rowCount = (int) request.getAttribute("rowCount");
 										int count1 = 1;
 									%>
-									<input name="quantity" type="hidden" value=<%=rowCount%> /> <input
-										name="email" type="hidden" value=${email } /> <input
-										name="url" type="hidden" value="TBD_Phancongcongviec.jsp" />
+									<input name="quantity" type="hidden" value=<%=rowCount%> />
+									 <input name="MaKhoa" type="hidden" value=${MaKhoa } /> 
+									 <input name="email" type="hidden" value=${email } /> 
+									 <input name="url" type="hidden" value="TBD_Phancongcongviec.jsp" />
 									<table>
 										<thead>
 											<tr>
@@ -246,6 +233,7 @@
 								
 								String[][] form3 = (String[][]) request.getAttribute("form3");
 								rowCount = (int) request.getAttribute("rowCount1");
+								String url = "TBD_Phancongcongviec.jsp";
 							%>
 							<div style="overflow-x: auto;">
 								<table>
@@ -284,9 +272,10 @@
 														if (j == 7) {
 											%>
 											<td><a
-												onclick="window.location.href='<%=request.getContextPath()%>/Phancong?url=TBD_Chitietphancong.jsp&MaCV=<%=Macv%>&email=${email } '">Chi
+												onclick="window.location.href='<%=request.getContextPath()%>/Phancong?url=TBD_Chitietphancong.jsp&MaCV=<%=Macv%>&email=${email }&MaKhoa=${MaKhoa }'">Chi
 													tiết</a></td>
 											<%
+												count++;
 												continue;
 														}
 														if (j == 6) {

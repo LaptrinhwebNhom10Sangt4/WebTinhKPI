@@ -79,6 +79,7 @@
 					int rowCol = form.size() / colCount;
 					String[][] form1 = (String[][]) request.getAttribute("form1");
 					int rowCount = (int) request.getAttribute("rowCount");
+					String url = "TBD_Chitietphancong.jsp";
 				%>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -193,11 +194,10 @@
 				<div class="row">
 					<div class="col-sm-4 col-sm-offset-10">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#myModal">Tạo Công
-									việc</button>
+									data-toggle="modal" data-target="#myModal">Phân công</button>
 
 								<!-- Modal -->
-								<div style="left: 10%" class="modal fade" id="myModal"
+								<div  class="modal fade" id="myModal"
 									tabindex="-5" role="dialog" aria-labelledby="myModalLabel">
 									<div class="modal-dialog" role="document">
 										<%@include file="PhanCongGV.jsp"%>

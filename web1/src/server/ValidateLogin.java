@@ -53,7 +53,7 @@ public class ValidateLogin extends HttpServlet {
         	case 3:request.getRequestDispatcher("TruongKhoa.jsp").forward(request,response);break;
         	case 4:request.getRequestDispatcher("BanGiamHieu.jsp").forward(request,response);break;
         	case 5:request.getRequestDispatcher("PhongToChuc_CanBo.jsp").forward(request,response);break;
-        	case 6:request.getRequestDispatcher("QuanTriVien.jsp").forward(request,response);break;
+        	case 6:response.sendRedirect("/web1/DSGV");break;
         	}
         	
         }

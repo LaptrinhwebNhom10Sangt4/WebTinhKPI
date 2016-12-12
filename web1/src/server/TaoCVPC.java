@@ -28,6 +28,7 @@ public class TaoCVPC extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String email = request.getParameter("email");
+		String MaKhoa = request.getParameter("MaKhoa");
 		String MaCV = request.getParameter("MaCV");
 		String TenCV = request.getParameter("TenCV");
 		String NgHD = request.getParameter("NgHD");
@@ -43,7 +44,7 @@ public class TaoCVPC extends HttpServlet {
 			table.put(conv,val);
 		}
 		Datasource ds = new Datasource();
-		String source = new String(" MaCv='"+MaCV+"',TenCV='"+TenCV+"',NgHD='"+NgHD+"',Ngaybd='"+Ngaybd+"',Ngaykt='"+Ngaykt+"'");
+		String source = new String(" MaCv='"+MaCV+"',TenCV='"+TenCV+"',NgHD='"+NgHD+"',Ngaybd='"+Ngaybd+"',Ngaykt='"+Ngaykt+"',MaKhoa='"+MaKhoa+"'");
 		String table1 = new String(" dscv ");
 		ds.insertDataObject(table1,source);
 		for (String key : table.keySet()){
@@ -54,7 +55,7 @@ public class TaoCVPC extends HttpServlet {
 			ds.insertDataObject(table1,source);	
 			ds.insertDataObject(table2, source1);
 		}
-		response.sendRedirect("/web1/CvDcPc?url="+url+"&email="+email);
+		response.sendRedirect("/web1/CvDcPc?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
 	}
 
 }

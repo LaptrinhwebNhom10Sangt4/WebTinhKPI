@@ -49,7 +49,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="row">
-					<div class="col-md-4 col-md-offset-6">
+					<div class="col-md-4 col-md-offset-8">
 						<div class="form-group">
 							<input type="text" class="form-control" name=""
 								placeholder="Tìm kiếm">

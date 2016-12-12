@@ -47,13 +47,13 @@
 										đã đăng kí</div>
 								</button>
 								<button type="button"
-									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TBD_Bieumaugiangvien.jsp&email=${email}'"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TBD_Bieumaugiangvien.jsp&email=${email}&MaKhoa=${MaKhoa}'"
 									class="btn btn-default" style="width: 100%">
 									<div class="danhmuc" style="float: left">Biểu mẫu giảng
 										viên</div>
 								</button>
 								<button type="button"
-									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TBD_Phancongcongviec.jsp&email=${email}'"
+									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TBD_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'"
 									class="btn btn-default" style="width: 100%">
 									<div class="danhmuc" style="float: left">Phân công công
 										việc</div>

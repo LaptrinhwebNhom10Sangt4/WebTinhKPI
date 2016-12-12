@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import server.Datasource;
 
 public class UserInfo {
+	public static int size = 0;
 	public ArrayList<Object> getUserInfo(String email){
 		Datasource ds = new Datasource();
 		
@@ -22,6 +23,7 @@ public class UserInfo {
 		try {
 			resultSetMetaData = rs.getMetaData();
 			int columnCount = resultSetMetaData.getColumnCount();
+			size = columnCount;
 			//values = new Object[columnCount];
 			values = new ArrayList<Object>();
 			while (rs.next()) {

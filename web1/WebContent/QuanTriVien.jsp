@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-<!document html>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="java.util.ArrayList"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Quan tri vien</title>
@@ -16,21 +17,6 @@
 <link href="css/styles.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
-<script>
-		function open_window(url, width, height) {
-			var my_window;
-
-    //screen.width = Desktop Width
-    //screen.height = Desktop Height
-
-    var center_left = (screen.width / 2) - (width / 2);
-    var center_top = (screen.height / 2) - (height / 2);
-
-    my_window = window.open(url, "Title", "scrollbars=0, width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top);
-    my_window.focus();
-}
-</script>
 </head>
 <body>
 	<div class="container">
@@ -74,7 +60,7 @@
 					<div class="col-md-4 col-md-offset-6">
 						<div class="form-group">
 							<input type="text" class="form-control" name=""
-								placeholder="Tìm kiếm"> 
+								placeholder="Tìm kiếm">
 						</div>
 					</div>
 				</div>
@@ -82,102 +68,83 @@
 					<div class="panel-heading">
 						<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
 					</div>
-					<div  style="overflow-x:auto;">
-					<table>
+					<%
+								int colCount = (int) request.getAttribute("colCount");
+								ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+								int count = 0;
+								int rowCol = form.size() / colCount;
+								String email="";
+					%>
+					<form id="tk" action = "AddUser" method="get">
+					<input type="hidden" name="quantity" value=<%=rowCol %> />
+					<div style="overflow-x: auto;">
+						<table>
 							<thead>
 								<tr>
-									<th>MSCB</th>
+									<th style="width: 80px">Email</th>
+									<th>Pass</th>
+									<th>Chức vụ</th>
 									<th>Khoa</th>
-									<th>Email</th>
-									<th>Password</th>
-									<th>Is active</th>
-									<th>Chi tiết</th>
+									<th>Họ tên</th>
+									<th>MSCB</th>
+									<th>Giới tính</th>
+									<th>Địa chỉ</th>
+									<th>Chọn</th>
 								</tr>
-								</thead>
-								<tbody>
+							</thead>
+							<tbody>
+								<%for(int i=1;i<=rowCol;i++)
+								{
+									email = form.get(count).toString();
+								%>
+
 									<tr>
-										<td>1111</td>
-										<td>CNTT</td>
-										<td>1234@hcmute.edu.vn</td>
-										<td>&@*&abcd*&^</td>
-										<td><input type="checkbox" checked></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
+										<%for (int j=1;j<=colCount;j++)
+										{
+											
+											
+											if(j==3){
+												String cv="";
+												switch(Integer.parseInt(form.get(count++).toString()))
+												{
+												case(1):cv="Giảng viên";break;
+												case(2):cv="Tr Bộ Môn";break;
+												case(3):cv="Tr Khoa";break;
+												case(4):cv="Ban giám hiệu";break;
+												case(5):cv="Phòng tổ chức cán bộ";break;
+												}%>
+												<td><%=cv %></td>
+												<%continue;}%>
+											<td><%=form.get(count++) %></td>
+										<%}%>
+										<td><input type="checkbox" name=<%=i %> value=<%=email %> /></td>
 									</tr>
-									<tr>
-										<td>2222</td>
-										<td>Kinh tế</td>
-										<td>2345@gmail.com</td>
-										<td>(&*&(adv))(*^</td>
-										<td><input type="checkbox" checked></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
-									</tr>
-									<tr>
-										<td>4444</td>
-										<td>CKM</td>
-										<td>33fdf3@hcmute.edu.vn</td>
-										<td>(*&afdsfjk((*&)</td>
-										<td><input type="checkbox" checked></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
-									</tr>
-									<tr>
-										<td>5555</td>
-										<td>CNTT</td>
-										<td>33444@hcmute.edu.vn</td>
-										<td>((*&afasdffsd(*UUP</td>
-										<td><input type="checkbox"></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
-									</tr>
-									<tr>
-										<td>1111</td>
-										<td>CNTT</td>
-										<td>1234@hcmute.edu.vn</td>
-										<td>&@*&abcd*&^</td>
-										<td><input type="checkbox" checked></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
-									</tr>
-									<tr>
-										<td>2222</td>
-										<td>Kinh tế</td>
-										<td>2345@gmail.com</td>
-										<td>(&*&(adv))(*^</td>
-										<td><input type="checkbox" checked></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
-									</tr>
-									<tr>
-										<td>4444</td>
-										<td>CKM</td>
-										<td>33fdf3@hcmute.edu.vn</td>
-										<td>(*&afdsfjk((*&)</td>
-										<td><input type="checkbox" checked></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
-									</tr>
-									<tr>
-										<td>5555</td>
-										<td>CNTT</td>
-										<td>33444@hcmute.edu.vn</td>
-										<td>((*&afasdffsd(*UUP</td>
-										<td><input type="checkbox"></td>
-										<td><a href="QuanTriVien_Chitietnguoidung.jsp">Xem</a></td>
-									</tr>
-								</tbody>
-							</table>
-							</div>
-				</div>
-				<div class="row">
-						<div class="col-md-6 col-md-offset-6">
-							<div class="btn-group">
+							  <%} %>
+							</tbody>
+						</table>
+						<div style="float: right" class="btn-group" role="group">
 								<button type="button" class="btn btn-primary"
-								onClick="javascript:open_window('QuanTriVien_Themnguoidung.jsp',600,600);">Thêm
-									người dùng</button>
-								<button class="btn btn-danger">Xóa người dùng</button>
-								<button class="btn btn-success">Chỉnh sửa</button>
+									data-toggle="modal" data-target="#myModal">Thêm tài khoản</button>
+								<button name="Sua" type="submit" class="btn btn-success">Chỉnh sửa</button>
+								<div style="left: 10%" class="modal fade" id="myModal"
+									tabindex="-5" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+										<%@include file="ThemTK.jsp"%>
+									</div>
+								</div>
 							</div>
-						</div>
 					</div>
+					</form>
+				</div>
 			</div>
-	</div>
-	<hr></hr>
-	<%@include file="footer.jsp"%>
+		</div>
+		<hr></hr>
+		<%@include file="footer.jsp"%>
 	</div>
 </body>
+<script type="text/javascript">
+	$('button[name="Sua"]').click(function() {
+		$("#tk").attr("action", "SuaTK");
+	})
+</script>
 </html>

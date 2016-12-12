@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DataLoad.ChiTietCv;
 import DataLoad.CvDcPhancong;
+import DataLoad.Khoa;
 /**
  * Servlet implementation class CvDcPc
  */
@@ -25,21 +26,29 @@ public class CvDcPc extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		String email = request.getParameter("email");
+		String MaKhoa = request.getParameter("MaKhoa");
 		String url = request.getParameter("url");
 		CvDcPhancong fr = new CvDcPhancong(email);
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
 		ChiTietCv fr1 = new ChiTietCv(email);
 		String[][]form1 = fr1.getform();
 		String[][]form3 = fr1.getform1();
-		ArrayList<Object> form2=  (ArrayList<Object>)fr.getForm1();
+		ArrayList<Object> form2=  (ArrayList<Object>)fr.getForm1(MaKhoa);
 		int rowCount = fr1.CountRow();
 		int rowCount1 = fr1.CountRow1();
+		if(MaKhoa == ""){
+			Khoa faculty = new Khoa();
+			ArrayList<Object> khoa = (ArrayList<Object>) faculty.getForm();
+			int fasize = faculty.size();
+			request.setAttribute("khoa", khoa);
+			request.setAttribute("fasize", fasize);
+		} 
 		request.setAttribute("form", form);
 		request.setAttribute("form1", form1);
 		request.setAttribute("form2", form2);
 		request.setAttribute("form3", form3);
 		int colCount =fr.size();
-		int colCount1 =fr.size1();
+		int colCount1 =fr.size1(MaKhoa);
 		request.setAttribute("colCount", colCount);
 		request.setAttribute("colCount1", colCount1);
 		request.setAttribute("rowCount", rowCount);

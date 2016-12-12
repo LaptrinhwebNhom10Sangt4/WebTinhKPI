@@ -21,12 +21,18 @@ public class CvDcPhancong {
 		String columns = "phancong.MaCV,TenCV,NgHD,Ngaybd,Ngaykt,tientrinh";
 		rs = ds.getDataObject(source, columns,filter);
 	}
-	private void getData1()
+	private void getData1(String MaKhoa)
 	{
 		Datasource ds = new Datasource();
-		String source = "dscv";
-		String columns = "*";
-		rs = ds.getDataObject(source, columns);
+		String filter1 = "dscv.MaKhoa = faculty.MaKhoa";
+		String source = "dscv,faculty";
+		String columns = "MaCV,TenCV,NgHD,Ngaybd,Ngaykt,TenKhoa";
+		if(MaKhoa == null || MaKhoa =="") rs = ds.getDataObject(source, columns,filter1);
+		else{
+			filter1 = "dscv.MaKhoa = faculty.MaKhoa and dscv.MaKhoa = "+MaKhoa;
+			rs = ds.getDataObject(source, columns,filter1);
+		}
+		
 	}
 	public ArrayList<Object> getForm(){
 		getData();
@@ -46,8 +52,8 @@ public class CvDcPhancong {
 		}
 		return values;
 	}
-	public ArrayList<Object> getForm1(){
-		getData1();
+	public ArrayList<Object> getForm1(String MaKhoa){
+		getData1(MaKhoa);
 		ArrayList<Object> values = null;	
 		ResultSetMetaData resultSetMetaData;
 		try {
@@ -77,8 +83,8 @@ public class CvDcPhancong {
 		}
 		return colCount;
 	}
-	public int size1(){
-		getData1();
+	public int size1(String MaKhoa){
+		getData1(MaKhoa);
 		int colCount=0;
 		ResultSetMetaData resultSetMetaData;
 		try {

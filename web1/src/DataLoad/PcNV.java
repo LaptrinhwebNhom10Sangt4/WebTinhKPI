@@ -10,9 +10,16 @@ import server.Datasource;
 public class PcNV {
 	ResultSet rs = null;
 	String filter = new String();
-	public PcNV(String email,String MaCV)
+	public PcNV(String email,String MaCV,String MaKhoa)
 	{
-		filter = "userinfo.email=users.email and role <(select role from users where email='"+email+"') and users.email not in ( select email from PhanCong where MaCV ='"+MaCV+"')";
+		if(MaKhoa !=""){
+		filter = "userinfo.email=users.email and faculty = "+MaKhoa+" and role <(select role from users where email='"+email+"') and users.email not in ( select email from PhanCong where MaCV ='"+MaCV+"')";
+		}
+		else{
+		filter = "userinfo.email=users.email and faculty =(select MaKhoa from dscv where MaCV = "+MaCV+") "+
+				 "and role <(select role from users where email='"+email+"') and role != 4 "+
+				 "and users.email not in ( select email from PhanCong where MaCV ="+MaCV+")";		
+		}
 	}
 	public void getData()
 	{

@@ -42,7 +42,7 @@
 									đã đăng kí</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'"">
+								onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=Giangvien_Congviecduocphancong.jsp&email=${email}&MaKhoa=${MaKhoa}'">
 								<div class="danhmuc" style="float: left">Cập nhật tiến
 									trình được phân công</div>
 							</button>

@@ -1,15 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
 <form action="PhanConggv" method="get">
-	<div class="panel panel-info" style="width: 500px">
+	<div class="panel panel-info" style="width: 700px">
 		<div class="panel panel-heading">
 			<h1 class="text-center">
 				<span class=" glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-				Tạo công việc
+				Phân công
 			</h1>
 		</div>
-		<input type="hidden" name="url" value="TBD_Chitietphancong.jsp" /> <input
-			type="hidden" name="email" value=${email } />
+		<input type="hidden" name="url" value=<%=url %> /> 
+		<input type="hidden" name="email" value=${email } />
+		<input type="hidden" name="MaKhoa" value=${MaKhoa} ></input>
 		<div align="center"  class="panel panel-body">
 			<div class="form-group">
 				<%
@@ -29,7 +30,6 @@
 								<th>email</th>
 								<th style="witdh: 200px">Tên CB</th>
 								<th style="witdh: 100px">Chức vụ</th>
-								<th style="witdh: 100px">Khoa</th>
 								<th>Chọn</th>
 							</tr>
 						</thead>
@@ -38,6 +38,10 @@
 								String email="";%>
 							<tr>
 								<%for(int j = 1; j<=colCountnv;j++){
+										if(j==5){
+											countnv++;
+											continue;
+										}
 										if(j==2){
 											email=formnv.get(countnv).toString();
 										}

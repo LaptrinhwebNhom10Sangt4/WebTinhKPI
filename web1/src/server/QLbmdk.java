@@ -28,7 +28,8 @@ public class QLbmdk extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String email = request.getParameter("email");
-		Duyetbmdadk fr = new Duyetbmdadk(email);
+		String MaKhoa = request.getParameter("MaKhoa");
+		Duyetbmdadk fr = new Duyetbmdadk(email,MaKhoa);
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
 		int colCount =fr.size();
 		request.setAttribute("form", form);

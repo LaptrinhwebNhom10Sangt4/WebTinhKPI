@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DataLoad.ChiTietPC;
+import DataLoad.Khoa;
 import DataLoad.NVChitietCV;
 import DataLoad.PcNV;
 
@@ -31,11 +32,12 @@ public class Phancong extends HttpServlet {
 		String url = request.getParameter("url");
 		String MaCV = request.getParameter("MaCV");
 		String email = request.getParameter("email");
+		String MaKhoa = request.getParameter("MaKhoa");
 		ChiTietPC fr = new ChiTietPC(MaCV);
 		ArrayList<Object> form = (ArrayList<Object>) fr.getForm();
 		NVChitietCV fr1 = new NVChitietCV(MaCV);
 		String[][] form1 = fr1.getform();
-		PcNV nv = new PcNV(email,MaCV);
+		PcNV nv = new PcNV(email,MaCV,MaKhoa);
 		ArrayList<Object> formnv = (ArrayList<Object>) nv.getForm();
 		int colCount1 = nv.size();
 		int colCount = fr.size();

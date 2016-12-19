@@ -26,16 +26,18 @@
 				<div class="col-md-12 ">
 					<div class="row ">
 						<div class="btn-group-vertical">
+							<div class="btn-group-vertical">
 							<button type="button " class="btn btn-default active"
 								style="width: 100%"
-								onclick="window.location.href='QuanTriVien.jsp'">
+								onclick="window.location.href='<%=request.getContextPath()%>/DSGV'">
 								<div class="danhmuc " style="float: left">Quản lý người
 									dùng</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='QuanTriVien_Quanlybieumau.jsp'">
+								onclick="window.location.href='<%=request.getContextPath()%>/AllForm?url=QuanTriVien_Quanlybieumau.jsp'">
 								<div class="danhmuc" style="float: left">Quản lý biểu mẫu</div>
 							</button>
+						</div>
 						</div>
 					</div>
 				</div>
@@ -195,7 +197,7 @@
 										<div class="btn-group">
 											<button name="submit" class="btn btn-primary">Chỉnh sửa</button>
 											<button type="button" class="btn btn-danger"
-												onclick="window.location.href='/web1/DSGV'">Quay về</button>
+												onclick="window.location.href='<%=request.getContextPath()%>/DSGV'">Quay về</button>
 										</div>
 									</div>
 								</div>

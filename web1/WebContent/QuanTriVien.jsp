@@ -28,12 +28,12 @@
 						<div class="btn-group-vertical">
 							<button type="button " class="btn btn-default active"
 								style="width: 100%"
-								onclick="window.location.href='QuanTriVien.jsp'">
+								onclick="window.location.href='<%=request.getContextPath()%>/DSGV'">
 								<div class="danhmuc " style="float: left">Quản lý người
 									dùng</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='QuanTriVien_Quanlybieumau.jsp'">
+								onclick="window.location.href='<%=request.getContextPath()%>/AllForm?url=QuanTriVien_Quanlybieumau.jsp'">
 								<div class="danhmuc" style="float: left">Quản lý biểu mẫu</div>
 							</button>
 						</div>
@@ -126,6 +126,7 @@
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#myModal">Thêm tài khoản</button>
 								<button name="Sua" type="submit" class="btn btn-success">Chỉnh sửa</button>
+								<button name="Xoa" type="submit" class="btn btn-danger">Xóa</button>
 								<div style="left: 10%" class="modal fade" id="myModal"
 									tabindex="-5" role="dialog" aria-labelledby="myModalLabel">
 									<div class="modal-dialog" role="document">
@@ -145,6 +146,9 @@
 <script type="text/javascript">
 	$('button[name="Sua"]').click(function() {
 		$("#tk").attr("action", "SuaTK");
+	})
+	$('button[name="Xoa"]').click(function() {
+		$("#tk").attr("action", "DelUser");
 	})
 </script>
 </html>

@@ -36,13 +36,11 @@
 							<button type="button"
 								onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=BanGiamHieu_Bieumautruongkhoa.jsp&email=${email}'"
 								class="btn btn-default" style="width: 100%">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									cán bộ</div>
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu cán bộ</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=BanGiamHieu_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'">
-								<div class="danhmuc" style="float: left">Phân công công
-									việc</div>
+								<div class="danhmuc" style="float: left">Phân công công việc</div>
 							</button>
 						</div>
 					</div>

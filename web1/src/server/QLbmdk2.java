@@ -20,7 +20,7 @@ public class QLbmdk2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		String email = request.getParameter("email");
+		String email1 = request.getParameter("email1");
 		String url = request.getParameter("url");
 		String tengv = request.getParameter("tengv");
 		String role = request.getParameter("role");
@@ -35,14 +35,14 @@ public class QLbmdk2 extends HttpServlet {
 		}
 		for(int i = 1; i <= mabieumau.size();i++)
 		{
-			String filter = new String("email = '"+email+"' and MABIEUMAU = "+mabieumau.get(i-1));
+			String filter = new String("email = '"+email1+"' and MABIEUMAU = "+mabieumau.get(i-1));
 			String source = new String("DADUYETDK = TRUE");
 			String table = new String("bieumaudadk");
 			Datasource ds = new Datasource();
 			ds.updateDataObject(source, table, filter);	
 			//update ud = new update(source,table,filter);
 		}
-		response.sendRedirect("/web1/QLbmdk1?email="+email+"&url="+url+"&tengv="+tengv+"&role="+role);
+		response.sendRedirect(request.getContextPath()+"/QLbmdk1?email1="+email1+"&url="+url+"&tengv="+tengv+"&role="+role);
 	}
 
 }

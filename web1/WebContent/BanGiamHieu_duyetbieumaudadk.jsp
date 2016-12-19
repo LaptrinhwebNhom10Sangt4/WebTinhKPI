@@ -29,19 +29,19 @@
 				<div class="col-md-12 ">
 					<div class="row ">
 						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-default" style="width: 100%"
+							<button type="button" class="btn btn-default"
+								style="width: 100%"
 								onclick="window.location.href='BanGiamHieu.jsp'">
 								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
 							</button>
-							<button type="button" class="btn btn-default active"
-								style="width: 100%"
-								onclick="window.location.href='BanGiamHieu_Bieumautruongkhoa.jsp'">
+							<button type="button"
+								onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=BanGiamHieu_Bieumautruongkhoa.jsp&email=${email}'"
+								class="btn btn-default active" style="width: 100%">
 								<div class="danhmuc" style="float: left">Quản lý biểu mẫu cán bộ</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='BanGiamHieu_Phancongcongviec.jsp'"">
-								<div class="danhmuc" style="float: left">Phân công công
-									việc</div>
+								onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=BanGiamHieu_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'">
+								<div class="danhmuc" style="float: left">Phân công công việc</div>
 							</button>
 						</div>
 					</div>
@@ -60,7 +60,7 @@
 				<%
 						String tengv = (String) request.getAttribute("tengv");
 						int colCount = (int) request.getAttribute("colCount");
-						String email = new String((String) request.getAttribute("email"));
+						String email1 = new String((String) request.getAttribute("email1"));
 						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
 						String role = new String((String) request.getAttribute("role"));
 						String title = "Biểu mẫu đã đăng ký của ";
@@ -75,7 +75,7 @@
 					%>
 				<form action="QLbmdk2" method="get">
 					<input type="hidden" name="quantity" value=<%=rowCol%> /> <input
-						type="hidden" name="email" value=<%=email%> /> <input
+						type="hidden" name="email1" value=<%=email1%> /> <input
 						type="hidden" name="url" value="BanGiamHieu_duyetbieumaudadk.jsp" />
 					<input type="hidden" name="role" value=<%=role%> />
 					<div class="panel panel-default">
@@ -172,4 +172,14 @@
 	<%@include file="footer.jsp"%>
 	</div>
 </body>
+<script>
+	$(document).ready(function(){
+		  var ngayKT = new Date('<%=ktdk%>');
+		  var today = new Date();
+		  if(today <= ngayKT){
+			  alert("Đang trong thời hạn đăng ký, không thể duyệt biểu mẫu lúc này");
+			  $('button[type="submit"]').prop('disabled', true);
+		  }
+	});
+</script>
 </html>

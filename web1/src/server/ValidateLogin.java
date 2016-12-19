@@ -32,6 +32,9 @@ public class ValidateLogin extends HttpServlet {
        // request.setAttribute("email",email); 
         if (eRole == -1) request.getRequestDispatcher("TrangChu2.jsp").forward(request,response);
         else {
+        	Tgdk ThoiHan = new Tgdk();
+        	ArrayList<Object> tg = (ArrayList<Object>)ThoiHan.getForm();
+        	session.setAttribute("tg", tg);
         	UserInfo ui = new UserInfo();
 			ArrayList<Object> info = (ArrayList<Object>)ui.getUserInfo(email);
 			session.setAttribute("info", info);
@@ -53,7 +56,7 @@ public class ValidateLogin extends HttpServlet {
         	case 3:request.getRequestDispatcher("TruongKhoa.jsp").forward(request,response);break;
         	case 4:request.getRequestDispatcher("BanGiamHieu.jsp").forward(request,response);break;
         	case 5:request.getRequestDispatcher("PhongToChuc_CanBo.jsp").forward(request,response);break;
-        	case 6:response.sendRedirect("/web1/DSGV");break;
+        	case 6:response.sendRedirect(request.getContextPath()+"/DSGV");break;
         	}
         	
         }

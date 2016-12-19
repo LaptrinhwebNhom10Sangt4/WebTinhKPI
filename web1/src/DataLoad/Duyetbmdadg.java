@@ -12,7 +12,7 @@ public class Duyetbmdadg {
 	String filter = new String();
 	public Duyetbmdadg(String email)
 	{
-		filter = "bieumaudadk.MABIEUMAU = regform.MABIEUMAU and email = '"+email+"' and kpidanhgia is not null";
+		filter = "bieumaudadk.MABIEUMAU = regform.MABIEUMAU and email = '"+email+"' and kpidanhgia != 0 and tientrinh is not null";
 	}
 	private void getData()
 	{

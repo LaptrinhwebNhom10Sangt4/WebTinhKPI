@@ -34,7 +34,7 @@ public class AddUser extends HttpServlet {
 		source ="email ='"+email+"',name ='"+name+"',gender='"+gender+"',mscb="+mscb+",address='"+address+"'";
 		table ="userinfo";
 		ds.insertDataObject(table, source);
-		response.sendRedirect("/web1/DSGV");
+		response.sendRedirect(request.getContextPath()+"/DSGV");
 	}
 
 }

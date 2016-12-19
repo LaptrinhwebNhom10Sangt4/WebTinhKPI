@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.text.SimpleDateFormat "%>
+<%@ page import="java.util.Date "%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +23,8 @@
 
 </head>
 <body>
+<%-- <input type="hidden" name="tgdk" id="tgdk" value='<%=bd %>' /> --%>
+<%-- 	<input type="hidden" name="tgkt" id="tgkt" value='<%=tg.get(3) %>' /> --%>
 	<div class="container">
 		<%@include file="header.jsp"%>
 		<div class="row">
@@ -35,29 +39,25 @@
 									<div class="danhmuc" style="float: left">Thông tin cá
 										nhân</div>
 								</button>
-								<button type="submit" name="getform"
-									class="btn btn-default active" value="TBD_Dangkybieumau.jsp"
-									style="width: 100%">
-									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TBD_Dangkybieumau.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default active" style="width: 100%">
+									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
 								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TBD_Quanlybieumaudadk.jsp'">
-									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-										đã đăng kí</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TBD_Quanlybieumaudadk.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
 								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TBD_Bieumaugiangvien.jsp'"">
-									<div class="danhmuc" style="float: left">Biểu mẫu giảng
-										viên</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TBD_Bieumaugiangvien.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
 								</button>
-								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TBD_Phancongcongviec.jsp'"">
-									<div class="danhmuc" style="float: left">Phân công công
-										việc</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TBD_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Phân công công việc</div>
 								</button>
 							</div>
 						</form>
@@ -172,4 +172,15 @@
 		<%@include file="footer.jsp"%>
 	</div>
 </body>
+<script>
+$(document).ready(function(){
+	  var ngayBD = new Date('<%=bddk%>');
+	  var ngayKT = new Date('<%=ktdk%>');
+	  var today = new Date();
+	  if(today < ngayBD || today> ngayKT){
+		  alert("Không trong thời gian đăng ký");
+		  $('button[type="submit"]').prop('disabled', true);
+	  }
+});
+</script>
 </html>

@@ -27,35 +27,38 @@
 				<div class="col-md-12 ">
 					<div class="row ">
 						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa.jsp'">
-								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Dangkybieumau.jsp'">
-								<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									đã đăng kí</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Bieumaugiangvien.jsp'"">
-								<div class="danhmuc" style="float: left">Biểu mẫu giảng
-									viên</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Phancongcongviec.jsp'"">
-								<div class="danhmuc" style="float: left">Phân công công
-									việc</div>
-							</button>
-							<button type="button" class="btn btn-default active"
-								style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Quanlybieumaukhoa.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									khoa</div>
-							</button>
+							<div class="btn-group-vertical">
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='TruongKhoa.jsp'">
+									<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
+								</button>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TruongKhoa_Dangkybieumau.jsp&email=${email}&MaKhoa=${MaKhoa }'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
+								</button>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}&MaKhoa=${MaKhoa }'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
+								</button>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TruongKhoa_Bieumaugiangvien.jsp&email=${email}&MaKhoa=${MaKhoa }'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TruongKhoa_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'">
+									<div class="danhmuc" style="float: left">Phân công công việc</div>
+								</button>
+								<button type="button" class="btn btn-default active"
+									style="width: 100%"
+									onclick="window.location.href='<%=request.getContextPath()%>/BieuMauKhoa?url=TruongKhoa_Quanlybieumaukhoa.jsp&MaKhoa=${MaKhoa }'">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu khoa</div>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>

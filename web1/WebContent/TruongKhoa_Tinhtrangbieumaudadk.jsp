@@ -28,35 +28,39 @@
 				<div class="col-md-12 ">
 					<div class="row ">
 						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa.jsp'">
-								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Dangkybieumau.jsp'">
-								<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
-							</button>
-							<button type="button" class="btn btn-default active"
-								style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Quanlybieumaudadk.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									đã đăng kí</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Bieumaugiangvien.jsp'"">
-								<div class="danhmuc" style="float: left">Biểu mẫu giảng
-									viên</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Phancongcongviec.jsp'"">
-								<div class="danhmuc" style="float: left">Phân công công
-									việc</div>
-							</button>
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='TruongKhoa_Quanlybieumaukhoa.jsp'"">
-								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-									khoa</div>
-							</button>
+							<div class="btn-group-vertical">
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='TruongKhoa.jsp'">
+									<div class="danhmuc" style="float: left">Thông tin cá
+										nhân</div>
+								</button>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TruongKhoa_Dangkybieumau.jsp&email=${email}&MaKhoa=${MaKhoa }'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
+								</button>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}&MaKhoa=${MaKhoa }'"
+									class="btn btn-default active" style="width: 100%">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
+								</button>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TruongKhoa_Bieumaugiangvien.jsp&email=${email}&MaKhoa=${MaKhoa }'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TruongKhoa_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'">
+									<div class="danhmuc" style="float: left">Phân công công việc</div>
+								</button>
+								<button type="button" class="btn btn-default"
+									style="width: 100%"
+									onclick="window.location.href='<%=request.getContextPath()%>/BieuMauKhoa?url=TruongKhoa_Quanlybieumaukhoa.jsp&MaKhoa=${MaKhoa }'">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu khoa</div>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -88,8 +92,8 @@
 										%>
 						<div class="row ">
 							<div class="form-group col-md-offset-2 col-md-8 ">
-								<label>Chỉ tiêu kế hoạch</label> <input class="form-control"
-									placeholder=<%=form.get(0)%> disabled />
+								<label>Chỉ tiêu kế hoạch</label>
+									<textarea name="ChiTieu" class="form-control" rows="1" disabled ><%=form.get(0)%></textarea>
 							</div>
 						</div>
 						<div class="row">
@@ -152,6 +156,15 @@
 		$('input[name="kpidanhgia"]').on('input change', function() { //'input change keyup paste'
 			$submit.prop('disabled', !$(this).val().length);
 		});
+		
+		var ngayBD = new Date('<%=bddg%>');
+		  var ngayKT = new Date('<%=ktdg%>');
+		  var today = new Date();
+		  if(today < ngayBD || today> ngayKT){
+			  alert("Không trong thời gian đánh giá");
+			  $('input[name="kpidanhgia"]').prop('disabled', true);
+			  $('textarea[name="tientrinh"]').prop('disabled', true);
+		  }
 	});
 	
 	$('button[name="submit"]').click(function() {
@@ -171,7 +184,7 @@
 			var url = $('input[name="url"]').val();
 			var tientrinh = $('textarea[name="tientrinh"]').val()
 			//String a = new String ()
-			window.location.href="/web1/updateForm?email="+email+"&mabieumau="+mabm+"&url="+url+"&tientrinh="+tientrinh+"&kpi="+kpi;}
+			window.location.href='<%=request.getContextPath()%>'+"/updateForm?email="+email+"&mabieumau="+mabm+"&url="+url+"&tientrinh="+tientrinh+"&kpi="+kpi;}
 
 	})
 </script>

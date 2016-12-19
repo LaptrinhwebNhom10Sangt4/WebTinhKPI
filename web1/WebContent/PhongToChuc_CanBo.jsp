@@ -34,13 +34,15 @@
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=PhongToChuc_Xembieumaucb.jsp&email=${email}'">
-								<div class="danhmuc" style="float: left">Xem biểu mẫu cán
-									bộ</div>
+								<div class="danhmuc" style="float: left">Xem biểu mẫu cán bộ</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
 								onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=PhongToChuc_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'">
-								<div class="danhmuc" style="float: left">Phân công công
-									việc</div>
+								<div class="danhmuc" style="float: left">Phân công công việc</div>
+							</button>
+							<button type="button" class="btn btn-default" style="width: 100%"
+								onclick="window.location.href='<%=request.getContextPath()%>/AllForm?url=PhongToChuc_Quanlybieumau.jsp'">
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu</div>
 							</button>
 						</div>
 					</div>

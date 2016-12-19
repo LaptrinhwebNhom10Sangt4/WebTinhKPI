@@ -31,7 +31,7 @@ public class QLbmdg1 extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		String email = request.getParameter("email");
+		String email1 = request.getParameter("email1");
 		String url = request.getParameter("url");
 		String tengv = request.getParameter("tengv");
 		String ngduyet = request.getParameter("ngduyet");
@@ -52,7 +52,7 @@ public class QLbmdg1 extends HttpServlet {
 
 		
 		for (Integer key : table.keySet()){
-			String filter = new String(" email = '"+email+"' and MABIEUMAU = "+key);
+			String filter = new String(" email = '"+email1+"' and MABIEUMAU = "+key);
 			String source = new String(" KPICAPTREN = "+table.get(key)+",DADUYETDG = TRUE ");
 			if(ngduyet.equals("tbm")) source+=" ,TBMDUYET = TRUE ";
 			if(ngduyet.equals("trk")) source+=" ,TRKDUYET = TRUE ";
@@ -62,6 +62,6 @@ public class QLbmdg1 extends HttpServlet {
 			ds.updateDataObject(source, table1, filter);	
 		}
 		
-		response.sendRedirect("/web1/QLbmdg?email="+email+"&url="+url+"&tengv="+tengv+"&role="+role);
+		response.sendRedirect(request.getContextPath()+"/QLbmdg?email1="+email1+"&url="+url+"&tengv="+tengv+"&role="+role);
 	}
 }

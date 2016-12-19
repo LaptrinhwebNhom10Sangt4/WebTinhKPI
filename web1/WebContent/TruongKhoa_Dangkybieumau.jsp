@@ -27,45 +27,40 @@
 			<div class="col-md-3">
 				<div class="col-md-12 ">
 					<div class="row ">
-						<form action="FormLoad" method="post">
 							<div class="btn-group-vertical">
+								<div class="btn-group-vertical">
 								<button type="button" class="btn btn-default"
 									style="width: 100%"
 									onclick="window.location.href='TruongKhoa.jsp'">
-									<div class="danhmuc" style="float: left">Thông tin cá
-										nhân</div>
+									<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
 								</button>
 								<button type="button"
-									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TruongKhoa_Dangkybieumau.jsp&email=${email}'"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TruongKhoa_Dangkybieumau.jsp&email=${email}&MaKhoa=${MaKhoa }'"
 									class="btn btn-default active" style="width: 100%">
 									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
 								</button>
 								<button type="button"
-									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}'"
+									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TruongKhoa_Quanlybieumaudadk.jsp&email=${email}&MaKhoa=${MaKhoa }'"
 									class="btn btn-default" style="width: 100%">
-									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-										đã đăng kí</div>
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
 								</button>
 								<button type="button"
-									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TruongKhoa_Bieumaugiangvien.jsp&email=${email}'"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TruongKhoa_Bieumaugiangvien.jsp&email=${email}&MaKhoa=${MaKhoa }'"
 									class="btn btn-default" style="width: 100%">
-									<div class="danhmuc" style="float: left">Biểu mẫu giảng
-										viên</div>
+									<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
 								</button>
 								<button type="button" class="btn btn-default"
 									style="width: 100%"
-									onclick="window.location.href='TruongKhoa_Phancongcongviec.jsp'"">
-									<div class="danhmuc" style="float: left">Phân công công
-										việc</div>
+									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TruongKhoa_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'">
+									<div class="danhmuc" style="float: left">Phân công công việc</div>
 								</button>
 								<button type="button" class="btn btn-default"
 									style="width: 100%"
-									onclick="window.location.href='TruongKhoa_Quanlybieumaukhoa.jsp'"">
-									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-										khoa</div>
+									onclick="window.location.href='<%=request.getContextPath()%>/BieuMauKhoa?url=TruongKhoa_Quanlybieumaukhoa.jsp&MaKhoa=${MaKhoa }'">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu khoa</div>
 								</button>
 							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -175,4 +170,15 @@
 		<%@include file="footer.jsp"%>
 	</div>
 </body>
+<script>
+$(document).ready(function(){
+	  var ngayBD = new Date('<%=bddk%>');
+	  var ngayKT = new Date('<%=ktdk%>');
+	  var today = new Date();
+	  if(today < ngayBD || today> ngayKT){
+		  alert("Không trong thời gian đăng ký");
+		  $('button[type="submit"]').prop('disabled', true);
+	  }
+});
+</script>
 </html>

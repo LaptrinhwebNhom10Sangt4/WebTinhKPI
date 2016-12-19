@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-<!document html>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="java.util.ArrayList"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Quan tri vien</title>
@@ -16,21 +17,6 @@
 <link href="css/styles.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
-<script>
-		function open_window(url, width, height) {
-			var my_window;
-
-    //screen.width = Desktop Width
-    //screen.height = Desktop Height
-
-    var center_left = (screen.width / 2) - (width / 2);
-    var center_top = (screen.height / 2) - (height / 2);
-
-    my_window = window.open(url, "Title", "scrollbars=0, width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top);
-    my_window.focus();
-}
-</script>
 </head>
 <body>
 	<div class="container">
@@ -40,13 +26,14 @@
 				<div class="col-md-12 ">
 					<div class="row ">
 						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='QuanTriVien.jsp'">
-								<div class="danhmuc" style="float: left">Quản lý người
+							<button type="button " class="btn btn-default"
+								style="width: 100%"
+								onclick="window.location.href='<%=request.getContextPath()%>/DSGV'">
+								<div class="danhmuc " style="float: left">Quản lý người
 									dùng</div>
 							</button>
 							<button type="button" class="btn btn-default active" style="width: 100%"
-								onclick="window.location.href='QuanTriVien_Quanlybieumau.jsp'">
+								onclick="window.location.href='<%=request.getContextPath()%>/AllForm?url=QuanTriVien_Quanlybieumau.jsp'">
 								<div class="danhmuc" style="float: left">Quản lý biểu mẫu</div>
 							</button>
 						</div>
@@ -79,173 +66,116 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="text-center">BIỂU MẪU ĐÃ ĐĂNG KÝ</h3>
+						<h3 class="text-center">DANH SÁCH BIỂU MẪU</h3>
 					</div>
-					<div  style="overflow-x:auto;">
-					<table>
-						<thead>
-							<tr>
-								<th>Mã biểu mẫu</th>
-								<th>Tên kế hoạch</th>
-								<th>Chi tiết kế hoạch</th>
-								<th>Mục tiêu</th>
-								<th>Chỉ đạo</th>
-								<th>Thời hạn</th>
-								<th>KPI max</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<td>BM123</td>
-								<td>Giảng dạy 120 tiết</td>
-								<td><a role="button" data-toggle="collapse"
-									href="#collapseExample" aria-expanded="false"
-									aria-controls="collapseExample"> Chi tiết </a>
-									<div class="collapse" id="collapseExample">
-										<div class="well">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Necessitatibus quia provident,
-											reprehenderit itaque velit optio quisquam facilis, animi
-											blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-											adipisci, libero quasi reprehenderit excepturi quae ipsum
-											eius nam quis quia error perferendis alias, harum.</div>
-									</div></td>
-								<td>120 tiết</td>
-								<td>Nguyễn Văn A</td>
-								<td>13/1/2015-14/9/2016</td>
-								<td>40</td>
-							</tr>
-							<tr>
-								<td>BM143</td>
-								<td>Giảng dạy 125 tiết</td>
-								<td><a role="button" data-toggle="collapse"
-									href="#collapseExample1" aria-expanded="false"
-									aria-controls="collapseExample"> Chi tiết </a>
-									<div class="collapse" id="collapseExample1">
-										<div class="well">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Necessitatibus quia provident,
-											reprehenderit itaque velit optio quisquam facilis, animi
-											blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-											adipisci, libero quasi reprehenderit excepturi quae ipsum
-											eius nam quis quia error perferendis alias, harum.</div>
-									</div></td>
-								<td>125 tiết</td>
-								<td>Nguyễn Văn H</td>
-								<td>18/9/2016-12/12/2016</td>
-								<td>30</td>
-							</tr>
-							<tr>
-								<td>BM345</td>
-								<td>Hướng dẫn abc</td>
-								<td><a role="button" data-toggle="collapse"
-									href="#collapseExample2" aria-expanded="false"
-									aria-controls="collapseExample"> Chi tiết </a>
-									<div class="collapse" id="collapseExample2">
-										<div class="well">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Necessitatibus quia provident,
-											reprehenderit itaque velit optio quisquam facilis, animi
-											blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-											adipisci, libero quasi reprehenderit excepturi quae ipsum
-											eius nam quis quia error perferendis alias, harum.</div>
-									</div></td>
-								<td>abc</td>
-								<td>Lê Thị B</td>
-								<td>17/9/2016-28/9/2016</td>
-								<td>20</td>
-							</tr>
-							<tr>
-								<td>BM789</td>
-								<td>Chỉ đạo xyz</td>
-								<td><a role="button" data-toggle="collapse"
-									href="#collapseExample10" aria-expanded="false"
-									aria-controls="collapseExample"> Chi tiết </a>
-									<div class="collapse" id="collapseExample10">
-										<div class="well">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Necessitatibus quia provident,
-											reprehenderit itaque velit optio quisquam facilis, animi
-											blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-											adipisci, libero quasi reprehenderit excepturi quae ipsum
-											eius nam quis quia error perferendis alias, harum.</div>
-									</div></td>
-								<td>xyz</td>
-								<td>Trần Thị A</td>
-								<td>27/8/2016-17/12/2016</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>BM345</td>
-								<td>Phân công</td>
-								<td><a role="button" data-toggle="collapse"
-									href="#collapseExample9" aria-expanded="false"
-									aria-controls="collapseExample"> Chi tiết </a>
-									<div class="collapse" id="collapseExample9">
-										<div class="well">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Necessitatibus quia provident,
-											reprehenderit itaque velit optio quisquam facilis, animi
-											blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-											adipisci, libero quasi reprehenderit excepturi quae ipsum
-											eius nam quis quia error perferendis alias, harum.</div>
-									</div></td>
-								<td>abcd</td>
-								<td>Nguyễn Thị C</td>
-								<td>2/2/2016-26/12/2016</td>
-								<td>30</td>
-							</tr>
-							<tr>
-								<td>BM8904</td>
-								<td>Chỉ đạo xyz</td>
-								<td><a role="button" data-toggle="collapse"
-									href="#collapseExample8" aria-expanded="false"
-									aria-controls="collapseExample"> Chi tiết </a>
-									<div class="collapse" id="collapseExample8">
-										<div class="well">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Necessitatibus quia provident,
-											reprehenderit itaque velit optio quisquam facilis, animi
-											blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-											adipisci, libero quasi reprehenderit excepturi quae ipsum
-											eius nam quis quia error perferendis alias, harum.</div>
-									</div></td>
-								<td>xyzz</td>
-								<td>Vũ Văn H</td>
-								<td>30/4/2016-7/12/2016</td>
-								<td>40</td>
-							</tr>
-							<tr>
-								<td>BM684</td>
-								<td>Phổ biến abc</td>
-								<td><a role="button" data-toggle="collapse"
-									href="#collapseExample7" aria-expanded="false"
-									aria-controls="collapseExample"> Chi tiết </a>
-									<div class="collapse" id="collapseExample7">
-										<div class="well">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Necessitatibus quia provident,
-											reprehenderit itaque velit optio quisquam facilis, animi
-											blanditiis explicabo magnam ipsa incidunt. Laboriosam ab
-											adipisci, libero quasi reprehenderit excepturi quae ipsum
-											eius nam quis quia error perferendis alias, harum.</div>
-									</div></td>
-								<td>abcd</td>
-								<td>Lê Văn B</td>
-								<td>15/9/2016-22/9/2016</td>
-								<td>20</td>
-							</tr>
-							</tbody>
-						</table>
-							</div>
-				</div>
-				<div class="row">
-						<div class="col-md-6 col-md-offset-7">
-							<div class="btn-group">
+					<%
+						int colCount = (int) request.getAttribute("colCount");
+						ArrayList<Object> form = (ArrayList<Object>) request.getAttribute("form");
+						int count = 0;
+						int rowCol = form.size() / colCount;
+						
+						ArrayList<Object> form1 = (ArrayList<Object>) request.getAttribute("khoa");
+						int columnCount = (int) request.getAttribute("fasize");
+						int count1 = 0;
+						int rowCnt = form1.size() / columnCount;
+					%>
+					<form action="TaoBM" id="bm" method="get">
+						<input type="hidden" name="quantity" value=<%=rowCol%> />
+						<input type="hidden" name="qtv" value="1" />
+						<input type="hidden" name="url" value="QuanTriVien_Quanlybieumau.jsp" />
+						<input type="hidden" name="urlcs" value="QuanTriVien_ChinhSuaBM.jsp" />
+						<div style="overflow-x: auto;">
+							<table class="table">
+								<thead>
+									<tr>
+										<th style="width: 50px">Mã biểu mẫu</th>
+										<th>Kế hoạch</th>
+										<th>Chi tiết kế hoạch</th>
+										<th>Tỷ trọng</th>
+										<th>Chỉ đạo</th>
+										<th>Chỉ tiêu</th>
+										<th>KPI max</th>
+										<th>Khoa</th>
+										<th>Chọn</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										for (int i = 1; i <= rowCol; i++) {
+											Object mabm = new Object();
+											mabm = form.get(count);
+									%>
+									<tr>
+										<%
+											for (int j = 1; j <= colCount; j++) {
+													if (j == colCount) {
+														int maKhoa = (int)form.get(count++);
+														String mk="";
+														for(int r =1;r<=rowCnt;r++){
+															if((int)form1.get(count1)== maKhoa){
+																mk = form1.get(count1+1).toString();
+																count1=0;
+																break;
+														}
+															count1+=2;
+														}%>
+														<td><%=mk %></td>
+														<%continue;
+													}
+													if (j == 3) {
+										%>
+										<td><a role="button" data-toggle="collapse"
+											href=<%="#" + i%> aria-expanded="false"
+											aria-controls="collapseExample"> Chi tiết </a>
+											<div class="collapse" id=<%=i%>>
+												<div class="well"><%=form.get(count++)%></div>
+											</div></td>
+										<%
+											continue;
+													}
+										%>
+										<td><%=form.get(count++)%></td>
+
+										<%
+											}
+										%>
+										<td><input type="checkbox" name=<%=i%> value=<%=mabm%> /></td>
+									</tr>
+									<%
+										}
+									%>
+
+								</tbody>
+							</table>
+							<div style="float: right" class="btn-group" role="group">
 								<button type="button" class="btn btn-primary"
-								onClick="javascript:open_window('Taobieumau.jsp',600,600);">Tạo biểu mẫu</button>
-								<button class="btn btn-danger">Xóa người dùng</button>
-								<button class="btn btn-success">Chỉnh sửa</button>
+									data-toggle="modal" data-target="#myModal">Tạo biểu
+									mẫu</button>
+								<button name="Sua" type="submit" class="btn btn-success">Chỉnh
+									sửa</button>
+								<button name="Xoa" type="submit" class="btn btn-danger">Xóa</button>
+								<div style="left: 10%" class="modal fade" id="myModal"
+									tabindex="-5" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+										<%@include file="TaoBM1.jsp"%>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	<hr></hr>
 	<%@include file="footer.jsp"%>
 </div>
 </body>
+<script type="text/javascript">
+	$('button[name="Sua"]').click(function() {
+		$("#bm").attr("action", "SuaBM");
+	})
+	$('button[name="Xoa"]').click(function() {
+		$("#bm").attr("action", "DelBM");
+	})
+</script>
 </html>

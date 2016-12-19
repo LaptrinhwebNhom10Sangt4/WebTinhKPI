@@ -49,7 +49,7 @@ public class PhanConggv extends HttpServlet {
 			Datasource ds = new Datasource();
 			ds.insertDataObject(table1, source);
 		}
-		response.sendRedirect("/web1/Phancong?url="+url+"&MaCV="+MaCV+"&email="+email+"&MaKhoa="+MaKhoa);
+		response.sendRedirect(request.getContextPath()+"/Phancong?url="+url+"&MaCV="+MaCV+"&email="+email+"&MaKhoa="+MaKhoa);
 
 	}
 

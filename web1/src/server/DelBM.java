@@ -41,7 +41,8 @@ public class DelBM extends HttpServlet {
 			Datasource ds = new Datasource();
 			ds.deleteDataObject(table,source);	
 		}
-		response.sendRedirect("/web1/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
+		if(MaKhoa =="") response.sendRedirect(request.getContextPath()+"/AllForm?url="+url);
+		else response.sendRedirect(request.getContextPath()+"/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
 	}
 
 }

@@ -23,7 +23,7 @@ public class faculty {
 		String columns = "MaKhoa,TenKhoa";
 		rs = ds.getDataObject(source, columns,filter);
 	}
-	public ArrayList<Object> getForm(){
+	public  ArrayList<Object> getForm(){
 		getData();
 		ArrayList<Object> values = null;	
 		ResultSetMetaData resultSetMetaData;

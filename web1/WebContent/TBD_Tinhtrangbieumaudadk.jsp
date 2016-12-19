@@ -36,28 +36,25 @@
 									<div class="danhmuc" style="float: left">Thông tin cá
 										nhân</div>
 								</button>
-								<button type="submit" name="getform" class="btn btn-default"
-									value="TBD_Dangkybieumau.jsp" style="width: 100%">
-									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=TBD_Dangkybieumau.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
 								</button>
-								<button type="button" class="btn btn-default active"
-									style="width: 100%"
-									onclick="window.location.href='TBD_Quanlybieumaudadk.jsp'">
-									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-										đã đăng kí</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TBD_Quanlybieumaudadk.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default active" style="width: 100%">
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
 								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TBD_Bieumaugiangvien.jsp'"">
-									<div class="danhmuc" style="float: left">Biểu mẫu giảng
-										viên</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TBD_Bieumaugiangvien.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
 								</button>
-								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='TBD_Phancongcongviec.jsp'"">
-									<div class="danhmuc" style="float: left">Phân công công
-										việc</div>
+								<button type="button"
+									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TBD_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+									class="btn btn-default" style="width: 100%">
+									<div class="danhmuc" style="float: left">Phân công công việc</div>
 								</button>
 							</div>
 						</form>
@@ -90,8 +87,8 @@
 										%>
 						<div class="row ">
 							<div class="form-group col-md-offset-2 col-md-8 ">
-								<label>Chỉ tiêu kế hoạch</label> <input class="form-control"
-									placeholder=<%=form.get(0)%> disabled />
+								<label>Chỉ tiêu kế hoạch</label>
+							<textarea name="ChiTieu" class="form-control" rows="1" disabled ><%=form.get(0)%></textarea>
 							</div>
 						</div>
 						<div class="row">
@@ -158,6 +155,15 @@
 		$('input[name="kpidanhgia"]').on('input change', function() { //'input change keyup paste'
 			$submit.prop('disabled', !$(this).val().length);
 		});
+		
+		var ngayBD = new Date('<%=bddg%>');
+		  var ngayKT = new Date('<%=ktdg%>');
+		  var today = new Date();
+		  if(today < ngayBD || today> ngayKT){
+			  alert("Không trong thời gian đánh giá");
+			  $('input[name="kpidanhgia"]').prop('disabled', true);
+			  $('textarea[name="tientrinh"]').prop('disabled', true);
+		  }
 	});
 	
 	$('button[name="submit"]').click(function() {
@@ -177,7 +183,7 @@
 			var url = $('input[name="url"]').val();
 			var tientrinh = $('textarea[name="tientrinh"]').val()
 			//String a = new String ()
-			window.location.href="/web1/updateForm?email="+email+"&mabieumau="+mabm+"&url="+url+"&tientrinh="+tientrinh+"&kpi="+kpi;}
+			window.location.href='<%=request.getContextPath()%>'+"/updateForm?email="+email+"&mabieumau="+mabm+"&url="+url+"&tientrinh="+tientrinh+"&kpi="+kpi;}
 
 	})
 	

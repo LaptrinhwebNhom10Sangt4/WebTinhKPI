@@ -19,9 +19,6 @@
 <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body style="background-color:#EDEDEC">
-	<!--<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost/kpidatabase" user="root"
-		password="huyhoang" />-->
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<div style="background-color:white" class="container1">

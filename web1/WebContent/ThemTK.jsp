@@ -5,7 +5,7 @@
 		<div class="panel panel-heading">
 			<h1 class="text-center">
 				<span class=" glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-				Tạo biểu mẫu
+				Tạo tài khoản
 			</h1>
 		</div>
 		<%

@@ -29,31 +29,30 @@
 				<div class="col-md-12 ">
 					<div class="row ">
 						<form action="FormLoad" method="post">
-							<div class="btn-group-vertical">
-								<button type="button" class="btn btn-default"
-									style="width: 100%" onclick="window.location.href='GiangVien.jsp'">
-									<div class="danhmuc" style="float: left">Thông tin cá
-										nhân</div>
-								</button>
-								<button type="submit" name="getform"
-									class="btn btn-default active" style="width: 100%"
-									value="Giangvien_DangkyBieumau.jsp">
-									<div class="danhmuc" style="float: left">Đăng Kí biểu mẫu</div>
-								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='Giangvien_Quanlybieumaudadangky.jsp'">
-									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-										đã đăng kí</div>
-								</button>
-								<button type="button" class="btn btn-default"
-									style="width: 100%"
-									onclick="window.location.href='Giangvien_Congviecduocphancong.jsp'">
-									<div class="danhmuc" style="float: left">Cập nhật tiến
-										trình được phân công</div>
-								</button>
-							</div>
-						</form>
+						<div class="btn-group-vertical">
+							<button type="button" class="btn btn-default"
+								style="width: 100%"
+								onclick="window.location.href='GiangVien.jsp'">
+								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
+							</button>
+							<button type="button"
+								onclick="window.location.href='<%=request.getContextPath()%>/FormLoad1?url=Giangvien_DangkyBieumau.jsp&email=${email}&MaKhoa=${MaKhoa} '"
+								class="btn btn-default active" style="width: 100%">
+								<div class="danhmuc" style="float: left">Đăng kí biểu mẫu</div>
+							</button>
+							<button type="button"
+								onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=Giangvien_Quanlybieumaudadangky.jsp&email=${email}&MaKhoa=${MaKhoa}'"
+								class="btn btn-default" style="width: 100%">
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu
+									đã đăng kí</div>
+							</button>
+							<button type="button" class="btn btn-default" style="width: 100%"
+								onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=Giangvien_Congviecduocphancong.jsp&email=${email}&MaKhoa=${MaKhoa}'">
+								<div class="danhmuc" style="float: left">Cập nhật tiến
+									trình được phân công</div>
+							</button>
+						</div>
+					</form>
 					</div>
 				</div>
 			</div>
@@ -151,8 +150,7 @@
 
 								</tbody>
 							</table>
-								<button style="float: right" class="btn btn-primary" data-toggle="modal"
-									data-target="#myModal">Đăng ký</button>
+								<button style="float: right" type="submit" class="btn btn-primary" >Đăng ký</button>
 						</div>
 					</form>
 				</div>
@@ -164,10 +162,14 @@
 	</div>
 </body>
 <script>
-  $(document).ready(function(){
-	  var today = new Date("2016-12-30");
-	  var newdate = new Date("2016-12-1");
-	  if(today == newdate) alert(today);
-  });
+	$(document).ready(function(){
+		  var ngayBD = new Date('<%=bddk%>');
+		  var ngayKT = new Date('<%=ktdk%>');
+		  var today = new Date();
+		  if(today < ngayBD || today> ngayKT){
+			  alert("Không trong thời gian đăng ký");
+			  $('button[type="submit"]').prop('disabled', true);
+		  }
+	});
 </script>
 </html>

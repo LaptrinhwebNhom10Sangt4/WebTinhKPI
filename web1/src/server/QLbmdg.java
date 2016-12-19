@@ -30,16 +30,16 @@ public class QLbmdg extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
-		String email = request.getParameter("email");
+		String email1 = request.getParameter("email1");
 		String tengv = request.getParameter("tengv");
 		String role = request.getParameter("role");
-		Duyetbmdadg fr = new Duyetbmdadg(email);
+		Duyetbmdadg fr = new Duyetbmdadg(email1);
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
 		int colCount =fr.size();
 		request.setAttribute("form", form);
 		request.setAttribute("colCount", colCount);
 		request.setAttribute("tengv", tengv);
-		request.setAttribute("email", email);
+		request.setAttribute("email1", email1);
 		request.setAttribute("role", role);
 		request.getRequestDispatcher(url).forward(request,response);
 	}

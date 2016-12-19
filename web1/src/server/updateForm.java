@@ -40,7 +40,7 @@ public class updateForm extends HttpServlet {
 		Datasource ds = new Datasource();
 		ds.updateDataObject(source, table, filter);	
 		//update update = new update(source,table,filter);
-		response.sendRedirect("/web1/Tinhtrang?mabieumau="+mabieumau+"&email="+email+"&url="+url);
+		response.sendRedirect(request.getContextPath()+"/Tinhtrang?mabieumau="+mabieumau+"&email="+email+"&url="+url);
 	}
 
 	

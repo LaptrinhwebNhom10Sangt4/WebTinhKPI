@@ -279,11 +279,17 @@
 							</button>
 							<a class="navbar-brand" href="#"><span
 								class="glyphicon glyphicon-home"></span></a>
+							<a class="navbar-brand" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></a>	
+							<div  class="modal fade" id="myModal1"
+									tabindex="-5" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+										<%@include file="ThongBao.jsp"%>
+									</div>
+							</div>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="TrangChu.jsp">Trang Chủ</a></li>
-								<li><a href="#">Hướng Dẫn</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<form class="navbar-form navbar-left" role="search">

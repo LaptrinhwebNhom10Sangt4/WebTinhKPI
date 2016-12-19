@@ -52,7 +52,7 @@ public class updateCV extends HttpServlet {
 			ds.updateDataObject(source, table, filter);	
 			//update ud = new update(source,table,filter);
 		}
-		response.sendRedirect("/web1/CvDcPc?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
+		response.sendRedirect(request.getContextPath()+"/CvDcPc?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
 	}
 
 }

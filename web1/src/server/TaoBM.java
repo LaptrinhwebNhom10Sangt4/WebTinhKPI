@@ -19,6 +19,7 @@ public class TaoBM extends HttpServlet {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
+		String qtv = request.getParameter("qtv");
 		String url = request.getParameter("url");
 		String MaKhoa = request.getParameter("MaKhoa");
 		String MABIEUMAU = request.getParameter("MABIEUMAU");
@@ -32,7 +33,8 @@ public class TaoBM extends HttpServlet {
 		String table ="regform";
 		Datasource ds = new Datasource();
 		ds.insertDataObject(table, source);
-		response.sendRedirect("/web1/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
+		if(qtv==null) response.sendRedirect(request.getContextPath()+"/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
+		else response.sendRedirect(request.getContextPath()+"/AllForm?url="+url);
 		
 	}
 

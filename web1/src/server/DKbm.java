@@ -51,7 +51,7 @@ public class DKbm extends HttpServlet {
 			ds.insertDataObject(table,source);	
 			//update ud = new update(source,table,filter);
 		}
-		response.sendRedirect("/web1/FormLoad1?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
+		response.sendRedirect(request.getContextPath()+"/FormLoad1?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
 	}
 
 	

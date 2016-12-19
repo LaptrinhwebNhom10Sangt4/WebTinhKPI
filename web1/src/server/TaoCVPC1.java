@@ -53,7 +53,7 @@ public class TaoCVPC1 extends HttpServlet {
 			ds.insertDataObject(table1,source);	
 			ds.insertDataObject(table2, source1);
 		}
-		response.sendRedirect("/web1/CvDcPc?url="+url+"&email="+email+"&MaKhoa=");
+		response.sendRedirect(request.getContextPath()+"/CvDcPc?url="+url+"&email="+email+"&MaKhoa=");
 	}
 
 

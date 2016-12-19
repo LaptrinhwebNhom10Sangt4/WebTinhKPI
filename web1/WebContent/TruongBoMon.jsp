@@ -43,20 +43,17 @@
 								<button type="button"
 									onclick="window.location.href='<%=request.getContextPath()%>/BmGV?url=TBD_Quanlybieumaudadk.jsp&email=${email}&MaKhoa=${MaKhoa}'"
 									class="btn btn-default" style="width: 100%">
-									<div class="danhmuc" style="float: left">Quản lý biểu mẫu
-										đã đăng kí</div>
+									<div class="danhmuc" style="float: left">Quản lý biểu mẫu đã đăng kí</div>
 								</button>
 								<button type="button"
 									onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=TBD_Bieumaugiangvien.jsp&email=${email}&MaKhoa=${MaKhoa}'"
 									class="btn btn-default" style="width: 100%">
-									<div class="danhmuc" style="float: left">Biểu mẫu giảng
-										viên</div>
+									<div class="danhmuc" style="float: left">Biểu mẫu giảng viên</div>
 								</button>
 								<button type="button"
 									onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=TBD_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'"
 									class="btn btn-default" style="width: 100%">
-									<div class="danhmuc" style="float: left">Phân công công
-										việc</div>
+									<div class="danhmuc" style="float: left">Phân công công việc</div>
 								</button>
 							</div>
 						</form>

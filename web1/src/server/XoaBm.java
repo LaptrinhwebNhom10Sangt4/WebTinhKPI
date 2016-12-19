@@ -46,6 +46,6 @@ public class XoaBm extends HttpServlet {
 			Datasource ds = new Datasource();
 			ds.deleteDataObject(table,source);	
 		}
-		response.sendRedirect("/web1/BmGV?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
+		response.sendRedirect(request.getContextPath()+"/BmGV?url="+url+"&email="+email+"&MaKhoa="+MaKhoa);
 	}
 }

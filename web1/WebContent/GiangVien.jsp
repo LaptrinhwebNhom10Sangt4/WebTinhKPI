@@ -23,7 +23,6 @@
 		<div class="col-md-3">
 			<div class="col-md-12 ">
 				<div class="row ">
-					<form action="FormLoad" method="post">
 						<div class="btn-group-vertical">
 							<button type="button" class="btn btn-default active"
 								style="width: 100%"
@@ -47,7 +46,6 @@
 									trình được phân công</div>
 							</button>
 						</div>
-					</form>
 				</div>
 			</div>
 		</div>

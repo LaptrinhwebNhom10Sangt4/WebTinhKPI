@@ -28,20 +28,22 @@
 				<div class="col-md-12 ">
 					<div class="row ">
 						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-default" style="width: 100%"
+							<button type="button" class="btn btn-default"
+								style="width: 100%"
 								onclick="window.location.href='PhongToChuc_CanBo.jsp'">
 								<div class="danhmuc" style="float: left">Thông tin cá nhân</div>
 							</button>
-							<button type="button" class="btn btn-default active"
-								style="width: 100%"
-								onclick="window.location.href='PhongToChuc_Xembieumaucb.jsp'">
-								<div class="danhmuc" style="float: left">Xem biểu mẫu cán
-									bộ</div>
+							<button type="button" class="btn btn-default active" style="width: 100%"
+								onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk?url=PhongToChuc_Xembieumaucb.jsp&email=${email}'">
+								<div class="danhmuc" style="float: left">Xem biểu mẫu cán bộ</div>
 							</button>
 							<button type="button" class="btn btn-default" style="width: 100%"
-								onclick="window.location.href='PhongToChuc_Phancongcongviec.jsp'">
-								<div class="danhmuc" style="float: left">Phân công công
-									việc</div>
+								onclick="window.location.href='<%=request.getContextPath()%>/CvDcPc?url=PhongToChuc_Phancongcongviec.jsp&email=${email}&MaKhoa=${MaKhoa}'">
+								<div class="danhmuc" style="float: left">Phân công công việc</div>
+							</button>
+							<button type="button" class="btn btn-default" style="width: 100%"
+								onclick="window.location.href='<%=request.getContextPath()%>/AllForm?url=PhongToChuc_Quanlybieumau.jsp'">
+								<div class="danhmuc" style="float: left">Quản lý biểu mẫu</div>
 							</button>
 						</div>
 					</div>
@@ -49,7 +51,17 @@
 			</div>
 			<div class="col-md-9">
 				<div class="row">
-					<div class="col-md-4 col-md-offset-8">
+					<div class="col-md-4 col-md-offset-0">
+						<button type="button" class="btn btn-default"
+									data-toggle="modal" data-target="#myModal">Thời hạn
+						</button>
+						<div  class="modal fade" id="myModal" tabindex="-5" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+								<%@include file="ThoiHan.jsp"%>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-4">
 						<div class="form-group">
 							<input type="text" class="form-control" name=""
 								placeholder="Tìm kiếm">
@@ -107,10 +119,10 @@
 													
 									%>
 									<td><a
-										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email=<%=form.get(count)%>&url=<%=url%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdk1?email1=<%=form.get(count)%>&url=<%=url%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
 									</td>
 									<td><a
-										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdg?email=<%=form.get(count++)%>&url=<%=url1%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
+										onclick="window.location.href='<%=request.getContextPath()%>/QLbmdg?email1=<%=form.get(count++)%>&url=<%=url1%>&tengv=<%=tengv%>&role=<%=role%>'">Chitiết</a>
 									</td>
 									<%
 										continue;

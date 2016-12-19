@@ -27,14 +27,22 @@ public class UpdateBM extends HttpServlet {
 		String CHITIEU = request.getParameter("CHITIEU");
 		String KPIMAX = request.getParameter("KPIMAX");
 		String TYTRONG = request.getParameter("TYTRONG");
+		String MK = request.getParameter("MK");
 		if(TYTRONG == "") TYTRONG = request.getParameter("TmpTYTRONG");
 		if(KPIMAX == "") KPIMAX = request.getParameter("TmpKPIMAX");
 		String source ="KEHOACH='"+KEHOACH+"',CHIDAO='"+CHIDAO+"',CHITIETKEHOACH='"+CHITIETKEHOACH+"',CHITIEU='"+CHITIEU+"',KPIMAX="+KPIMAX+",TYTRONG="+TYTRONG;
 		String table ="regform";
 		String filter = "MABIEUMAU="+MABIEUMAU;
 		Datasource ds = new Datasource();
+		if(MaKhoa != null){
 		ds.updateDataObject(source, table, filter);
-		response.sendRedirect("/web1/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
+		response.sendRedirect(request.getContextPath()+"/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
+		}
+		else{
+			source +=",MaKhoa="+MK;
+			ds.updateDataObject(source, table, filter);
+			response.sendRedirect(request.getContextPath()+"/AllForm?url="+url);
+		}
 	}
 
 }

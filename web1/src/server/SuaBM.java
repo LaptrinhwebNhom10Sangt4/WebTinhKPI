@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DataLoad.CSBieuMau;
+import DataLoad.Khoa;
 
 /**
  * Servlet implementation class SuaBM
@@ -29,6 +30,14 @@ public class SuaBM extends HttpServlet {
 		String urlcs =request.getParameter("urlcs");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String mabieumau=null;
+		if(MaKhoa == ""){
+			Khoa faculty = new Khoa();
+			ArrayList<Object> khoa = (ArrayList<Object>) faculty.getForm();
+			int fasize = faculty.size();
+			request.setAttribute("khoa", khoa);
+			request.setAttribute("fasize", fasize);
+
+		}
 		for(int i = 1 ; i <= quantity;i ++)
 		{
 			//Parameter[i-1] = request.getParameter(Integer.toString(i));
@@ -43,7 +52,10 @@ public class SuaBM extends HttpServlet {
 			request.setAttribute("colCount", colCount);
 			request.getRequestDispatcher(urlcs).forward(request,response);
 		}
-		else response.sendRedirect("/web1/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
+		else{
+			if(MaKhoa == "") response.sendRedirect(request.getContextPath()+"/AllForm?url="+url);
+			else response.sendRedirect(request.getContextPath()+"/BieuMauKhoa?url="+url+"&MaKhoa="+MaKhoa);
+		} 
 		
 	}
 

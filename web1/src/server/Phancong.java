@@ -28,7 +28,6 @@ public class Phancong extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String MaCV = request.getParameter("MaCV");
 		String email = request.getParameter("email");

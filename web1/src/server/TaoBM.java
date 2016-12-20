@@ -18,7 +18,6 @@ public class TaoBM extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
 		String qtv = request.getParameter("qtv");
 		String url = request.getParameter("url");
 		String MaKhoa = request.getParameter("MaKhoa");

@@ -17,7 +17,6 @@ public class UpdateBM extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String MaKhoa = request.getParameter("MaKhoa");
 		String MABIEUMAU = request.getParameter("MABIEUMAU");

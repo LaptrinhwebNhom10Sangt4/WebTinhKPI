@@ -13,12 +13,12 @@ public class PcNV {
 	public PcNV(String email,String MaCV,String MaKhoa)
 	{
 		if(MaKhoa !=""){
-		filter = "userinfo.email=users.email and faculty = "+MaKhoa+" and role <(select role from users where email='"+email+"') and users.email not in ( select email from PhanCong where MaCV ='"+MaCV+"')";
+		filter = "userinfo.email=users.email and faculty = "+MaKhoa+" and role <(select role from users where email='"+email+"') and users.email not in ( select email from phancong where MaCV ='"+MaCV+"')";
 		}
 		else{
 		filter = "userinfo.email=users.email and faculty =(select MaKhoa from dscv where MaCV = "+MaCV+") "+
 				 "and role <(select role from users where email='"+email+"') and role != 4 "+
-				 "and users.email not in ( select email from PhanCong where MaCV ="+MaCV+")";		
+				 "and users.email not in ( select email from phancong where MaCV ="+MaCV+")";		
 		}
 	}
 	public void getData()

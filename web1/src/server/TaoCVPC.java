@@ -25,7 +25,6 @@ public class TaoCVPC extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String email = request.getParameter("email");
 		String MaKhoa = request.getParameter("MaKhoa");

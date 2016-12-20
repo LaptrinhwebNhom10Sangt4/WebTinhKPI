@@ -18,7 +18,6 @@ public class AddUser extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		String name = request.getParameter("name");

@@ -22,8 +22,6 @@ public class ValidateLogin extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
-   
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         int eRole = ConnectAndCheck.checkUser(email, pass);

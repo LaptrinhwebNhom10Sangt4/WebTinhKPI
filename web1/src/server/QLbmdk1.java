@@ -27,7 +27,6 @@ public class QLbmdk1 extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("url");
 		String email1 = request.getParameter("email1");
 		String tengv = request.getParameter("tengv");

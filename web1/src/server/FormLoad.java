@@ -21,7 +21,6 @@ public class FormLoad extends HttpServlet {
     
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getParameter("getform");
 		formRegistration fr= new formRegistration();
 		ArrayList<Object> form =  (ArrayList<Object>)fr.getForm();
